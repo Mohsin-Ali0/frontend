@@ -289,7 +289,7 @@ header a {
 }
 .headertext {
   font-size: 18px;
-  font-family: 'ClashDisplay-Medium';
+  font-family: "ClashDisplay-Medium";
   font-weight: 500;
 }
 .headerNav a:hover {
@@ -315,29 +315,28 @@ header a {
 }
 
 /* FOOTER CSS */
-.footercontainer{
-    
+.footercontainer {
 }
 
 /* MY CSS */
-.signinbtn{
-    background-color: #139DFF;
-    color: white;
-    border-radius: 5px;
-    height: 2.5rem;
-    width: 10rem;
-    /* width: 100px; */
+.signinbtn {
+  background-color: #139dff;
+  color: white;
+  border-radius: 5px;
+  height: 2.5rem;
+  width: 10rem;
+  /* width: 100px; */
 }
 
 .no-wrap {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Optional: Add ellipsis for visual indication of truncated text */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Optional: Add ellipsis for visual indication of truncated text */
 }
-.footerstyle{
+.footerstyle {
   height: "100%";
   width: "100%";
-  background-color:#13133e;
+  background-color: #13133e;
 }
 /* MY CSS */
 /* footer css start */
@@ -371,7 +370,6 @@ header a {
   background-size: contain;
   height: "100%";
   width: "100%";
- 
 }
 
 .userMenuItem:hover {
@@ -396,12 +394,27 @@ header a {
   color: #bf353c;
 }
 
+.cover-img {
+  width: 80%;
+  height: 100%;
+  object-fit:contain;
+  /* overflow: hidden; */
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 1399px) {
   .mentor-nav a {
     font-size: 15px;
   }
   .mentor-nav a:not(:last-child) {
     margin-right: 10px;
+  }
+  .cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    /* overflow: hidden; */
+    border-radius: 10px;
   }
 }
 
@@ -434,6 +447,23 @@ header a {
 /* footer css End */
 
 @media screen and (max-width: 991px) {
+  .anchor-align {
+    flex-direction: row !important;
+    padding: 20px;
+  }
+  .icon-align {
+    flex-direction: row !important;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  .cover-img {
+    width: 80%;
+    height: 100%;
+    object-fit:contain;
+    /* overflow: hidden; */
+    border-radius: 10px;
+  }
+  
   .navbar-collapse {
     z-index: 5;
     background: black;

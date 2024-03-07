@@ -6,9 +6,9 @@
   --l-grey-color: #666666;
   --d-grey-color: #333333;
   --xl-grey-color: #A2A2A2;
-  --main-font: 'Clash Display'; 
-  --nav-font: 'Clash Display'; 
-  --heading-font: 'Clash Display';
+  --main-font: 'ClashDisplay-Medium'; 
+  --nav-font: 'ClashDisplay-Semibold'; 
+  --heading-font: 'ClashDisplay-Semibold';
 }
 /* Usage of the font variable */
 body {

@@ -93,7 +93,6 @@ export const SiteHeader = () => {
                           <SiteButton
                             className="signinbtn "
                             onClick={toggleOffCanvasMenu}
-                            style={{ backgroundColor: "orange" }}
                           >
                             Sign Up
                           </SiteButton>
