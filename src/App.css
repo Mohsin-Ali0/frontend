@@ -1,38 +1,180 @@
-.App {
-  text-align: center;
+
+/* Define a color variable */
+:root {
+  --primary-color: #d476f6; 
+  --secondary-color:#9e34d3;
+  --l-grey-color: #666666;
+  --d-grey-color: #333333;
+  --xl-grey-color: #A2A2A2;
+  --main-font: 'ClashDisplay-Medium'; 
+  --nav-font: 'ClashDisplay-Semibold'; 
+  --heading-font: 'ClashDisplay-Semibold';
+}
+/* Usage of the font variable */
+body {
+  font-family: var(--main-font);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+a{
+  display: inline-block;
+}
+.navbar-nav , label{
+  font-family: var(--nav-font);
+}
+.primary_color{
+  color: var(--primary-color);
+}
+.secondary-color{
+  color: var(--secondary-color);
+}
+.l-grey-color{
+  color: var(--l-grey-color)
+}
+.d-grey-color{
+  color: var(--d-grey-color)
+}
+.xl-grey-color{
+  color: var(--xl-grey-color)
+}
+.view{
+  color: var(--primary-color) !important;
+}
+.section_padding{
+  padding: 60px 0px;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--heading-font);
+}
+.main_title{
+  font-size: 50px;
+}
+.section_title{
+  font-size: 40px;
+  font-weight: 500;
+}
+.status_active{
+  color:#00FF55
+}
+.status_inactive{
+  color: #FF0000;
+}
+p{
+  font-size: 16px;
+  font-weight: 400;
+}
+.p-sm{
+  font-size: 14px !important;
+}
+.p-xs{
+  font-size: 14px !important;
+}
+.p-md{
+  font-size: 18px;
+}
+.p-lg{
+  font-size: 20px;
+}
+.p-xl{
+  font-size: 22px;
+}
+.p-xxl{
+  font-size: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.transparent-btn{
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.border-top-secondary{
+  border-top:1px solid var(--secondary-color);;
+}
+.border-b-none{
+  border-bottom: none !important;
+}
+/* date input css start */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  /* background-image: url('./assets/images/dateimg.png'); */
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* date input css end */
+
+@media screen and (max-width: 991px) {
+  .section_padding {
+    padding: 20px 0px;
+}
+
+}
+
+@media screen and (max-width: 767px) {
+  .benefit p{
+    width: 100% !important;
+  }
+  .banner_text h1 {
+    font-size: 22px;
+  }
+  .section_title{
+    font-size:20px;
+  }
+  
+  .our_aim.mySlider .slick-dots {
+    bottom: -20px;
+  }
+  
+  .benefit_heading {
+    font-size: 18px;
+  }
+  
+  .benefit_box p {
+    font-size: 14px;
+  }
+  
+  .section_padding {
+    padding: 20px 0px;
+  }
+  
+  .benefit {
+    text-align: center;
+  }
+  .testimonial_sec {
+    padding-bottom: 60px;
+  }
+  
+  .our_aim {
+    padding-bottom: INHERIT;
+  } 
+  .p-xxl{
+    font-size: 20px;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media screen and (max-width: 575px) {
+  .Our_img_box {
+    margin: 30px 0 30px 0;
+}
+.site_footer img {
+  max-width: 200px;
+  width: 100%;
+}
+.footer_links a{
+  font-size: 18px;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

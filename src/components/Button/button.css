@@ -1,0 +1,33 @@
+.site-btn{
+    background: #139DFF;
+    padding: 12px 30px;
+    min-width: 160px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: ease-in-out .2s;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    text-transform: capitalize;
+    display: inline-block;
+    font-family: var(--nav-font);
+}
+.site_border_btn{
+    background: transparent;
+    border-color: var(--primary-color);
+    color: white;
+    
+}
+.site-btn:hover {
+    transform: scale(1.05); 
+}
+.site-btn:focus-visible {
+    outline: 0;
+}
+
+@media screen and (max-width: 575px) {
+.site-btn {
+    padding: 11px 10px;
+    min-width: 130px;
+}
+}
