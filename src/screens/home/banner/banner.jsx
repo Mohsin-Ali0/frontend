@@ -1,6 +1,4 @@
 import React from "react";
-import BannerLogo from "../../../assets/images/banner-bg.png";
-import MobileLogo from "../../../assets/svg/Mobilelogo";
 import MobileImg from "../../../assets/images/mobile-img.png";
 import "./banner.css";
 import {
@@ -15,17 +13,16 @@ import {
 } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faYoutube, faSignInAlt } from "@fortawesome/free-brands-svg-icons";
-import SiteButton from "../../../components/Button/button";
-import { faArrowRight, faSignIn } from "@fortawesome/free-solid-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 export const Banner = () => {
  
   return (
     <React.Fragment>
       <section className="bg_img">
         <Container>
-          <Row className="justify-content-between align-items-center mobileresp">
-            <Col xl="6">
+          <Row className="justify-content-around align-items-center mobileresp">
+            <Col xl="6" >
               <Row className="justify-content-center txt-color">
                 <Col xl="12">
                   <div className="bullet-text">
