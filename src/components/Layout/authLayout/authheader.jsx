@@ -2,25 +2,24 @@ import React, { useState } from "react";
 import { Col, Container, Nav, Navbar, Row, Offcanvas } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import SiteButton from "../Button/button";
-import HeaderLogo from "../../assets/svg/headerlogo";
-
-export const SiteHeader = () => {
+import { faBars, faPhone } from "@fortawesome/free-solid-svg-icons";
+import SiteButton from "../../Button/button";
+import HeaderLogo from "../../../assets/svg/headerlogo";
+import "./authheader.css";
+export const AuthHeader = () => {
   const [showOffCanvasMenu, setShowOffCanvasMenu] = useState(false);
 
   const toggleOffCanvasMenu = () => {
     setShowOffCanvasMenu(!showOffCanvasMenu);
   };
-
   return (
     <React.Fragment>
-      <header className="header_main">
+      <header className="header_main" style={{backgroundColor:"transparent", background:"transparent" , color:"black"}}>
         <Container>
           <Row className="justify-content-center">
             <Col lg="12" className="col-12">
               <Navbar expand="lg" className="siteNav">
-                <Navbar.Brand className="me-0">
+                <Navbar.Brand className="me-0" >
                   <Link to="/">
                     <HeaderLogo />
                   </Link>
@@ -32,39 +31,9 @@ export const SiteHeader = () => {
                     style={{ width: "100%", boxSizing: "border-box" }}
                     // style={{ boxSizing: "border-box" }}
                   >
-                    <Col lg="5">
-                      <Nav
-                        // style={{ backgroundColor: "red" }}
-                        className="mx-auto align-items-lg-center align-items-start position-relative d-lg-flex"
-                      >
-                        <NavLink
-                          activeclassname="active"
-                          className="me-xl-4 me-lg-3 headertext"
-                          to="/"
-                        >
-                          About Us
-                        </NavLink>
-                        <NavLink
-                          activeclassname="active"
-                          className="me-xl-4 me-lg-3 headertext"
-                          to="/featured-ads"
-                        >
-                          Pricing
-                        </NavLink>
-                        <NavLink
-                          activeclassname="active"
-                          className="me-xl-4 me-lg-3 headertext"
-                          to="/ads"
-                        >
-                          FAQ
-                        </NavLink>
-                      </Nav>
-                    </Col>
-
                     <Col
                       lg="6"
                       className="d-flex justify-content-end align-items-center"
-                      style={{ boxSizing: "border-box" }}
                     >
                       <Nav
                         // style={{ backgroundColor: "purple" }}
@@ -73,29 +42,10 @@ export const SiteHeader = () => {
                         <NavLink
                           activeclassname="active"
                           className="me-xl-4 me-lg-3 headertext no-wrap"
-                          to="/ads"
+                          //   to="/ads"
                         >
+                          <FontAwesomeIcon icon={faPhone} color="black" />
                           +1 (000) 000-0000
-                        </NavLink>
-                        <NavLink
-                          activeclassname="active"
-                          className="me-xl-4 me-lg-3 headertext no-wrap"
-                          to="/login"
-                        >
-                          Sign In
-                        </NavLink>
-
-                        <NavLink
-                          activeclassname="active"
-                          className="me-xl-4 me-lg-3 headertext no-wrap"
-                          to="/login"
-                        >
-                          <SiteButton
-                            className="signinbtn "
-                            onClick={toggleOffCanvasMenu}
-                          >
-                            Sign Up
-                          </SiteButton>
                         </NavLink>
                       </Nav>
                     </Col>

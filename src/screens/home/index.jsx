@@ -7,6 +7,8 @@ import { BoostViews } from "./boost-views/boostviews";
 import { AboutUs } from "./about-us/about-us";
 import { OurWork } from "./ourwork/ourwork";
 import { PromoteChanel } from "./promote-channel/promote-channel";
+import { StartPromoting } from "./start-promoting/start-promoting";
+import { Promotionforecast } from "./promotion-forecast/promotion-forecast";
 
 function Home() {
   return (
@@ -18,7 +20,9 @@ function Home() {
         <BoostViews />
         <AboutUs />
         <OurWork />
+        <Promotionforecast />
         <PromoteChanel />
+        <StartPromoting />
       </Layout>
     </React.Fragment>
   );

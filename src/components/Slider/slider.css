@@ -1,0 +1,162 @@
+.budget-cards-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card-one-conatiner {
+  background-color: #eeeff7;
+  width: 70%;
+  border: none;
+  box-shadow: 16px 7px 40px 0px rgba(0, 0, 0, 0.2);
+}
+.card-one-body {
+  width: 100%;
+  text-align: left;
+}
+.card-two-conatiner {
+  background-color: white;
+  width: 40%;
+  border: none;
+  box-shadow: 16px 7px 40px 0px rgba(0, 0, 0, 0.2);
+}
+.card-two-body {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+.results-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aqua;
+}
+
+.results-info > .btn {
+  font-size: 1.5em; /* Adjust the size as needed */
+}
+
+/* asdsadsadsad */
+
+.slider-container {
+  width: "100%"; /* Adjust to fit your design */
+  /* background-color: #eeeff7; */
+}
+
+.custom-slider {
+  -webkit-appearance: none; /* Override default appearance */
+  width: 100%; /* Full-width */
+  height: 10px; /* Slider height */
+  outline: none; /* Remove outline */
+  border-radius: 5px; /* Roundness of the slider */
+  background: white; /* Initial background */
+  transition: background 0.2s; /* Smooth transition for background color */
+  --track-color: brown;
+}
+
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default appearance */
+  appearance: none;
+  width: 20px; /* Width of the thumb */
+  height: 20px; /* Height of the thumb */
+  border-radius: 50%; /* Make it circular */
+  background: #ffffff; /* White thumb */
+  border: solid 2px #139dff; /* #139dff border */
+  cursor: pointer; /* Cursor to pointer */
+}
+
+/* For Firefox */
+.custom-slider::-moz-range-thumb {
+  width: 20px; /* Width of the thumb */
+  height: 20px; /* Height of the thumb */
+  border-radius: 50%; /* Make it circular */
+  background: #ffffff; /* White thumb */
+  border: solid 2px #139dff; /* #139dff border */
+  cursor: pointer; /* Cursor to pointer */
+}
+
+/* For IE */
+.custom-slider::-ms-thumb {
+  width: 20px; /* Width of the thumb */
+  height: 20px; /* Height of the thumb */
+  border-radius: 50%; /* Make it circular */
+  background: #ffffff; /* White thumb */
+  border: solid 2px #139dff; /* #139dff border */
+  cursor: pointer; /* Cursor to pointer */
+}
+
+/* Future-proofing for slider thumb hover effect */
+.custom-slider:hover::-webkit-slider-thumb,
+.custom-slider:hover::-moz-range-thumb,
+.custom-slider:hover::-ms-thumb {
+  background: #e8e8e8; /* Light grey background for hover effect */
+}
+
+input[type="range"] {
+  --thumb-height: 1.125em;
+  --track-height: 0.125em;
+  --track-color: rgba(0, 0, 0, 0.2);
+}
+.slider-txt-container {
+  width: 15%;
+}
+@media screen and (max-width: 1195px) {
+  .slider-txt-container {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .slider-txt-container {
+    width: 35%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .slider-txt-container {
+    width: 45%;
+  }
+  .budget-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-one-conatiner {
+    /* background-color: #eeeff7; */
+    width: 100%;
+  }
+  .slider-txt-container {
+    width: 25%;
+  }
+  .card-two-conatiner {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .budget-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-one-conatiner {
+    /* background-color: #eeeff7; */
+    width: 100%;
+  }
+  .slider-txt-container {
+    width: 35%;
+  }
+
+  .card-two-body {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+  }
+}

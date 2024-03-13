@@ -12,6 +12,10 @@ import TwoIcon from "../images/twoIcon.png";
 import ThreeIcon from "../images/threeIcon.png";
 import FourIcon from "../images/fourIcon.png";
 import PromoteChannelBg from "../images/promote-channel-bg.jpg";
+import ArrowUPIcon from "../images/Arrow 1.png";
+import PromotionForecastBg from "../images/promotion-forecast-bg.jpg";
+import AuthImg from "../images/AuthImg.png";
+import GoogleIcon from "../images/googleIcon.png";
 
 export {
   HeartIcon,
@@ -28,4 +32,8 @@ export {
   FourIcon,
   OurWorkBg,
   PromoteChannelBg,
+  ArrowUPIcon,
+  PromotionForecastBg,
+  AuthImg,
+  GoogleIcon,
 };

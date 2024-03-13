@@ -1,0 +1,30 @@
+.start-prmoting-btn {
+  width: 100%;
+}
+.start-prmoting-input {
+  border: none;
+  background-color: #eeeff7;
+}
+.start-prmoting-input:focus {
+  border: none;
+  background-color: #eeeff7;
+}
+.start-promoting-row {
+  width: 80%;
+}
+::placeholder {
+  text-overflow: ellipsis;
+}
+.start-prmoting-shadow {
+  background-color: #eeeff7;
+  box-shadow: 16px 7px 40px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+@media only screen and (max-width: 992px) {
+  .start-prmoting-btn {
+    width: 100%;
+  }
+  .start-promoting-row {
+    width: 100%;
+  }
+}

@@ -10,7 +10,7 @@ export const PromoteChanel = () => {
     <React.Fragment>
       <section className="pormote-channel-bg">
         <Container>
-          <Row className="justify-content-center align-items-center mb-5 txt-color">
+          <Row className="justify-content-center align-items-center mb-5 mt-5 txt-color">
             <Col
               lg="8"
               className=" d-flex flex-column justify-content-center  align-items-center text-align-center"
