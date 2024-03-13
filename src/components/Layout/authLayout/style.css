@@ -1,0 +1,120 @@
+.authBg {
+  background: #ffff;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.authBg.mentor-mentee {
+  min-height: calc(100vh - 114px);
+  padding: 50px 0;
+}
+.authBox {
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.authImage {
+  background: url("../../../assets/images/AuthImg.png");
+  /* max-width: 100%; */
+  border-radius: 8px 0px 0px 8px;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.authcont {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100vh;
+}
+.phiconcont {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.logoiconcont {
+  display: none;
+}
+/* .ment-mentee-img.authImage img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+} */
+.authFormWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.authForm {
+  border-radius: 0px;
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 20px;
+}
+
+.authLogo {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.authLogo img {
+  width: 190px;
+  max-width: 100%;
+}
+
+.authFormHeader {
+  text-align: flex-start;
+  /* margin: 2rem 0; */
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--blackColor);
+}
+.authPara {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2F9EDC;
+}
+@media only screen and (max-width: 575px) {
+  .authForm {
+    padding: 2rem 1rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .authForm {
+    padding: 2rem 1rem;
+  }
+  .authImage {
+    display: none;
+  }
+  .authBg {
+    background: url("../../../assets/images/AuthImg.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logoiconcont {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .phiconcont {
+    display: none;
+  }
+}

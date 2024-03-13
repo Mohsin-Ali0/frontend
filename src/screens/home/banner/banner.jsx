@@ -50,6 +50,7 @@ export const Banner = () => {
                       </InputGroup.Text>
                       <FormControl
                         style={{ backgroundColor: "white", borderLeft: "none" }}
+                        placeholder="Enter your youtube channel name or url"
                       />
                     </InputGroup>
                   </Form>

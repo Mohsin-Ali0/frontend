@@ -1,0 +1,21 @@
+.googlebtn {
+  height: 40%;
+  width: 80%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 6px;
+}
+.googlebtn img {
+  background: #ffff;
+  background-size: cover;
+  background-position: center;
+  width: 20%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.googleimg {
+  background-size: cover;
+  background-position: center;
+}
