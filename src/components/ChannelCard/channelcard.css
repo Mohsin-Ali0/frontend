@@ -1,0 +1,27 @@
+.channel-card {
+  margin-bottom: 15px;
+  cursor: pointer;
+  border: 1px solid #ddd; /* Default border color */
+  transition: border-color 0.3s ease-in-out;
+  text-align:center;
+}
+
+.channel-card.selected {
+  border-color: purple; /* Border color for the selected card */
+}
+.channel-card:hover {
+  border-color: red; /* Border color for the selected card */
+}
+
+
+.cardImage{
+    height: 100%;
+    width: 100%;
+}
+.cardImage img {
+    object-fit: contain;
+    height: 100px;
+    width: 100px;
+  /* or
+    object-fit: cover; */
+  } 

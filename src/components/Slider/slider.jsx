@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Card, Form, InputGroup, FormControl, Button } from "react-bootstrap";
+import { Card,  InputGroup, FormControl } from "react-bootstrap";
 import "./slider.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 export const BudgetCard = () => {
-  const [budget, setBudget] = useState(32); // Initial budget
 
   const min = 32; // Set the minimum value of the slider
   const max = 1010; // Set the maximum value of the slider

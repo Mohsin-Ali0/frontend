@@ -3,14 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./login.css";
-import { Button, Form, Image } from "react-bootstrap";
+import { Form, Image } from "react-bootstrap";
 import { AuthLayout } from "../../components/Layout/authLayout";
 import SiteButton from "../../components/Button/button";
 import usePageTitle from "../../hooks/usePageTitle";
 import useAuth from "../../hooks/useAuth";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { GoogleIcon } from "../../assets/images";
+import CustomInput from "../../components/CustomInput";
 
 const UserLogIn = () => {
   usePageTitle("Login");
@@ -20,7 +19,13 @@ const UserLogIn = () => {
   const [formData, setFormData] = useState({});
   const [load, setLoad] = useState(false);
 
+  const handleGoogleLogin = () => {
+    // Redirect to the backend route for Google Login
+    window.open("http://localhost:3004/auth/google", "_self");
+  };
+
   const handleLogin = async (e) => {
+    console.log("gelllo");
     return;
     e.preventDefault();
     setLoad(true);
@@ -55,15 +60,42 @@ const UserLogIn = () => {
   return (
     <>
       <AuthLayout authTitle="Sign In" authPara="Sign Up">
-        <div className="buttonscontainer">
-          <button className="googlebtn">
-            <Image src={GoogleIcon} fluid />
+        <div className="buttonscontainer ">
+          <button className="googlebtn" onClick={handleGoogleLogin}>
+            <Image src={GoogleIcon} className="googleicon" fluid />
             Sign in with google
           </button>
         </div>
+        <div className="breakcontainer">
+          <hr className="hrbar mob-resp" />
+          <span className="mob-resp">or</span>
+          <hr className="hrbar  mob-resp" />
+        </div>
         <div id="response"></div>
         <Form onSubmit={handleLogin}>
-          <input
+          <CustomInput
+            label="Email"
+            labelClass="mainLabel bold mob-resp"
+            type="text"
+            id="email"
+            placeholder="Enter your Email Address"
+            inputClass="mainInput"
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+          />
+          <CustomInput
+            label="Password"
+            labelClass="mainLabel bold mob-resp"
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            inputClass="mainInput "
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+          />
+          {/* <input
             label="Email Address"
             type="email"
             id="userEmail"
@@ -86,41 +118,39 @@ const UserLogIn = () => {
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }
-          />
+          /> */}
           <div className="d-flex align-items-baseline justify-content-between mt-1">
-            <div className="checkBox">
-              <input
-                type="checkbox"
-                name="rememberMe"
-                id="rememberMe"
-                className="me-1"
-              />
-              <label htmlFor="rememberMe" className="d-grey-color">
-                Remember Me
-              </label>
-            </div>
             <Link
               to={"/forget-password"}
-              className="d-grey-color text-decoration-underline"
+              style={{ color: "#139DFF" }}
+              className="text-decoration-underline"
             >
               Forgot Password?
             </Link>
           </div>
           <div className="mt-4 text-center">
-            <SiteButton type="submit" className="site-btn" load={load}>
+            <SiteButton
+              type="submit"
+              className="site-btn"
+              style={{ width: "100%" }}
+              load={load}
+            >
               Login
             </SiteButton>
           </div>
-          <div className="mt-3 text-center">
-            <p className="fw-bold text-black">
-              Don't Have An Account
-              <span className="ms-2">
-                <Link className="text-decoration-none" to="/signup">
-                  Signup
-                </Link>
-              </span>
-            </p>
-          </div>
+          <p
+            style={{
+              fontFamily: "Inter",
+              fontStyle: "italic",
+              // color: "#2E2F35",
+              textAlign: "center",
+            }}
+            className="pt-5  mob-resp"
+          >
+            By signing up, I agree to LogoIpsum{" "}
+            <a href="google.com"> Terms of Service</a> and{" "}
+            <a href="google.com"> Privacy Policy.</a>
+          </p>
         </Form>
       </AuthLayout>
     </>

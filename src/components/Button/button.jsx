@@ -9,6 +9,7 @@ const SiteButton = (props) => {
         onClick={props.onClick}
         className={`${props.className ? props.className : ""}`}
         disabled={props.load ? true : false}
+        style={props.style ? props.style : {}}
       >
         {props.load ? (
           <>

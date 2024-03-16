@@ -72,7 +72,6 @@
 .authFormHeader {
   text-align: flex-start;
   /* margin: 2rem 0; */
-  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,8 +85,52 @@
 .authPara {
   font-size: 14px;
   font-weight: 500;
-  color: #2F9EDC;
+  color: #2f9edc;
 }
+.authtitle {
+  color: black;
+  font-size: 30px;
+}
+
+/* Define the state of the entering and exiting transitions */
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.fade-enter {
+  opacity: 0;
+  /* height: 100%; */
+  /* width: 100%; */
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
 @media only screen and (max-width: 575px) {
   .authForm {
     padding: 2rem 1rem;
@@ -116,5 +159,12 @@
   }
   .phiconcont {
     display: none;
+  }
+  .authFormHeader {
+    color: #fff;
+    font-size: 18px;
+  }
+  .authtitle {
+    color: white;
   }
 }

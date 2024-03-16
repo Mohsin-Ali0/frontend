@@ -1,0 +1,58 @@
+import { useState } from "react";
+import "./style.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
+
+const CustomInput = (props) => {
+  const [typePass, setTypePass] = useState(true);
+
+  const togglePassType = () => {
+    setTypePass(!typePass);
+  };
+
+  return (
+    <>
+      <div className="inputWrapper">
+        {props?.label && (
+          <label htmlFor={props?.id} className={props?.labelClass}>
+            {props?.label}
+            {props?.required ? <span className="text-danger">*</span> : ""}
+          </label>
+        )}
+        {props?.type === "password" ? (
+          <div className="passwordWrapper">
+            <input
+              type={typePass ? "password" : "text"}
+              placeholder={props?.placeholder}
+              onChange={props?.onChange}
+              required={props?.required}
+              id={props?.id}
+              name={props?.name}
+              className={`${props?.inputClass} passInput`}
+            />
+            <button
+              type="button"
+              className="eyeButton"
+              onClick={togglePassType}
+            >
+              <FontAwesomeIcon icon={typePass ? faEyeSlash : faEye} />
+            </button>
+          </div>
+        ) : (
+          <input
+            type={props?.type}
+            placeholder={props?.placeholder}
+            required={props?.required}
+            id={props?.id}
+            name={props?.name}
+            className={props?.inputClass}
+            onChange={props?.onChange}
+            value={props?.value}
+          />
+        )}
+      </div>
+    </>
+  );
+};
+export default CustomInput;

@@ -14,7 +14,6 @@ import SiteButton from "../../../components/Button/button";
 import "./start-promoting.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { ArrowUPIcon } from "../../../assets/images";
-import { BudgetCard } from "../../../components/Slider/slider";
 
 export const StartPromoting = (props) => {
   return (

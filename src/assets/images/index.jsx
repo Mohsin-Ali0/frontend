@@ -16,7 +16,11 @@ import ArrowUPIcon from "../images/Arrow 1.png";
 import PromotionForecastBg from "../images/promotion-forecast-bg.jpg";
 import AuthImg from "../images/AuthImg.png";
 import GoogleIcon from "../images/googleIcon.png";
-
+import LogoBlack from "../images/logoBlack.png";
+import ProfilePic from "../images/profilepic.png";
+import ArrowUp from "../images/arrowup.png";
+import ArrowDown from "../images/arrowdown.png";
+import ChannelDataLogo from "../images/nodataLogo.png";
 export {
   HeartIcon,
   EyeIcon,
@@ -36,4 +40,9 @@ export {
   PromotionForecastBg,
   AuthImg,
   GoogleIcon,
+  LogoBlack,
+  ProfilePic,
+  ArrowUp,
+  ArrowDown,
+  ChannelDataLogo,
 };

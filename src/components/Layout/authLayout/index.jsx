@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeftLong, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { SiteHeader } from "../header";
 import { AuthImg } from "../../../assets/images";
 import "./style.css";
 import { Col, Container, Row } from "react-bootstrap";
 import HeaderLogo from "../../../assets/svg/headerlogo";
-import { AuthHeader } from "./authheader";
 
 export const AuthLayout = (props) => {
+  const location = useLocation();
+  console.log(location, "location");
   return (
     <>
       <section className="authBg ">
@@ -18,12 +18,12 @@ export const AuthLayout = (props) => {
             <Col xl="4" lg={4} className="authImage">
               <HeaderLogo />
               <div>
-                <p>
+                <p style={{ color: "white" }}>
                   “ Lorem ipsum dolor sit amet consectetur. Cursus ornare nunc
                   nascetur enim convallis. “
                 </p>
                 <br />
-                <p>Scott Runolfsdottir</p>
+                <p style={{ color: "grey" }}>Scott Runolfsdottir</p>
               </div>
             </Col>
             <Col xl="8" lg={8} style={{}} className="authcont">
@@ -34,16 +34,20 @@ export const AuthLayout = (props) => {
               <Col xl={12} className="logoiconcont mb-4 ">
                 <HeaderLogo />
               </Col>
-              <Col
-                xl={6}
-                lg={8}
-                style={{ backgroundColor: "royalblue", alignSelf: "center" }}
-              >
+              <Col xl={6} lg={8} style={{ alignSelf: "center" }}>
                 <div className="authFormHeader">
-                  <h1 className="p-xxl">{props?.authTitle}</h1>
-                  <a className="authPara">{props?.authPara}</a>
+                  <h1 className="authtitle">{props?.authTitle}</h1>
+                  <Link
+                    to={props.authPara == "Sign Up" ? "/signup" : "/login"}
+                    // to={"/login"}
+                    style={{ color: "#139DFF" }}
+                    className="text-decoration-underline"
+                  >
+                    {props?.authPara}
+                  </Link>
                 </div>
-                {props?.children}
+                <div className="fade-in">{props?.children}</div>
+
                 {props?.backOption && (
                   <div className="text-center mt-4">
                     <Link

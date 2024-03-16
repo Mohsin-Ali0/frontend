@@ -30,13 +30,9 @@ export const SiteHeader = () => {
                   <Row
                     className="justify-content-around d-flex align-items-center "
                     style={{ width: "100%", boxSizing: "border-box" }}
-                    // style={{ boxSizing: "border-box" }}
                   >
                     <Col lg="5">
-                      <Nav
-                        // style={{ backgroundColor: "red" }}
-                        className="mx-auto align-items-lg-center align-items-start position-relative d-lg-flex"
-                      >
+                      <Nav className="mx-auto align-items-lg-center align-items-start position-relative d-lg-flex">
                         <NavLink
                           activeclassname="active"
                           className="me-xl-4 me-lg-3 headertext"
@@ -66,10 +62,7 @@ export const SiteHeader = () => {
                       className="d-flex justify-content-end align-items-center"
                       style={{ boxSizing: "border-box" }}
                     >
-                      <Nav
-                        // style={{ backgroundColor: "purple" }}
-                        className="align-items-lg-center"
-                      >
+                      <Nav className="align-items-lg-center">
                         <NavLink
                           activeclassname="active"
                           className="me-xl-4 me-lg-3 headertext no-wrap"

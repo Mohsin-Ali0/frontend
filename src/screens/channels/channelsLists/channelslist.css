@@ -1,0 +1,23 @@
+.ChannelLogocont {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  color: red;
+}
+.ChannelLogocont img {
+  object-fit: contain;
+  height: 500px;
+  width: 500px;
+  /* or
+    object-fit: cover; */
+}
+
+@media screen and (max-width: 767px) {
+  .ChannelLogocont img {
+    height: 300px;
+    width: 300px;
+  }
+}
