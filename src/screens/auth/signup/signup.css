@@ -1,0 +1,90 @@
+.buttonscontainer {
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.googlebtn {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #ffff;
+  overflow: hidden;
+  color: black;
+  box-shadow: 1px 1px 4px grey;
+  border: none;
+}
+.googleicon {
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  overflow: hidden;
+  border: none;
+  height: 50%;
+  margin: 5%;
+}
+.googleimg {
+  background-size: cover;
+  background-position: center;
+}
+.breakcontainer {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hrbar {
+  height: 0.5;
+  width: 43%;
+}
+
+.custom-checkboxes {
+  /* Your styles for layout */
+  background-color: #f0f4f9;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.custom-checkboxes .form-check {
+  /* Styles for the checkbox layout, such as padding and margin */
+}
+
+.custom-checkboxes .form-check-input {
+  /* Styles for the checkbox input if needed */
+}
+
+.custom-checkboxes .form-check-label {
+  /* Styles for the checkbox label */
+  display: block;
+  color: gray; /* Change the color to match your design */
+  font-size: 12px; /* Adjust the size as needed */
+}
+
+.custom-checkboxes .form-check-label a {
+  text-decoration: underline;
+
+  color: #007bff; /* Adjust the hyperlink color as needed */
+  font-size: 12px;
+}
+
+.custom-checkboxes .form-check-input:checked {
+  /* Styles for the checked state */
+  background-color: #007bff; /* Change the color to match your design */
+  border-color: #007bff;
+}
+
+@media only screen and (max-width: 1000px) {
+  .mob-resp {
+    color: #ffff !important;
+  }
+}
