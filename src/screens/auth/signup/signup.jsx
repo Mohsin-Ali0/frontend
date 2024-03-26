@@ -15,42 +15,45 @@ const SignUp = () => {
   usePageTitle("Sign Up");
 
   const navigate = useNavigate();
-  const { setRole } = useAuth();
   const [formData, setFormData] = useState({});
   const [load, setLoad] = useState(false);
   const [termsChecked, setTermsChecked] = useState(false);
   const [updatesChecked, setUpdatesChecked] = useState(false);
+  const [ErrorData, setErrorData] = useState({});
 
   const handleLogin = async (e) => {
-    return;
     e.preventDefault();
     setLoad(true);
-
-    // let resp = await axios
-    //   .post("/login", formData)
-    //   .then((response) => {
-    //     // document.getElementById('response').innerHTML =
-    //     // `<div class="alert alert-success" role="alert"><strong>Success! </strong>${response.data.message}</div>`;
-
-    //     localStorage.setItem("_token", response.data.data.access_token);
-    //     localStorage.setItem("user", JSON.stringify(response.data.data.user));
-
-    //     setTimeout(() => {
-    //       document.getElementById("response").hidden = true;
-    //       setRole(response.data.data.user.role_id);
-    //       setLoad(false);
-    //       navigate("/");
-    //       axios.defaults.headers.common[
-    //         "Authorization"
-    //       ] = `Bearer ${response.data.data.access_token}`;
-    //     }, 1000);
-    //   })
-    //   .catch((error) => {
-    //     document.getElementById(
-    //       "response"
-    //     ).innerHTML = `<div class="alert alert-danger"role="alert"><strong>Opss! </strong>${error.response.data.message}</div>`;
-    //     setLoad(false);
-    //   });
+    setErrorData({ ...ErrorData, type: false });
+    if (formData.email && formData.password && termsChecked && updatesChecked) {
+      console.log(formData, "formData");
+      setLoad(false);
+      await axios
+        .post("/auth/signup", formData)
+        .then((res) => {
+          console.log(res);
+          localStorage.setItem("token", res.data.data);
+          axios.defaults.headers.common[
+            "Authorization"
+          ] = `Bearer ${res.data.data}`;
+          navigate("/");
+        })
+        .catch((err) => {
+          console.log(err);
+          setErrorData({
+            ...ErrorData,
+            type: true,
+            message: err.response.data.message,
+          });
+        });
+    } else {
+      setErrorData({
+        ...ErrorData,
+        type: true,
+        message: "Please Fill All the fields",
+      });
+      setLoad(false);
+    }
   };
 
   return (
@@ -67,18 +70,24 @@ const SignUp = () => {
           <span className="mob-resp">or</span>
           <hr className="hrbar  mob-resp" />
         </div>
-        <div id="response"></div>
+        {ErrorData.type ? (
+          <div className="alert alert-danger" role="alert">
+            <strong>Opss! </strong>
+            {ErrorData.message}
+          </div>
+        ) : null}
         <Form onSubmit={handleLogin}>
           <CustomInput
             label="Email"
             labelClass="mainLabel bold mob-resp"
-            type="text"
+            type="email"
             id="email"
             placeholder="Enter your Email Address"
             inputClass="mainInput"
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
+            onChange={(e) => {
+              setFormData({ ...formData, email: e.target.value });
+              setErrorData({ ...ErrorData, type: false });
+            }}
           />
           <CustomInput
             label="Password"
@@ -87,9 +96,10 @@ const SignUp = () => {
             id="password"
             placeholder="Enter your password"
             inputClass="mainInput "
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
+            onChange={(e) => {
+              setFormData({ ...formData, password: e.target.value });
+              setErrorData({ ...ErrorData, type: false });
+            }}
           />
 
           <div className="d-flex align-items-baseline justify-content-between mt-1">

@@ -1,17 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Nav, Navbar, Row, Offcanvas } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import SiteButton from "../Button/button";
 import HeaderLogo from "../../assets/svg/headerlogo";
+import useAuth from "../../hooks/useAuth";
+import usePageTitle from "../../hooks/usePageTitle";
 
 export const SiteHeader = () => {
+  usePageTitle("Home");
+  const { User } = useAuth();
   const [showOffCanvasMenu, setShowOffCanvasMenu] = useState(false);
+  const [checkAuth, setCheckAuth] = useState(false);
 
   const toggleOffCanvasMenu = () => {
     setShowOffCanvasMenu(!showOffCanvasMenu);
   };
+
+  const HandleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+  useEffect(() => {
+    console.log(User);
+    if (User) {
+      setCheckAuth(true);
+      console.log(checkAuth, "checkAuth");
+      console.log(User, "User");
+    }
+  }, [User]);
 
   return (
     <React.Fragment>
@@ -57,41 +75,82 @@ export const SiteHeader = () => {
                       </Nav>
                     </Col>
 
-                    <Col
-                      lg="6"
-                      className="d-flex justify-content-end align-items-center"
-                      style={{ boxSizing: "border-box" }}
-                    >
-                      <Nav className="align-items-lg-center">
-                        <NavLink
-                          activeclassname="active"
-                          className="me-xl-4 me-lg-3 headertext no-wrap"
-                          to="/ads"
-                        >
-                          +1 (000) 000-0000
-                        </NavLink>
-                        <NavLink
-                          activeclassname="active"
-                          className="me-xl-4 me-lg-3 headertext no-wrap"
-                          to="/login"
-                        >
-                          Sign In
-                        </NavLink>
-
-                        <NavLink
-                          activeclassname="active"
-                          className="me-xl-4 me-lg-3 headertext no-wrap"
-                          to="/login"
-                        >
-                          <SiteButton
-                            className="signinbtn "
-                            onClick={toggleOffCanvasMenu}
+                    {checkAuth ? (
+                      <Col
+                        lg="6"
+                        className="d-flex justify-content-end align-items-center"
+                        style={{ boxSizing: "border-box" }}
+                      >
+                        <Nav className="align-items-lg-center">
+                          <NavLink
+                            activeclassname="active"
+                            className="me-xl-4 me-lg-3 headertext no-wrap"
+                            to="/ads"
                           >
-                            Sign Up
-                          </SiteButton>
-                        </NavLink>
-                      </Nav>
-                    </Col>
+                            +1 (000) 000-0000
+                          </NavLink>
+                          <NavLink
+                            activeclassname="active"
+                            className="me-xl-4 me-lg-3 headertext no-wrap"
+                            to="/channels"
+                          >
+                            <SiteButton
+                              className="signinbtn "
+                              // onClick={toggleOffCanvasMenu}
+                              to="/channel"
+                            >
+                              DashBoard
+                            </SiteButton>
+                          </NavLink>
+                          <NavLink
+                            activeclassname="active"
+                            className="me-xl-4 me-lg-3 m-2 headertext no-wrap"
+                            onClick={HandleLogout}
+                          >
+                            <FontAwesomeIcon
+                              icon={faRightFromBracket}
+                              style={{ color: "white" }}
+                            />
+                          </NavLink>
+                        </Nav>
+                      </Col>
+                    ) : (
+                      <Col
+                        lg="6"
+                        className="d-flex justify-content-end align-items-center"
+                        style={{ boxSizing: "border-box" }}
+                      >
+                        <Nav className="align-items-lg-center">
+                          <NavLink
+                            activeclassname="active"
+                            className="me-xl-4 me-lg-3 headertext no-wrap"
+                            to="/ads"
+                          >
+                            +1 (000) 000-0000
+                          </NavLink>
+                          <NavLink
+                            activeclassname="active"
+                            className="me-xl-4 me-lg-3 headertext no-wrap"
+                            to="/login"
+                          >
+                            Sign In
+                          </NavLink>
+
+                          <NavLink
+                            activeclassname="active"
+                            className="me-xl-4 me-lg-3 headertext no-wrap"
+                            to="/login"
+                          >
+                            <SiteButton
+                              className="signinbtn "
+                              onClick={toggleOffCanvasMenu}
+                            >
+                              Sign Up
+                            </SiteButton>
+                          </NavLink>
+                        </Nav>
+                      </Col>
+                    )}
                   </Row>
                 </Navbar.Collapse>
                 <SiteButton

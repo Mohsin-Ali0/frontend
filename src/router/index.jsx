@@ -6,6 +6,7 @@ import UserLogIn from "../screens/auth/login";
 import SignUp from "../screens/auth/signup/signup";
 import ProtectedRoutes from "./Protectedroutes";
 import { ChannelsScreen } from "../screens/channels";
+import { DashBoard } from "../screens/dashboard";
 
 function UserRouter() {
   return (
@@ -25,6 +26,7 @@ function UserRouter() {
       {/* UserScreen Start */}
       <Route element={<ProtectedRoutes />}>
         <Route path="/channels" element={<ChannelsScreen />} />
+        <Route path="/dashboard" element={<DashBoard />} />
       </Route>
     </Routes>
   );

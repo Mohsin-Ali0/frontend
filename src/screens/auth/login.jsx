@@ -15,9 +15,10 @@ const UserLogIn = () => {
   usePageTitle("Login");
 
   const navigate = useNavigate();
-  const { setRole } = useAuth();
+  // const { setRole } = useAuth();
   const [formData, setFormData] = useState({});
   const [load, setLoad] = useState(false);
+  const [ErrorData, setErrorData] = useState({});
 
   const handleGoogleLogin = () => {
     // Redirect to the backend route for Google Login
@@ -25,36 +26,42 @@ const UserLogIn = () => {
   };
 
   const handleLogin = async (e) => {
-    console.log("gelllo");
-    return;
-    e.preventDefault();
     setLoad(true);
+    if (formData.email && formData.password) {
+      e.preventDefault();
+      setErrorData({ ...ErrorData, type: false });
+      // setLoad(true);
+      console.log(formData, "formData");
+      let resp = await axios
+        .post("/auth/signin", formData)
+        .then((response) => {
+          localStorage.setItem("token", response.data.data.token);
+          setTimeout(() => {
+            setLoad(false);
+            navigate("/");
+            axios.defaults.headers.common[
+              "Authorization"
+            ] = `Bearer ${response.data.data.token}`;
+          }, 1000);
+        })
+        .catch((error) => {
+          console.log(error.response, "CATCH");
+          setErrorData({
+            ...ErrorData,
+            type: true,
+            message: error.response.data.message,
+          });
 
-    let resp = await axios
-      .post("/login", formData)
-      .then((response) => {
-        // document.getElementById('response').innerHTML =
-        // `<div class="alert alert-success" role="alert"><strong>Success! </strong>${response.data.message}</div>`;
-
-        localStorage.setItem("_token", response.data.data.access_token);
-        localStorage.setItem("user", JSON.stringify(response.data.data.user));
-
-        setTimeout(() => {
-          document.getElementById("response").hidden = true;
-          setRole(response.data.data.user.role_id);
           setLoad(false);
-          navigate("/");
-          axios.defaults.headers.common[
-            "Authorization"
-          ] = `Bearer ${response.data.data.access_token}`;
-        }, 1000);
-      })
-      .catch((error) => {
-        document.getElementById(
-          "response"
-        ).innerHTML = `<div class="alert alert-danger"role="alert"><strong>Opss! </strong>${error.response.data.message}</div>`;
-        setLoad(false);
+        });
+    } else {
+      setErrorData({
+        ...ErrorData,
+        type: true,
+        message: "Please Fill All the fields",
       });
+      setLoad(false);
+    }
   };
 
   return (
@@ -71,12 +78,17 @@ const UserLogIn = () => {
           <span className="mob-resp">or</span>
           <hr className="hrbar  mob-resp" />
         </div>
-        <div id="response"></div>
+        {ErrorData.type ? (
+          <div className="alert alert-danger" role="alert">
+            <strong>Opss! </strong>
+            {ErrorData.message}
+          </div>
+        ) : null}
         <Form onSubmit={handleLogin}>
           <CustomInput
             label="Email"
             labelClass="mainLabel bold mob-resp"
-            type="text"
+            type="email"
             id="email"
             placeholder="Enter your Email Address"
             inputClass="mainInput"
@@ -92,7 +104,7 @@ const UserLogIn = () => {
             placeholder="Enter your password"
             inputClass="mainInput "
             onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
+              setFormData({ ...formData, password: e.target.value })
             }
           />
           {/* <input

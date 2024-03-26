@@ -1,0 +1,6 @@
+.stepper__view {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
