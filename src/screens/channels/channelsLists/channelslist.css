@@ -14,6 +14,12 @@
   /* or
     object-fit: cover; */
 }
+.sticky-div {
+  position: sticky;
+  bottom: 100px /* Height of your footer, e.g., 100px */;
+  z-index: 10; /* Ensure it appears above the main content */
+}
+
 
 @media screen and (max-width: 767px) {
   .ChannelLogocont img {

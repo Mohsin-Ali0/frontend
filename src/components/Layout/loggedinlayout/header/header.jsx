@@ -165,7 +165,7 @@ export const LoggedInHeader = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [showYesButton, setShowYesButton] = useState(true);
   const [showNoButton, setShowNoButton] = useState(true);
-  const [isOpen, setisOpen] = useState(true);
+  const [isOpen, setisOpen] = useState(false);
   const [showOffCanvasMenu, setShowOffCanvasMenu] = useState(false);
 
   const toggleOffCanvasMenu = () => {
@@ -182,16 +182,7 @@ export const LoggedInHeader = (props) => {
     // alert("asdasdasdasd");
   };
   const handleLogout = async () => {
-    let logout = await axios
-      .post("/logout")
-      .then((res) => {
-        clearRole();
-        localStorage.clear();
-        delete axios.defaults.headers.common["Authorization"];
-        setShowModal(false);
-        navigate("/");
-      })
-      .catch((err) => console.error(err.response.data));
+    localStorage.clear();
   };
 
   return (
@@ -251,8 +242,8 @@ export const LoggedInHeader = (props) => {
                   </Link>
                   <Link
                     className="userMenuItem"
-                    onClick={() => setShowModal(true)}
                     to="/"
+                    onClick={() => handleLogout()}
                   >
                     <FontAwesomeIcon
                       className="me-1 yellow-text"

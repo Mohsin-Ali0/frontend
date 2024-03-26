@@ -15,14 +15,28 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 export const Banner = () => {
- 
+  const navigate = useNavigate();
+  const getStarted = () => {
+    console.log("Started Pressed");
+  };
+  const Signup = () => {
+    console.log("Signup Pressed");
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(e.nativeEvent.submitter.name, "submitHandler  Pressed");
+    navigate("/channels");
+    // console.log(e.target, "submitHandler  Pressed");
+  };
+
   return (
     <React.Fragment>
       <section className="bg_img">
         <Container>
           <Row className="justify-content-around align-items-center mobileresp">
-            <Col xl="6" >
+            <Col xl="6">
               <Row className="justify-content-center txt-color">
                 <Col xl="12">
                   <div className="bullet-text">
@@ -34,7 +48,7 @@ export const Banner = () => {
                     growing.
                   </p>
 
-                  <Form>
+                  <Form onSubmit={submitHandler}>
                     <InputGroup className="mb-3">
                       <InputGroup.Text
                         style={{
@@ -53,50 +67,56 @@ export const Banner = () => {
                         placeholder="Enter your youtube channel name or url"
                       />
                     </InputGroup>
-                  </Form>
 
-                  <Row className="justify-content-around py-3">
-                    <Col xl="6" className="py-3">
-                      <Button
-                        variant="primary"
-                        className="py-2 px-5 getstartedbtn"
-                      >
-                        Get Started
-                        <FontAwesomeIcon
-                          icon={faArrowRight}
+                    <Row className="justify-content-around py-3">
+                      <Col xl="6" className="py-3">
+                        <Button
+                          variant="primary"
+                          className="py-2 px-5 getstartedbtn"
+                          // onClick={getStarted}
+                          type="submit"
+                          name="getstarted"
+                        >
+                          Get Started
+                          <FontAwesomeIcon
+                            icon={faArrowRight}
+                            style={{
+                              position: "absolute",
+                              right: "10px",
+                              top: "33%",
+                            }}
+                          />
+                        </Button>
+                      </Col>
+                      <Col xl="6" className="py-3">
+                        <Button
+                          variant="outline-primary"
                           style={{
-                            position: "absolute",
-                            right: "10px",
-                            top: "33%",
+                            color: "white",
+                            borderColor: "white",
+                            width: "80%",
+                            height: "3rem",
+                            position: "relative",
+                            textAlign: "left",
                           }}
-                        />
-                      </Button>
-                    </Col>
-                    <Col xl="6" className="py-3">
-                      <Button
-                        variant="outline-primary"
-                        style={{
-                          color: "white",
-                          borderColor: "white",
-                          width: "80%",
-                          height: "3rem",
-                          position: "relative",
-                          textAlign: "left",
-                        }}
-                        className="py-2 px-5"
-                      >
-                        Sign up
-                        <FontAwesomeIcon
-                          icon={faArrowRight}
-                          style={{
-                            position: "absolute",
-                            right: "10px",
-                            top: "33%",
-                          }}
-                        />
-                      </Button>
-                    </Col>
-                  </Row>
+                          className="py-2 px-5"
+                          type="submit"
+                          name="signup"
+                          // onClick={Signup}
+                        >
+                          Sign up
+                          <FontAwesomeIcon
+                            icon={faArrowRight}
+                            style={{
+                              position: "absolute",
+                              right: "10px",
+                              top: "33%",
+                            }}
+                          />
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Form>
                   <p
                     style={{
                       fontFamily: "Inter",

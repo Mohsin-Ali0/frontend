@@ -1,0 +1,14 @@
+.next-btn {
+  width: 350px;
+}
+@media screen and (max-width: 767px) {
+  .next-btn-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: rgb(98, 60, 11);
+  }
+  .next-btn {
+    width: inherit;
+  }
+}

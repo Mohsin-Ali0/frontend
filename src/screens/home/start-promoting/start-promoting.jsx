@@ -16,6 +16,10 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { ArrowUPIcon } from "../../../assets/images";
 
 export const StartPromoting = (props) => {
+  const pressed = (e) => {
+    e.preventDefault();
+    console.log("aaaaaaaaaaa");
+  };
   return (
     <React.Fragment>
       <section className="reviews-bg">
@@ -36,7 +40,7 @@ export const StartPromoting = (props) => {
                   lg="12"
                   className="justify-content-center d-flex flex-column pt-5 position-relative"
                 >
-                  <Form>
+                  <Form onSubmit={pressed}>
                     <InputGroup className="mb-3 start-prmoting-shadow">
                       <InputGroup.Text className="start-prmoting-input">
                         <FontAwesomeIcon

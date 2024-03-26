@@ -1,0 +1,146 @@
+$color--black: #000000;
+$color--white: #ffffff;
+$black--medium: rgba($color--black, 0.64);
+$black--disabled: rgba($color--black, 0.43);
+
+.container {
+  list-style: none;
+}
+
+:root {
+  --s-width: 900px;
+  --s-gutter: 2.5rem;
+  --c-background: rgb(0, 0, 0);
+  --active-background: #139dff;
+  --c-accent: #139dff;
+}
+
+.stepper {
+  $root: &;
+  --s-stepper-bullet: 1.5rem;
+  --s-stepper-bullet-half: calc(var(--s-stepper-bullet) / 2);
+  --step-transition: background 0.5s, color 0.5s;
+  // all colors are define for the active state
+  --step-content: "✔︎";
+  --step-color: #139dff;
+  --step-bar-bg: var(--c-accent);
+  --step-bullet-bg: var(--step-bar-bg);
+  --step-bullet-color: white;
+  counter-reset: current-step;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));
+  position: relative;
+  z-index: 1;
+
+  &__input {
+    counter-increment: steps;
+    display: none;
+  }
+  &__step {
+    counter-increment: current-step;
+
+    // everything beyond the current step is deactivated
+    #{$root}__input:checked ~ & {
+      --step-color: hsl(0, 0%, 30%);
+      --step-bar-bg: hsl(0, 0%, 40%);
+      --step-bullet-bg: #fff;
+      --step-bullet-color: #139dff;
+      --step-content: counter(current-step);
+
+      #{$root}__button {
+        &::before {
+          box-shadow: 0 0 0 2px gray;
+        }
+      }
+
+      #{$root}__content {
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+        color: $black--disabled;
+      }
+    }
+
+    // This is the current step
+    #{$root}__input:checked + & {
+      --step-bullet-bg: #fff;
+      --step-bullet-color: var(--c-accent);
+      --step-color: white;
+
+      #{$root}__button {
+        &::before {
+          box-shadow: 0 0 0 2px var(--c-accent);
+        }
+      }
+      #{$root}__content {
+        opacity: 1;
+        pointer-events: auto;
+        user-select: auto;
+      }
+    }
+  }
+  &__content {
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--step-color);
+    transition: opacity 0.5s 0.05s;
+    padding: 0.5rem;
+    &::selection {
+      color: black;
+      background: var(--step-bullet-color);
+    }
+  }
+  &__button {
+    position: relative;
+    text-align: center;
+    color: $black--medium;
+    display: block;
+
+    // step-circle
+    &::before {
+      content: var(--step-content);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto var(--s-stepper-bullet-half);
+      height: var(--s-gutter);
+      width: var(--s-gutter);
+      border-radius: var(--s-stepper-bullet);
+      transition: var(--step-transition);
+      background: var(--step-bullet-bg);
+      color: var(--step-bullet-color);
+      border-color: var(--c-accent);
+    }
+
+    // progress-bar
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: calc(var(--s-stepper-bullet-half) / 2);
+      background: var(--step-bar-bg);
+      transition: var(--step-transition);
+      top: calc(var(--s-stepper-bullet) - 5px);
+      left: 50%;
+      transform: translate(0, -50%);
+      z-index: -1;
+
+      // connecting lines should not rendered for final step
+      #{$root}__step:last-child & {
+        display: none;
+      }
+    }
+  }
+
+  &--flexbox {
+    display: flex;
+
+    #{$root}__step {
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 0;
+    }
+  }
+}

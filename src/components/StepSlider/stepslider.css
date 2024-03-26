@@ -1,0 +1,131 @@
+:root {
+  --s-width: 900px;
+  --s-gutter: 2.5rem;
+  --c-background: rgb(0, 0, 0);
+  --active-background: #139dff;
+  --c-accent: #139dff;
+  --s-stepper-bullet: 1.5rem;
+  --s-stepper-bullet-half: calc(var(--s-stepper-bullet) / 2);
+  --step-transition: background 0.5s, color 0.5s;
+  --step-content: "✔︎";
+  --step-color: #139dff;
+  --step-bar-bg: var(--c-accent);
+  --step-bullet-bg: var(--step-bar-bg);
+  --step-bullet-color: white;
+}
+
+.container {
+  list-style: none;
+}
+
+.stepper {
+  --step-content: "✔︎";
+  --step-color: #139dff;
+  --step-bar-bg: var(--c-accent);
+  --step-bullet-bg: var(--step-bar-bg);
+  --step-bullet-color: white;
+  counter-reset: current-step;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));
+  position: relative;
+  z-index: 1;
+}
+
+.stepper__input {
+  counter-increment: steps;
+  display: none;
+}
+
+.stepper__step {
+  counter-increment: current-step;
+}
+
+.stepper__input:checked ~ .stepper__step {
+  --step-color: hsl(0, 0%, 30%);
+  --step-bar-bg: hsl(0, 0%, 40%);
+  --step-bullet-bg: #fff;
+  --step-bullet-color: #139dff;
+  --step-content: counter(current-step);
+}
+
+.stepper__input:checked ~ .stepper__step .stepper__button::before {
+  box-shadow: 0 0 0 2px gray;
+}
+
+.stepper__input:checked ~ .stepper__step .stepper__content {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(#000000, 0.43);
+}
+
+.stepper__input:checked + .stepper__step {
+  --step-bullet-bg: #fff;
+  --step-bullet-color: var(--c-accent);
+  --step-color: white;
+}
+
+.stepper__input:checked + .stepper__step .stepper__button::before {
+  box-shadow: 0 0 0 2px var(--c-accent);
+}
+
+.stepper__input:checked + .stepper__step .stepper__content {
+  opacity: 1;
+  pointer-events: auto;
+  user-select: auto;
+}
+
+.stepper__content {
+  color: white;
+  text-align: center;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--step-color);
+  transition: opacity 0.5s 0.05s;
+  padding: 0.5rem;
+}
+
+.stepper__content::selection {
+  color: black;
+  background: var(--step-bullet-color);
+}
+
+.stepper__button {
+  position: relative;
+  text-align: center;
+  color: rgba(#000000, 0.64);
+  display: block;
+}
+
+.stepper__button::before {
+  content: var(--step-content);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto var(--s-stepper-bullet-half);
+  height: var(--s-gutter);
+  width: var(--s-gutter);
+  border-radius: var(--s-stepper-bullet);
+  transition: var(--step-transition);
+  background: var(--step-bullet-bg);
+  color: var(--step-bullet-color);
+  border-color: var(--c-accent);
+}
+
+.stepper__button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: calc(var(--s-stepper-bullet-half) / 2);
+  background: var(--step-bar-bg);
+  transition: var(--step-transition);
+  top: calc(var(--s-stepper-bullet) - 5px);
+  left: 50%;
+  transform: translate(0, -50%);
+  z-index: -1;
+}
+
+.stepper__step:last-child .stepper__button::after {
+  display: none;
+}
+

@@ -4,12 +4,9 @@ axios.defaults.baseURL = "http://localhost:3004/";
 // axios.defaults.baseURL = "https://dev74.onlinetestingserver.com/acolai/api";
 
 // let user = (localStorage.getItem('user'));
-// let token = (localStorage.getItem('_token'));
+let token = localStorage.getItem("token");
 
-// if(user && token) axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
-
-
+if (token) axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
 // // First we need to import axios.js
 // import axios from "axios";

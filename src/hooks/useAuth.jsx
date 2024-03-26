@@ -1,28 +1,29 @@
 import { useState, useEffect } from "react";
 
 const useAuth = () => {
-  const [role, setRole] = useState({});
+  const [User, setUser] = useState();
 
   useEffect(() => {
-    let user = JSON.parse(localStorage.getItem("_user"));
+    let user = localStorage.getItem("token");
+    console.log(user,"USE AUTH LOG")
     if (user) {
-      setRole(user);
+      setUser(user);
     }
   }, []);
 
-  const setRoleData = (newRole) => {
-    localStorage.setItem("_user", JSON.stringify({ role: newRole }));
-    setRole(newRole);
-  };
+  // const setRoleData = (newRole) => {
+  //   localStorage.setItem("token", JSON.stringify({ User: newRole }));
+  //   setUser(newRole);
+  // };
 
   const clearRole = () => {
-    localStorage.removeItem("_user");
-    setRole(null);
+    localStorage.removeItem("token");
+    setUser(null);
   };
 
   return {
-    role,
-    setRole: setRoleData,
+    User,
+    // setRole: setRoleData,
     clearRole,
   };
 };
