@@ -1,4 +1,17 @@
 /* SliderComponent.css */
+
+.col-one-cont {
+  box-shadow: 16px 7px 40px 0px rgba(0, 0, 0, 0.2);
+  background-color: #eeeff7;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.col-two-cont{
+  background-color: white;
+  box-shadow: 16px 7px 40px 0px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 .slider-component {
   width: 100%;
   max-width: 900px;
@@ -37,6 +50,10 @@
 
 .budget-container {
   margin-bottom: 16px;
+}
+.budget-cont {
+  display: flex;
+  /* align-items: center; */
 }
 
 .budget-info {
@@ -90,8 +107,8 @@
 .budget-amounts {
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  top: 20px;
+  /* position: absolute; */
+  /* top: 20px; */
   width: 100%;
 }
 
@@ -148,7 +165,13 @@
 .views-count:hover + .tooltip {
   visibility: visible;
 }
-
+.slider-input-container {
+  width: 15%;
+  margin-left: 20px;
+}
+.slider-input-container-mobresp {
+  display: none;
+}
 /* Additional styling for responsiveness and alignment */
 @media (max-width: 768px) {
   .budget-container,
@@ -157,19 +180,57 @@
   }
 
   /* ... other responsive styling ... */
+  .slider-input-container {
+    width: 20%;
+    margin-left: 20px;
+  }
 }
-
+@media only screen and (max-width: 600px) {
+  .slider-input-container {
+    display: none;
+  }
+  .slider-input-container-mobresp {
+    width: 35%;
+    display: flex;
+  }
+}
 /* Ensure the most popular tag is visually distinctive */
 .most-popular::before {
   content: "most popular";
   position: absolute;
-  bottom: 100%; /* Place it above the slider */
+  bottom: 200%; /* Place it above the slider */
   left: 50%; /* Center it horizontally */
   transform: translateX(-50%);
-  background-color: #ffc107; /* Example color for the tag */
-  color: #fff;
   padding: 4px 8px;
   font-size: 12px;
   border-radius: 4px;
   white-space: nowrap;
+}
+
+.markers {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 30px; /* Adjust as needed */
+}
+
+.marker {
+  position: absolute;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* ...additional styles for markers */
+}
+
+.most-popular {
+  color: blue; /* Styles for the most popular marker */
+}
+
+.most-popular-label {
+  position: absolute;
+  transform: translateX(-50%);
+  top: -20px; /* Adjust as needed */
+  /* ...additional styles for the "most popular" label */
 }

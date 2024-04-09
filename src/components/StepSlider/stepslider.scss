@@ -97,6 +97,7 @@ $black--disabled: rgba($color--black, 0.43);
     text-align: center;
     color: $black--medium;
     display: block;
+    font-size: 14px;
 
     // step-circle
     &::before {
@@ -141,6 +142,15 @@ $black--disabled: rgba($color--black, 0.43);
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 0;
+    }
+  }
+}
+
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+  .stepper {
+    &__button {
+      // color: transparent
     }
   }
 }

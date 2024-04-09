@@ -1,12 +1,19 @@
 import React from "react";
 import "./stepslider.scss";
+import { useMediaQuery } from "react-responsive";
 
 const func = (count) => {
   console.log(count, "CHILD");
 };
 
 // Adjusted step function to receive activeStep and a function to change it
-const Step = ({ stepDetails, index, activeStep, setActiveStep }) => (
+const Step = ({
+  stepDetails,
+  index,
+  activeStep,
+  setActiveStep,
+  isTabletOrMobile,
+}) => (
   <React.Fragment>
     <input
       className="stepper__input"
@@ -20,7 +27,8 @@ const Step = ({ stepDetails, index, activeStep, setActiveStep }) => (
     />
     <div className="stepper__step">
       <label className="stepper__button" htmlFor={`stepper-flex-${index + 1}`}>
-        {stepDetails.title}
+        {/* <span>{stepDetails.title}</span> */}
+        {!isTabletOrMobile ? <span>{stepDetails.title}</span> : null}
       </label>
     </div>
   </React.Fragment>
@@ -28,6 +36,7 @@ const Step = ({ stepDetails, index, activeStep, setActiveStep }) => (
 
 // Adjusted to destructure props directly and added activeStep and setActiveStep props
 export const StepSlider = ({ stepperDetails, activeStep, setActiveStep }) => {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   return (
     <ul className="container">
       <li className="container__item">
@@ -39,6 +48,7 @@ export const StepSlider = ({ stepperDetails, activeStep, setActiveStep }) => {
               index={index}
               activeStep={activeStep}
               setActiveStep={setActiveStep}
+              isTabletOrMobile={isTabletOrMobile}
             />
           ))}
         </div>

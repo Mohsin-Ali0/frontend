@@ -40,7 +40,7 @@ export const StartPromoting = (props) => {
                   lg="12"
                   className="justify-content-center d-flex flex-column pt-5 position-relative"
                 >
-                  <Form onSubmit={pressed}>
+                  <Form onSubmit={pressed} className="input-dekstop-resp" >
                     <InputGroup className="mb-3 start-prmoting-shadow">
                       <InputGroup.Text className="start-prmoting-input">
                         <FontAwesomeIcon
@@ -56,19 +56,40 @@ export const StartPromoting = (props) => {
                       <InputGroup.Text className="start-prmoting-input">
                         <SiteButton
                           className="site-btn start-prmoting-btn "
-                          style={{ width: "20px" }}
+                          // style={{ width: "20px" }}
                         >
                           Start Promotion
                         </SiteButton>
                       </InputGroup.Text>
                     </InputGroup>
                   </Form>
+
+                  <Form onSubmit={pressed} className="input-mobile-resp">
+                    <InputGroup className="mb-3 start-prmoting-shadow">
+                      <InputGroup.Text className="start-prmoting-input">
+                        <FontAwesomeIcon
+                          icon={faYoutube}
+                          style={{ color: "#FF0000" }}
+                          size="2x"
+                        />
+                      </InputGroup.Text>
+                      <FormControl
+                        className="start-prmoting-input"
+                        placeholder="Enter your youtube channel name or url"
+                      />
+                      <InputGroup.Text className="start-prmoting-input"></InputGroup.Text>
+                    </InputGroup>
+                  <SiteButton
+                    className="site-btn start-prmoting-btn "
+                    // style={{ width: "20px" }}
+                  >
+                    Start Promotion
+                  </SiteButton>
+                  </Form>
                   <a
                     href="gooogle.com"
                     style={{
                       color: "black",
-                      //   backgroundColor: "red",
-                      width: "30%",
                       alignSelf: "center",
                       marginTop: "5%",
                     }}

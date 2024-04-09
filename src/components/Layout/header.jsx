@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Nav, Navbar, Row, Offcanvas } from "react-bootstrap";
-import { Link, NavLink, useNavigation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import SiteButton from "../Button/button";
 import HeaderLogo from "../../assets/svg/headerlogo";
 import useAuth from "../../hooks/useAuth";
 import usePageTitle from "../../hooks/usePageTitle";
+import Cookies from "js-cookie";
 
 export const SiteHeader = () => {
   usePageTitle("Home");
@@ -20,14 +21,13 @@ export const SiteHeader = () => {
 
   const HandleLogout = () => {
     localStorage.clear();
+    Cookies.remove();
+
     window.location.reload();
   };
   useEffect(() => {
-    console.log(User);
     if (User) {
       setCheckAuth(true);
-      console.log(checkAuth, "checkAuth");
-      console.log(User, "User");
     }
   }, [User]);
 
@@ -175,7 +175,10 @@ export const SiteHeader = () => {
               <h2>Menu</h2>
             </Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body className="mob-menu">
+          <Offcanvas.Body
+            className="mob-menu"
+            style={{ backgroundColor: "#0a0234" }}
+          >
             <Nav className="flex-column">
               <NavLink
                 // exact
