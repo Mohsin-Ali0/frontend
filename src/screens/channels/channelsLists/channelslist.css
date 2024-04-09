@@ -16,10 +16,36 @@
 }
 .sticky-div {
   position: sticky;
-  bottom: 100px /* Height of your footer, e.g., 100px */;
+  bottom: 0 /* Height of your footer, e.g., 100px */;
   z-index: 10; /* Ensure it appears above the main content */
+  background-color: #ffff;
+  border: 1px solid #e1e2ef;
 }
 
+.logo-style {
+  height: 60px;
+  width: 60px;
+}
+
+.block-icon {
+  position: relative;
+  display: inline-flex;
+}
+
+.icon-tag {
+  position: absolute;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  z-index: 1;
+  width: 15px !important;
+  height: 15px !important;
+  background-color: aliceblue;
+  border-radius: 20px;
+}
+.btn-width {
+  width: 50%;
+}
 
 @media screen and (max-width: 767px) {
   .ChannelLogocont img {

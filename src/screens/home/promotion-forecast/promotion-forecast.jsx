@@ -21,16 +21,16 @@ export const Promotionforecast = () => {
             <Col xl="12" className="pt-4">
               <BudgetCard />
             </Col>
-            <Row className="justify-content-center align-items-center mb-5 pt-5 pb-5 color-black">
-              <Col xl="2">
+            <Row className="justify-content-between align-items-center  pt-5 pb-5 color-black">
+              <Col  xl={4} lg={4} md={4}   className="d-flex align-items-center justify-content-center">
                 <SiteButton className="site-btn">Start Promotion</SiteButton>
               </Col>
-              <Col xl="8">
+              <Col  xl={8} lg={8} md={8}  className="mt-2">
                 <p
                   style={{
                     color: "grey",
                     textAlign: "center",
-                    marginTop: "2%",
+                    // marginTop: "2%",
                   }}
                 >
                   Views forecast mostly depends on the content of your channel.

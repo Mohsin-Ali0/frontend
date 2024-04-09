@@ -26,8 +26,32 @@ export const Banner = () => {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e.nativeEvent.submitter.name, "submitHandler  Pressed");
+    console.log(e.target, "submitHandler  Pressed");
+    const formData = new FormData(e.target);
+    const formDataObject = {};
+    formData.forEach((value, key) => {
+      formDataObject[key] = value;
+    });
+    // Do something with the form data, such as send it to a server
+    // console.log(formDataObject);
+    console.log(formDataObject, "asdasdsa");
+    // console.log(e.nativeEvent.submitter.name, "submitHandler  Pressed");
+
     navigate("/channels");
+    localStorage.setItem("url", JSON.stringify(formDataObject));
+
+    // navigate("/channels", {
+    //   state: formDataObject,
+    // });
+
+    // navigate(
+    //   'thepath',
+    //   {
+    //     state: {
+    //       //...values
+    //     }
+    //   }
+    // })
     // console.log(e.target, "submitHandler  Pressed");
   };
 
@@ -63,8 +87,9 @@ export const Banner = () => {
                         />
                       </InputGroup.Text>
                       <FormControl
-                        style={{ backgroundColor: "white", borderLeft: "none" }}
+                        style={{ borderLeft: "none" }}
                         placeholder="Enter your youtube channel name or url"
+                        name="url"
                       />
                     </InputGroup>
 

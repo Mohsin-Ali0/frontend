@@ -24,9 +24,9 @@ export const PromoteChanel = () => {
               </p>
               <SiteButton
                 className="site-btn prmote-btn"
-                style={{ width: "20px" }}
+                // style={{ width: "40%" }}
               >
-                Start Promotion
+               Start Promotion
               </SiteButton>
 
               <a

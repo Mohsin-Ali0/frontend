@@ -5,7 +5,6 @@ const useAuth = () => {
 
   useEffect(() => {
     let user = localStorage.getItem("token");
-    console.log(user,"USE AUTH LOG")
     if (user) {
       setUser(user);
     }

@@ -1,0 +1,152 @@
+.country-selector {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  position: relative;
+}
+
+.country-selector:focus-within {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+.icon-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.icon-container-text {
+  font-size: 25px;
+  padding-top: 8px;
+  margin-left: 20px;
+  color: #139dff;
+}
+.gender-container {
+  display: flex;
+  flex-direction: row;
+}
+.age-container {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: baseline; */
+  flex-direction: column;
+}
+.age-options {
+  column-count: 2;
+}
+.interest-options {
+  column-count: 3;
+}
+.tags-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag-bubble {
+  height: 40px;
+  padding: 10px;
+}
+.tag-text {
+  font-size: 18px;
+  font-family: monospace;
+}
+.modal-cross-icon {
+  display: none;
+}
+
+@media only screen and (max-width: 1260px) {
+  .interest-options {
+    column-count: 2;
+  }
+}
+@media only screen and (max-width: 996px) {
+  .order1 {
+    order: 2;
+  }
+  .order2 {
+    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  .modal-cross-icon {
+    display: block;
+    position: absolute;
+    top: 2%;
+    right: 5%;
+  }
+}
+@media only screen and (max-width: 574px) {
+  .gender-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+  }
+  .age-options {
+    column-count: 1;
+  }
+  .interest-options {
+    column-count: 1;
+  }
+}
+
+.modal-h1 {
+  text-overflow: ellipsis;
+}
+
+.custom-modal-body {
+  background-color: #2c2f33;
+  color: white;
+  padding: 40px;
+}
+
+.custom-title {
+  font-weight: bold;
+}
+
+.custom-modal-content {
+  font-size: 14px;
+}
+
+.custom-modal-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.custom-check-icon {
+  color: #00d1b2;
+  margin-right: 10px;
+}
+
+.custom-hr {
+  background-color: white;
+}
+
+.custom-button {
+  margin-right: 10px;
+}

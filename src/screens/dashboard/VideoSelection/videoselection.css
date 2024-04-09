@@ -1,0 +1,145 @@
+.radio-label {
+  font-size: 16px;
+  font-weight: 100;
+  font-family: "ClashDisplay-Medium";
+}
+.radio {
+  display: flex;
+  flex-direction: row;
+}
+.custom-label {
+  margin-left: 20px;
+}
+.video-title-txt {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.search-container {
+  width: 20%;
+  /* border: none; */
+  text-align: center;
+  background-color: "#EEEFF7" !important;
+  color: "#EEEFF7";
+
+  /* background-color: red; */
+}
+.blur {
+  filter: blur(3px); /* Adjust the blur intensity as needed */
+}
+
+.swiper-container {
+  height: 20%;
+  width: 100%;
+  background-color: #eeeff7;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+}
+.swiper-container button::before {
+  content: attr(title);
+  display: none; /* Hide the message by default */
+  position: absolute;
+  top: calc(100% + 5px); /* Position the message below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+/* Show the pop-up message on hover */
+.swiper-container button:hover::before {
+  display: block;
+}
+.selected-slide {
+  height: 20%;
+  width: 100%;
+  background-color: #139dff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: none; /* Highlight the selected slide */
+  color: white;
+}
+.swiper-image-container {
+  position: relative;
+  width: 100%;
+  height: 75%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.swiper-image {
+  height: 100%;
+  width: 85%;
+  object-fit: contain;
+}
+/* .swiper-image-container > img {
+  max-width: 100%;
+} */
+.swiper-text-container {
+  height: 25%;
+  width: 85%;
+}
+.swiper-text-container > p {
+  font-size: 12px;
+  font-family: "ClashDisplay-Medium";
+}
+.swiper-logo-style {
+  height: 200px;
+  width: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+  .video-title-txt {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .video-title-txt-selected {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: white;
+  }
+  .search-container {
+    width: 100%;
+    border: none;
+    text-align: center;
+    padding-top: 20px;
+    background-color: white !important;
+  }
+}
+.custom-radio .form-check-input {
+  /* Custom styles for the radio button */
+  border-color: #a1a1a1;
+}
+
+.custom-radio .form-check-label {
+  /* Custom styles for the label */
+}

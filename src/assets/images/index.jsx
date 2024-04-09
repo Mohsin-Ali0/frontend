@@ -21,6 +21,11 @@ import ProfilePic from "../images/profilepic.png";
 import ArrowUp from "../images/arrowup.png";
 import ArrowDown from "../images/arrowdown.png";
 import ChannelDataLogo from "../images/nodataLogo.png";
+import CountriesIcon from "../images/conutries-icon.png";
+import AudienceIcon from "../images/audience-icon.png";
+import IntrestIcon from "../images/intrest-icon.png";
+import KeywordsIcon from "../images/keywords-icon.png";
+import ModalIcon from "../images/modal-icon.png";
 export {
   HeartIcon,
   EyeIcon,
@@ -45,4 +50,9 @@ export {
   ArrowUp,
   ArrowDown,
   ChannelDataLogo,
+  CountriesIcon,
+  AudienceIcon,
+  IntrestIcon,
+  KeywordsIcon,
+  ModalIcon,
 };

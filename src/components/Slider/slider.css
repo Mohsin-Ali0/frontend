@@ -103,6 +103,7 @@ input[type="range"] {
 .slider-txt-container {
   width: 15%;
 }
+
 @media screen and (max-width: 1195px) {
   .slider-txt-container {
     width: 25%;

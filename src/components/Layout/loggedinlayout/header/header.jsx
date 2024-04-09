@@ -1,130 +1,6 @@
-// import React, { useState } from "react";
-// import {
-//   Col,
-//   Container,
-//   Nav,
-//   Navbar,
-//   Row,
-//   Offcanvas,
-//   Dropdown,
-// } from "react-bootstrap";
-// import { Link, NavLink } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faBars,
-//   faEllipsisV,
-//   faSignOut,
-//   faUser,
-// } from "@fortawesome/free-solid-svg-icons";
-// import SiteButton from "../../../Button/button";
-// import { HeaderLogo, HeartLogo, LogoBlack } from "../../../../assets/svg";
-// import "./header.css";
-
-// export const LoggedInHeader = () => {
-//   const [showOffCanvasMenu, setShowOffCanvasMenu] = useState(false);
-
-//   const toggleOffCanvasMenu = () => {
-//     setShowOffCanvasMenu(!showOffCanvasMenu);
-//   };
-
-//   return (
-//     <React.Fragment>
-//       <header className="customHeader">
-//         <Container>
-//           <Row className="justify-content-center">
-//             <Col lg="12" className="col-12">
-//               <Navbar expand="lg" className="siteNav">
-//                 <Navbar.Brand className="me-0">
-// <Link to="/">
-//   <LogoBlack />
-// </Link>
-//                 </Navbar.Brand>
-
-//                 <Navbar.Collapse
-//                 >
-//                   <Row
-//                     className="justify-content-end d-flex align-items-center "
-//                     style={{ width: "100%" }}
-//                     // style={{ boxSizing: "border-box" }}
-//                   >
-//                     <Col
-//                       lg="6"
-//                       className="d-flex justify-content-end align-items-center"
-//                       style={{
-//                         boxSizing: "border-box",
-//                         backgroundColor: "purple",
-//                       }}
-//                     >
-//                       <Nav
-//                         style={{ backgroundColor: "pink" }}
-//                         className="align-items-lg-center"
-//                       >
-//                         <NavLink
-//                           activeclassname="active"
-//                           className="me-xl-4 me-lg-3 headertext no-wrap"
-//                           // to="/login"
-//                         >
-//                           <Dropdown className="userDropdown">
-//                             <Dropdown.Toggle
-//                               variant="transparent"
-//                               className="notButton toggleButton "
-//                             >
-//                               <div className="userImage">
-//                                 <img
-//                                   // src={SERVER_URL + profile.avatar}
-//                                   src={HeaderLogo}
-//                                   alt=""
-//                                   className="img-fluid me-2"
-//                                 />
-//                               </div>
-//                               <span className="me-2">
-//                                 {/* {profile.first_name + " " + profile.last_name} */}
-//                                 asdfsadfasdfxcvzxc
-//                               </span>
-//                             </Dropdown.Toggle>
-//                             <Dropdown.Menu className="userMenu" align="end">
-//                               <Link
-//                                 className="userMenuItem"
-//                                 to={"/admin/my-profile"}
-//                               >
-//                                 <FontAwesomeIcon
-//                                   className="me-2 yellow-text"
-//                                   icon={faUser}
-//                                 />
-//                                 My Profile
-//                               </Link>
-//                               <Link
-//                                 className="userMenuItem"
-//                                 // onClick={() => setShowModal(true)}
-//                               >
-//                                 <FontAwesomeIcon
-//                                   className="me-1 yellow-text"
-//                                   icon={faSignOut}
-//                                 />
-//                                 Logout
-//                               </Link>
-//                             </Dropdown.Menu>
-//                           </Dropdown>
-//                         </NavLink>
-//                       </Nav>
-//                     </Col>
-//                   </Row>
-//                 </Navbar.Collapse>
-//                 <Navbar.Toggle className="order-4 order-lg-2 notButton">
-//                   <FontAwesomeIcon className="bell-icon " icon={faEllipsisV} />
-//                 </Navbar.Toggle>
-//               </Navbar>
-//             </Col>
-//           </Row>
-//         </Container>
-//       </header>
-//     </React.Fragment>
-//   );
-// };
-
 import "./header.css";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   Container,
@@ -136,35 +12,15 @@ import {
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBell,
   faUser,
-  faBars,
   faEllipsisV,
   faSignOut,
-  faBaby,
-  faArrowDown,
-  faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { logo } from "../../../../assets/images/fourIcon.png";
-import SiteButton from "../../../Button/button";
-import useAuth from "../../../../hooks/useAuth";
-import axios from "axios";
-import {
-  ArrowDown,
-  ArrowUp,
-  GoogleIcon,
-  ProfilePic,
-} from "../../../../assets/images";
+import { ArrowDown, ArrowUp, ProfilePic } from "../../../../assets/images";
 import HeaderLogo from "../../../../assets/svg/headerlogoblack";
+import Cookies from "js-cookie";
 
 export const LoggedInHeader = (props) => {
-  const navigate = useNavigate();
-  const { clearRole } = useAuth();
-  const [notificationState, setNotificationState] = useState([]);
-  const [profile, setProfile] = useState({});
-  const [showModal, setShowModal] = useState(false);
-  const [showYesButton, setShowYesButton] = useState(true);
-  const [showNoButton, setShowNoButton] = useState(true);
   const [isOpen, setisOpen] = useState(false);
   const [showOffCanvasMenu, setShowOffCanvasMenu] = useState(false);
 
@@ -183,6 +39,7 @@ export const LoggedInHeader = (props) => {
   };
   const handleLogout = async () => {
     localStorage.clear();
+    Cookies.remove("token");
   };
 
   return (
@@ -265,7 +122,7 @@ export const LoggedInHeader = (props) => {
       >
         <Offcanvas.Header closeButton className="position-relative ">
           <Offcanvas.Title>
-            <h2>Menu</h2>
+            <h2>Menudasd</h2>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="mob-menu">

@@ -35,7 +35,8 @@ const UserLogIn = () => {
       let resp = await axios
         .post("/auth/signin", formData)
         .then((response) => {
-          localStorage.setItem("token", response.data.data.token);
+          console.log(response.data, "response.data");
+          localStorage.setItem("token", response.data.data);
           setTimeout(() => {
             setLoad(false);
             navigate("/");
