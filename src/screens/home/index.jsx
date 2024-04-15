@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/Layout/layout";
 import { Banner } from "./banner/banner";
-import { Views } from "./views/views.jsx";
+import { Views } from "./views/views";
 import { Reviews } from "./reviews/reviews";
 import { BoostViews } from "./boost-views/boostviews";
 import { AboutUs } from "./about-us/about-us";
