@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // axios.defaults.baseURL = "http://localhost:3004/";
-axios.defaults.baseURL = "https://3452-58-65-197-79.ngrok-free.app";
+axios.defaults.baseURL = "https://72d5-58-65-197-79.ngrok-free.app";
 // axios.defaults.baseURL = "https://dev74.onlinetestingserver.com/acolai/api";
 
 // let user = (localStorage.getItem('user'));
