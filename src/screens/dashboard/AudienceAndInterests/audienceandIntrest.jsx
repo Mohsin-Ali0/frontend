@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Col,
   Container,
@@ -24,12 +24,7 @@ import {
 import "./audienceandIntrest.css";
 import SiteButton from "../../../components/Button/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheck,
-  faCrosshairs,
-  faEye,
-  faX,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 
 const animatedComponents = makeAnimated();
 

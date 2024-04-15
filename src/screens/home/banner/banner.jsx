@@ -18,12 +18,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 export const Banner = () => {
   const navigate = useNavigate();
-  const getStarted = () => {
-    console.log("Started Pressed");
-  };
-  const Signup = () => {
-    console.log("Signup Pressed");
-  };
+ 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(e.target, "submitHandler  Pressed");

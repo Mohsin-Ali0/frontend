@@ -2,9 +2,6 @@ import React from "react";
 import "./stepslider.scss";
 import { useMediaQuery } from "react-responsive";
 
-const func = (count) => {
-  console.log(count, "CHILD");
-};
 
 // Adjusted step function to receive activeStep and a function to change it
 const Step = ({
