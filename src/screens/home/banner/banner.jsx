@@ -18,7 +18,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 export const Banner = () => {
   const navigate = useNavigate();
- 
+
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(e.target, "submitHandler  Pressed");
@@ -82,7 +82,8 @@ export const Banner = () => {
                         />
                       </InputGroup.Text>
                       <FormControl
-                        style={{ borderLeft: "none" }}
+                        style={{ borderLeft: "none", color: "black" }}
+                        className="channel-txt-input"
                         placeholder="Enter your youtube channel name or url"
                         name="url"
                       />

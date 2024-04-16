@@ -13,6 +13,29 @@
   /* font-family:'Space Grotesk'; */
 }
 
+/* .channel-txt-input {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+} */
+
+.channel-txt-input:focus,
+.channel-txt-input:active {
+  color: black !important; /* Ensures text color remains black */
+  background-color: white !important; /* Optional: change if you want a different background */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: black !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
 .bullet {
   color: blue; /* Bullet point color */
   margin-right: 8px; /* Adjust spacing between bullet point and text */
@@ -44,11 +67,11 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 1199px){
+@media screen and (max-width: 1199px) {
   .mobile-container {
-   display: none;
+    display: none;
   }
-  .mobileresp{
+  .mobileresp {
     padding-top: 20%;
   }
 }

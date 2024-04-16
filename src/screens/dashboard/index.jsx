@@ -118,26 +118,26 @@ export const DashBoard = () => {
 
   const isFirstRun = useRef(true);
   let Firstrender = true; // to run the useeffect when user changes video selection
-  // useEffect(() => {
-  //   if (isFirstRun.current) {
-  //     // Run your effect code only on the first render
-  //     console.log(isFirstRun.current, "Effect Only runs once");
-  //     isFirstRun.current = false; // Set isFirstRun to false to prevent future runs
-  //     Firstrender = false;
-  //     GetVideosData(
-  //       ChannelDetails.channelId,
-  //       selectedOption,
-  //       SearchVideoValue.url
-  //     );
-  //   }
-  //   if (Firstrender) {
-  //     GetVideosData(
-  //       ChannelDetails.channelId,
-  //       selectedOption,
-  //       SearchVideoValue.url
-  //     );
-  //   }
-  // }, [selectedOption]);
+  useEffect(() => {
+    if (isFirstRun.current) {
+      // Run your effect code only on the first render
+      console.log(isFirstRun.current, "Effect Only runs once");
+      isFirstRun.current = false; // Set isFirstRun to false to prevent future runs
+      Firstrender = false;
+      GetVideosData(
+        ChannelDetails.channelId,
+        selectedOption,
+        SearchVideoValue.url
+      );
+    }
+    if (Firstrender) {
+      GetVideosData(
+        ChannelDetails.channelId,
+        selectedOption,
+        SearchVideoValue.url
+      );
+    }
+  }, [selectedOption]);
 
   const GetVideosData = async (channelId, selectedOption) => {
     await axios
