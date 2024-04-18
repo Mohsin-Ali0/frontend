@@ -1,15 +1,20 @@
-import { useCookies } from "react-cookie";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useSearchParams } from "react-router-dom";
+import { decodeToken } from "react-jwt";
 
 const ProtectedRoutes = (props) => {
-  // let tokenCookie = Cookies.get("token");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const googletoken = searchParams.get("token");
+  const myDecodedToken = decodeToken(googletoken);
+  console.log(myDecodedToken, "myDecodedToken");
 
-  const [cookies] = useCookies(["token"]);
-  console.log(cookies.token, "tokenCookie");
+  if (myDecodedToken) {
+    localStorage.setItem("token", googletoken);
+  }
+
   let token = localStorage.getItem("token");
   let auth = { token: Boolean(token) };
 
-  if (auth.token || cookies.token) {
+  if (auth.token || myDecodedToken) {
     return <Outlet />;
   } else {
     return <Navigate to="/login" />;

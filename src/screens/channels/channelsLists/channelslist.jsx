@@ -25,22 +25,15 @@ import { useCookies } from "react-cookie";
 
 export const ChannelList = () => {
   usePageTitle("Channels");
+
   const navigate = useNavigate();
   let ChannaelName = JSON.parse(localStorage.getItem("url"));
-  console.log(ChannaelName, "ChannaelName UPPPP");
   const [formData, setFormData] = useState(ChannaelName ? ChannaelName : {});
-  // const [formData, setFormData] = useState({});
   const [Channels, setChannels] = useState([]);
   const [selectedChannel, setselectedChannel] = useState([]);
   const [ShowSelected, setShowSelected] = useState(false);
 
-  const [cookies] = useCookies(["token"]);
-  console.log(cookies.token, "tokenCookie");
-
   useEffect(() => {
-    if (cookies.token) {
-      localStorage.setItem("token", cookies.token);
-    }
     GetChannelData(ChannaelName);
   }, []);
 
