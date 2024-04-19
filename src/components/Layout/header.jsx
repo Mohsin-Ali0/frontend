@@ -139,7 +139,7 @@ export const SiteHeader = () => {
                           <NavLink
                             activeclassname="active"
                             className="me-xl-4 me-lg-3 headertext no-wrap"
-                            to="/login"
+                            to="/signup"
                           >
                             <SiteButton
                               className="signinbtn "
