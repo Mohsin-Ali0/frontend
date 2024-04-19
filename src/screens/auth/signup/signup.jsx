@@ -21,6 +21,12 @@ const SignUp = () => {
   const [updatesChecked, setUpdatesChecked] = useState(false);
   const [ErrorData, setErrorData] = useState({});
 
+  const handleGoogleLogin = () => {
+    // Redirect to the backend route for Google Login
+    // window.open("http://localhost:3004/auth/google", "_self");
+    window.open("https://backend-eight-ruby.vercel.app/auth/google", "_self");
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoad(true);
@@ -59,7 +65,7 @@ const SignUp = () => {
   return (
     <>
       <AuthLayout authTitle="Sign Up" authPara="Sign In">
-        <div className="buttonscontainer ">
+        <div className="buttonscontainer" onClick={handleGoogleLogin}>
           <button className="googlebtn">
             <Image src={GoogleIcon} className="googleicon" fluid />
             Sign in with google
@@ -72,7 +78,7 @@ const SignUp = () => {
         </div>
         {ErrorData.type ? (
           <div className="alert alert-danger" role="alert">
-            <strong>Opss! </strong>
+            <strong>Oops! </strong>
             {ErrorData.message}
           </div>
         ) : null}
