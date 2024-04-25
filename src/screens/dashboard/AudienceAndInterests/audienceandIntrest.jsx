@@ -91,9 +91,6 @@ export const AudienceAndInterests = ({
   };
   // COUNTRY
 
-  const handleCountrySelect = (country) => {
-    // Implement the logic to select countries
-  };
 
   return (
     <Container>
@@ -336,7 +333,6 @@ export const AudienceAndInterests = ({
 
 const ShowModal = ({ setShow, show, OpenOptions }) => {
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <>
       <Modal show={show} onHide={handleClose} centered size="lg">

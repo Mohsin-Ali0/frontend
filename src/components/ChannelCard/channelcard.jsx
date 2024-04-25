@@ -2,7 +2,6 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import "./channelcard.css"; // Make sure to create this CSS file
 import { Image } from "react-bootstrap";
-import { YoutubeLogoIcon } from "../../assets/images";
 
 const ChannelCard = ({ channel, isSelected, onSelect }) => {
   // Apply 'selected' class if the channel is selected

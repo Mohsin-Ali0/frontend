@@ -62,70 +62,70 @@ export const StartThePromotion = ({
     // Redirect to Stripe Checkout
   };
 
-  const handleClick = async (event) => {
-    // Get Stripe.js instance
-    const stripe = await stripePromise;
+  // const handleClick = async (event) => {
+  //   // Get Stripe.js instance
+  //   const stripe = await stripePromise;
 
-    // Call your backend to create the Checkout session
+  //   // Call your backend to create the Checkout session
 
-    await axios
-      .post("api/stripe/create-checkout-session")
-      .then(async (res) => {
-        console.log(res, "res");
-        const session = await res.json();
-        const result = await stripe.redirectToCheckout({
-          sessionId: session.id,
-        });
+  //   await axios
+  //     .post("api/stripe/create-checkout-session")
+  //     .then(async (res) => {
+  //       console.log(res, "res");
+  //       const session = await res.json();
+  //       const result = await stripe.redirectToCheckout({
+  //         sessionId: session.id,
+  //       });
 
-        if (result.error) {
-          // If `redirectToCheckout` fails due to a browser or network error,
-          // display the localized error message to your customer.
-          alert(result.error.message);
-        }
-      })
-      .catch((err) => console.log(err, "err"));
+  //       if (result.error) {
+  //         // If `redirectToCheckout` fails due to a browser or network error,
+  //         // display the localized error message to your customer.
+  //         alert(result.error.message);
+  //       }
+  //     })
+  //     .catch((err) => console.log(err, "err"));
 
-    // const session = await response.json();
+  //   // const session = await response.json();
 
-    // When the Checkout session is created, redirect to the Checkout page
-    // const result = await stripe.redirectToCheckout({
-    //   sessionId: session.sessionId,
-    // });
+  //   // When the Checkout session is created, redirect to the Checkout page
+  //   // const result = await stripe.redirectToCheckout({
+  //   //   sessionId: session.sessionId,
+  //   // });
 
-    // if (result.error) {
-    //   // If `redirectToCheckout` fails due to a browser or network error,
-    //   // display the localized error message to your customer.
-    //   alert(result.error.message);
-    // }
-  };
+  //   // if (result.error) {
+  //   //   // If `redirectToCheckout` fails due to a browser or network error,
+  //   //   // display the localized error message to your customer.
+  //   //   alert(result.error.message);
+  //   // }
+  // };
 
-  const ProceedPay = async () => {
-    await axios
-      .post("api/stripe/create-checkout-session")
-      .then(async (response) => {
-        console.log(response, "resss");
-        const session = await response.json();
+  // const ProceedPay = async () => {
+  //   await axios
+  //     .post("api/stripe/create-checkout-session")
+  //     .then(async (response) => {
+  //       console.log(response, "resss");
+  //       const session = await response.json();
 
-        // Redirect to Stripe Checkout.
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({
-          sessionId: session.id,
-        });
+  //       // Redirect to Stripe Checkout.
+  //       const stripe = await stripePromise;
+  //       const { error } = await stripe.redirectToCheckout({
+  //         sessionId: session.id,
+  //       });
 
-        if (error) {
-          console.error(error);
-        }
-        // setFormData({ ...formData, message: response.data.messege });
-        // setChannels(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error, "cathchhhh");
-        // document.getElementById(
-        //   "response"
-        // ).innerHTML = `<div class="alert alert-danger"role="alert"><strong>Opss! </strong>${error.response.data.message}</div>`;
-        // setLoad(false);
-      });
-  };
+  //       if (error) {
+  //         console.error(error);
+  //       }
+  //       // setFormData({ ...formData, message: response.data.messege });
+  //       // setChannels(response.data.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error, "cathchhhh");
+  //       // document.getElementById(
+  //       //   "response"
+  //       // ).innerHTML = `<div class="alert alert-danger"role="alert"><strong>Opss! </strong>${error.response.data.message}</div>`;
+  //       // setLoad(false);
+  //     });
+  // };
 
   return (
     <Container>

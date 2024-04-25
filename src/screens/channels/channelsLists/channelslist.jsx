@@ -21,7 +21,6 @@ import usePageTitle from "../../../hooks/usePageTitle";
 import SiteButton from "../../../components/Button/button";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useCookies } from "react-cookie";
 
 export const ChannelList = () => {
   usePageTitle("Channels");

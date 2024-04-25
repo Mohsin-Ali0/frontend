@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import {
   Button,
   Col,
@@ -10,7 +10,6 @@ import {
   Row,
 } from "react-bootstrap";
 import "./videoselection.css";
-import axios from "axios";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -303,10 +302,6 @@ const ManualSelectComponent = ({
     return isSelectedInSelectedSlides;
   };
 
-  const handleChangeText = (e) => {
-    console.log(e, "e.target.value");
-    // setSearchVideoValue(e.target.value);
-  };
 
   return (
     <Row className="justify-content-between align-items-center flex-column">
@@ -320,7 +315,6 @@ const ManualSelectComponent = ({
               style={{ backgroundColor: "#EEEFF7", borderRight: "none" }}
               placeholder="Enter your youtube channel name or url"
               // value={SearchVideoValue}
-              // onChange={(e) => handleChangeText(e)}
               value={SearchVideoValue.url}
               onChange={(e) =>
                 setSearchVideoValue({

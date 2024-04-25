@@ -7,7 +7,6 @@ import { Form, Image } from "react-bootstrap";
 import { AuthLayout } from "../../components/Layout/authLayout";
 import SiteButton from "../../components/Button/button";
 import usePageTitle from "../../hooks/usePageTitle";
-import useAuth from "../../hooks/useAuth";
 import { GoogleIcon } from "../../assets/images";
 import CustomInput from "../../components/CustomInput";
 

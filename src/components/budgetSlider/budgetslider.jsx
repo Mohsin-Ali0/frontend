@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Card,
   InputGroup,
   FormControl,
   Container,
@@ -16,8 +15,6 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, Views, setViews }) => {
   const max = 1010; // Set the maximum value of the slider
   const step = 10; // Increment/Decrement value
 
-  // const [value, setValue] = useState(min);
-  // const [Views, setViews] = useState(1408);
   const [IconVal, setIconVal] = useState(true);
 
   // Function to handle the slider change
@@ -44,12 +41,8 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, Views, setViews }) => {
 
   // Calculate background style based on the slider value
 
-  const markers = [49, 100, 150, 300, 500, 1000]; // Example marker values
-  const mostPopularValue = 100; // Define the "most popular" value
 
-  const onMarkerClick = (val) => {
-    setValue(val); // Update the slider's value when a marker is clicked
-  };
+
 
   const fillPercentage = ((value - min) / (max - min)) * 100;
 
@@ -117,38 +110,7 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, Views, setViews }) => {
                 className="custom-slider"
               />
             </div>
-            {/* <div className="markers">
-              {markers.map((marker, index) => (
-                <button
-                  key={index}
-                  className={`marker ${
-                    marker === mostPopularValue ? "most-popular" : ""
-                  }`}
-                  onClick={() => onMarkerClick(marker)}
-                  style={{ left: `${((marker - min) / (max - min)) * 100}%` }}
-                >
-                  ${marker}
-                </button>
-              ))}
-              {mostPopularValue && (
-                <div
-                  className="most-popular-label"
-                  style={{
-                    left: `${((mostPopularValue - min) / (max - min)) * 100}%`,
-                  }}
-                >
-                  most popular
-                </div>
-              )}
-            </div> */}
-
-            {/* <div className="budget-amounts">
-              <div className="budget-amount">$48</div>
-              <div className="budget-amount most-popular">$48</div>
-              <div className="budget-amount">$48</div>
-              <div className="budget-amount">$48</div>
-              <div className="budget-amount">$48</div>
-            </div> */}
+      
           </Col>
         </Col>
         <Col
