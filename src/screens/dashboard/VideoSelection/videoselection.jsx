@@ -12,6 +12,9 @@ import {
 import "./videoselection.css";
 import axios from "axios";
 
+import "swiper/css";
+import "swiper/css/navigation";
+
 import { Navigation, Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
@@ -347,16 +350,30 @@ const ManualSelectComponent = ({
           </InputGroup>
         </Form>
         <h4>We recommend adding 2-3 videos for the best results:</h4>
+
+        <Container fluid>
+          <Row>
+            <Col xl={12} >
+              asdf
+            </Col>
+          </Row>
+        </Container>
         {limitReached ? (
           <p style={{ color: "red", textAlign: "center" }}>
             You can't add more than 2 videos
           </p>
         ) : null}
+
         <Swiper
           modules={[Navigation]}
-          navigation={true}
+          // navigation={true}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
           spaceBetween={50}
           slidesPerView={5}
+          style={{ padding: "20px" }}
           // slidesPerView={1}
           virtual
           breakpoints={{
@@ -393,6 +410,7 @@ const ManualSelectComponent = ({
               virtualIndex={index}
               onClick={() => VideoSelect(slideContent)}
               // className={limitReached ? "blur" : ""}
+              // style={{ backgroundColor: "purple", width: "50%" }}
             >
               <button
                 className={
@@ -417,7 +435,7 @@ const ManualSelectComponent = ({
                     className={
                       isSelected(slideContent)
                         ? "video-title-txt-selected"
-                        : 'video-title-txt'
+                        : "video-title-txt"
                     }
                   >
                     {decodeGoogleSpecialCharacters(slideContent?.title)}
@@ -427,6 +445,9 @@ const ManualSelectComponent = ({
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className="swiper-button-prev swiper-prev-resp"></div>
+        <div className="swiper-button-next swiper-next-resp"></div>
+        {/* Outside of the Swiper component add custom buttons */}
       </Col>
       <Col xl={12}>
         <Row className="justify-content-between align-items-center p-4">

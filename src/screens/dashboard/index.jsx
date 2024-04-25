@@ -7,38 +7,110 @@ import { AudienceAndInterests } from "./AudienceAndInterests/audienceandIntrest"
 import { StartThePromotion } from "./StartThePromotion/startpromotion";
 import usePageTitle from "../../hooks/usePageTitle";
 import axios from "axios";
-let Vid = [
-  {
-    videoId: "pxEFOUcFs-c",
-    title:
-      "Chasing The Dream: The Magic Of Melbourne | Behind The Scenes F2 | 2024 Australian Grand Prix",
-    thumbnail: "https://i.ytimg.com/vi/pxEFOUcFs-c/hqdefault.jpg",
-  },
-  {
-    videoId: "AfmKYoL3oG8",
-    title:
-      "&#39;Look At Me, I’m The Captain Now&#39; | Box Of BLUFFS! | Featuring Carlos Sainz &amp; Lando Norris",
-    thumbnail: "https://i.ytimg.com/vi/AfmKYoL3oG8/hqdefault.jpg",
-  },
-  {
-    videoId: "GG_8uizdWvU",
-    title:
-      "Hauger And Hadjar&#39;s Highs And Lows | Road To F1 | 2024 Australian Grand Prix",
-    thumbnail: "https://i.ytimg.com/vi/GG_8uizdWvU/hqdefault.jpg",
-  },
-  {
-    videoId: "28DtDOGF3eg",
-    title:
-      "Russell&#39;s Dramatic Crash! | The Top 10 Onboards | 2024 Australian Grand Prix | Qatar Airways",
-    thumbnail: "https://i.ytimg.com/vi/28DtDOGF3eg/hqdefault.jpg",
-  },
-  {
-    videoId: "bYfc9NN5baU",
-    title:
-      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-  },
-];
+// let Vid = [
+//   {
+//     videoId: "pxEFOUcFs-c",
+//     title:
+//       "Chasing The Dream: The Magic Of Melbourne | Behind The Scenes F2 | 2024 Australian Grand Prix",
+//     thumbnail: "https://i.ytimg.com/vi/pxEFOUcFs-c/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "AfmKYoL3oG8",
+//     title:
+//       "&#39;Look At Me, I’m The Captain Now&#39; | Box Of BLUFFS! | Featuring Carlos Sainz &amp; Lando Norris",
+//     thumbnail: "https://i.ytimg.com/vi/AfmKYoL3oG8/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "GG_8uizdWvU",
+//     title:
+//       "Hauger And Hadjar&#39;s Highs And Lows | Road To F1 | 2024 Australian Grand Prix",
+//     thumbnail: "https://i.ytimg.com/vi/GG_8uizdWvU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "28DtDOGF3eg",
+//     title:
+//       "Russell&#39;s Dramatic Crash! | The Top 10 Onboards | 2024 Australian Grand Prix | Qatar Airways",
+//     thumbnail: "https://i.ytimg.com/vi/28DtDOGF3eg/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+//   {
+//     videoId: "bYfc9NN5baU",
+//     title:
+//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+//   },
+// ];
 export const DashBoard = () => {
   usePageTitle("Dashboad");
   const [currentStep, setCurrentStep] = useState(1);
@@ -266,8 +338,8 @@ export const DashBoard = () => {
         <div className="stepper__view pt-2">
           <StepSlider
             stepperDetails={[
-              { count: 1, title: "Subscriber And Users" },
-              { count: 2, title: "Video Selection" },
+              { count: 1, title: "Video Selection" },
+              { count: 2, title: "Subscriber And Users" },
               { count: 3, title: "Audience And Interests" },
               { count: 4, title: "Start The Promotion" },
             ]}
@@ -279,16 +351,6 @@ export const DashBoard = () => {
         {/* <div className="step-component-container">{renderStepComponent()}</div> */}
         <div className="step-component-container">
           {currentStep === 1 && (
-            <SubscriberAndUsers
-              ChannelDetails={ChannelDetails}
-              handleStepChange={handleStepChange}
-              value={value}
-              setValue={setValue}
-              Views={Views}
-              setViews={setViews}
-            />
-          )}
-          {currentStep === 2 && (
             <VideoSelection
               ChannelDetails={ChannelDetails}
               handleStepChange={handleStepChange}
@@ -305,6 +367,16 @@ export const DashBoard = () => {
               SearchVideoValue={SearchVideoValue}
               setSearchVideoValue={setSearchVideoValue}
               SearchVideo={SearchVideo}
+            />
+          )}
+          {currentStep === 2 && (
+            <SubscriberAndUsers
+              ChannelDetails={ChannelDetails}
+              handleStepChange={handleStepChange}
+              value={value}
+              setValue={setValue}
+              Views={Views}
+              setViews={setViews}
             />
           )}
           {currentStep === 3 && (
