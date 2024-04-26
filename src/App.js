@@ -11,7 +11,7 @@ import "swiper/css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={"/youtube-ads"} >
       <UserRouter />
     </BrowserRouter>
   );
@@ -22,3 +22,4 @@ export default App;
 
 
 // pAs}*i1c!?sB CPANEL PASS
+// Q9SwX]X(_x9! CPANEL PASS NEW
