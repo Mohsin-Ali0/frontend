@@ -11,8 +11,6 @@ jobs:
     env:
       CI: false
     steps:
-
-
       - name: 📂 Sync files
 
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -21,4 +19,4 @@ jobs:
           username: ${{ secrets.GIT_CPANEL_REACT_USER }}
           password: ${{ secrets.GIT_CPANEL_REACT_PWD }}
           protocol: ${{ secrets.GIT_CPANEL_REACT_PROTOCOL }}
-          local-dir: ./build/
+          server-dir: /
