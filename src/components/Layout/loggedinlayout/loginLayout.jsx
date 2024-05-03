@@ -3,7 +3,7 @@ import { SiteFooter } from "../footer";
 import { LoggedInHeader } from "./header/header";
 
 export const LoginLayout = (props) => {
-  const { showFooter = true } = props;
+  const { showFooter  } = props;
   return (
     <>
       <LoggedInHeader />

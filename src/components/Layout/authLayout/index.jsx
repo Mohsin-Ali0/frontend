@@ -14,7 +14,9 @@ export const AuthLayout = (props) => {
         <Container fluid>
           <Row className="justify-content-around align-items-center">
             <Col xl="4" lg={4} className="authImage">
-              <HeaderLogo />
+              <a href="/" style={{ width: "200px" }}>
+                <HeaderLogo />
+              </a>
               <div>
                 <p style={{ color: "white" }}>
                   “ Lorem ipsum dolor sit amet consectetur. Cursus ornare nunc
@@ -30,7 +32,9 @@ export const AuthLayout = (props) => {
                 &nbsp; +1 (000) 000-0000
               </Col>
               <Col xl={12} className="logoiconcont mb-4 ">
-                <HeaderLogo />
+                <a href="/" style={{ width: "200px" }}>
+                  <HeaderLogo />
+                </a>
               </Col>
               <Col xl={6} lg={8} style={{ alignSelf: "center" }}>
                 <div className="authFormHeader">

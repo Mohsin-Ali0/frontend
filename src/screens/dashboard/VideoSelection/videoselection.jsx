@@ -143,16 +143,7 @@ export const VideoSelection = ({
         <Row>
           <Col xl={6} md={5} className="p-4 next-btn-container">
             <SiteButton
-              onClick={() => handleStepChange(1)}
-              className="site-btn next-btn"
-              style={{ backgroundColor: "grey" }}
-            >
-              Back
-            </SiteButton>
-          </Col>
-          <Col xl={6} md={5} className="p-4 next-btn-container">
-            <SiteButton
-              onClick={() => handleStepChange(3, SelectedVideos)}
+              onClick={() => handleStepChange(2, SelectedVideos)}
               className="site-btn next-btn"
             >
               Next
@@ -302,7 +293,6 @@ const ManualSelectComponent = ({
     return isSelectedInSelectedSlides;
   };
 
-
   return (
     <Row className="justify-content-between align-items-center flex-column">
       <Col xl={12}>
@@ -347,9 +337,7 @@ const ManualSelectComponent = ({
 
         <Container fluid>
           <Row>
-            <Col xl={12} >
-              asdf
-            </Col>
+            <Col xl={12}>asdf</Col>
           </Row>
         </Container>
         {limitReached ? (

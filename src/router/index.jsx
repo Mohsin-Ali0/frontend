@@ -7,6 +7,9 @@ import SignUp from "../screens/auth/signup/signup";
 import ProtectedRoutes from "./Protectedroutes";
 import { ChannelsScreen } from "../screens/channels";
 import { DashBoard } from "../screens/dashboard";
+import Checkout from "../screens/dashboard/PayementScreen/PaymentScreen";
+import { PaymentSuccess } from "../screens/payments/success/paymentsuccess";
+import { PaymentFailed } from "../screens/payments/failed/paymentfailed";
 
 function UserRouter() {
   return (
@@ -27,6 +30,9 @@ function UserRouter() {
       <Route element={<ProtectedRoutes />}>
         <Route path="/channels" element={<ChannelsScreen />} />
         <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/dashboard/checkout" element={<Checkout />} />
+        <Route path="/payment/success" element={<PaymentSuccess />} />
+        <Route path="/payment/failed" element={<PaymentFailed />} />
       </Route>
     </Routes>
   );

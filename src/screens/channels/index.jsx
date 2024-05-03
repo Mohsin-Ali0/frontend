@@ -5,7 +5,7 @@ import { ChannelList } from "./channelsLists/channelslist";
 export const ChannelsScreen = () => {
   return (
     <div>
-      <LoginLayout>
+      <LoginLayout showFooter={true}>
         <ChannelList />
       </LoginLayout>
     </div>

@@ -7,110 +7,112 @@ import { AudienceAndInterests } from "./AudienceAndInterests/audienceandIntrest"
 import { StartThePromotion } from "./StartThePromotion/startpromotion";
 import usePageTitle from "../../hooks/usePageTitle";
 import axios from "axios";
-// let Vid = [
-//   {
-//     videoId: "pxEFOUcFs-c",
-//     title:
-//       "Chasing The Dream: The Magic Of Melbourne | Behind The Scenes F2 | 2024 Australian Grand Prix",
-//     thumbnail: "https://i.ytimg.com/vi/pxEFOUcFs-c/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "AfmKYoL3oG8",
-//     title:
-//       "&#39;Look At Me, I’m The Captain Now&#39; | Box Of BLUFFS! | Featuring Carlos Sainz &amp; Lando Norris",
-//     thumbnail: "https://i.ytimg.com/vi/AfmKYoL3oG8/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "GG_8uizdWvU",
-//     title:
-//       "Hauger And Hadjar&#39;s Highs And Lows | Road To F1 | 2024 Australian Grand Prix",
-//     thumbnail: "https://i.ytimg.com/vi/GG_8uizdWvU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "28DtDOGF3eg",
-//     title:
-//       "Russell&#39;s Dramatic Crash! | The Top 10 Onboards | 2024 Australian Grand Prix | Qatar Airways",
-//     thumbnail: "https://i.ytimg.com/vi/28DtDOGF3eg/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-// ];
+import { PaymentForm } from "./PayementScreen/PaymentScreen";
+
+let Vid = [
+  {
+    videoId: "pxEFOUcFs-c",
+    title:
+      "Chasing The Dream: The Magic Of Melbourne | Behind The Scenes F2 | 2024 Australian Grand Prix",
+    thumbnail: "https://i.ytimg.com/vi/pxEFOUcFs-c/hqdefault.jpg",
+  },
+  {
+    videoId: "AfmKYoL3oG8",
+    title:
+      "&#39;Look At Me, I’m The Captain Now&#39; | Box Of BLUFFS! | Featuring Carlos Sainz &amp; Lando Norris",
+    thumbnail: "https://i.ytimg.com/vi/AfmKYoL3oG8/hqdefault.jpg",
+  },
+  {
+    videoId: "GG_8uizdWvU",
+    title:
+      "Hauger And Hadjar&#39;s Highs And Lows | Road To F1 | 2024 Australian Grand Prix",
+    thumbnail: "https://i.ytimg.com/vi/GG_8uizdWvU/hqdefault.jpg",
+  },
+  {
+    videoId: "28DtDOGF3eg",
+    title:
+      "Russell&#39;s Dramatic Crash! | The Top 10 Onboards | 2024 Australian Grand Prix | Qatar Airways",
+    thumbnail: "https://i.ytimg.com/vi/28DtDOGF3eg/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+  {
+    videoId: "bYfc9NN5baU",
+    title:
+      "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
+    thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
+  },
+];
 export const DashBoard = () => {
   usePageTitle("Dashboad");
   const [currentStep, setCurrentStep] = useState(1);
@@ -126,7 +128,7 @@ export const DashBoard = () => {
   const [Views, setViews] = useState(1408);
 
   // // VIDEO SELECTION STATE
-  const [SelectedVideos, setSelectedVideos] = useState([]);
+  const [SelectedVideos, setSelectedVideos] = useState(Vid);
   const [selectedOption, setSelectedOption] = useState(1);
   const [selectedSlides, setSelectedSlides] = useState([]);
   const [limitReached, setLimitReached] = useState(false);
@@ -188,28 +190,28 @@ export const DashBoard = () => {
     // determineCountry(latitude, longitude);
   };
 
-  const isFirstRun = useRef(true);
-  let Firstrender = true; // to run the useeffect when user changes video selection
-  useEffect(() => {
-    if (isFirstRun.current) {
-      // Run your effect code only on the first render
-      console.log(isFirstRun.current, "Effect Only runs once");
-      isFirstRun.current = false; // Set isFirstRun to false to prevent future runs
-      Firstrender = false;
-      GetVideosData(
-        ChannelDetails.channelId,
-        selectedOption,
-        SearchVideoValue.url
-      );
-    }
-    if (Firstrender) {
-      GetVideosData(
-        ChannelDetails.channelId,
-        selectedOption,
-        SearchVideoValue.url
-      );
-    }
-  }, [selectedOption]);
+  // const isFirstRun = useRef(true);
+  // let Firstrender = true; // to run the useeffect when user changes video selection
+  // useEffect(() => {
+  //   if (isFirstRun.current) {
+  //     // Run your effect code only on the first render
+  //     console.log(isFirstRun.current, "Effect Only runs once");
+  //     isFirstRun.current = false; // Set isFirstRun to false to prevent future runs
+  //     Firstrender = false;
+  //     GetVideosData(
+  //       ChannelDetails.channelId,
+  //       selectedOption,
+  //       SearchVideoValue.url
+  //     );
+  //   }
+  //   if (Firstrender) {
+  //     GetVideosData(
+  //       ChannelDetails.channelId,
+  //       selectedOption,
+  //       SearchVideoValue.url
+  //     );
+  //   }
+  // }, [selectedOption]);
 
   const GetVideosData = async (channelId, selectedOption) => {
     await axios
@@ -334,7 +336,7 @@ export const DashBoard = () => {
 
   return (
     <React.Fragment>
-      <LoginLayout>
+      <LoginLayout showFooter={true}>
         <div className="stepper__view pt-2">
           <StepSlider
             stepperDetails={[
@@ -430,6 +432,7 @@ export const DashBoard = () => {
               show={show}
             />
           )}
+        
         </div>
       </LoginLayout>
     </React.Fragment>

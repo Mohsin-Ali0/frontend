@@ -11,8 +11,6 @@
   object-fit: contain;
   height: 500px;
   width: 500px;
-  /* or
-    object-fit: cover; */
 }
 .sticky-div {
   position: sticky;

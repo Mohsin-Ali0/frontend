@@ -32,13 +32,22 @@ export const SubscriberAndUsers = ({
               />
             </Col>
             <Col xl={12} md={12}>
+              <Col xl={4} md={6} className="p-4">
+                <a href="google.com">Budget is greater then $1,000 a week?</a>
+              </Col>
               <Row className="align-items-center ">
-                <Col xl={4} md={6} className="p-4">
-                  <a href="google.com">Budget is greater then $1,000 a week?</a>
+                <Col xl={6} md={5} className="p-4 next-btn-container">
+                  <SiteButton
+                    onClick={() => handleStepChange(1)}
+                    className="site-btn next-btn"
+                    style={{ backgroundColor: "white", color: "#139DFF" }}
+                  >
+                    Back
+                  </SiteButton>
                 </Col>
                 <Col xl={6} md={5} className="p-4 next-btn-container">
                   <SiteButton
-                    onClick={() => handleStepChange(2, { value, Views })}
+                    onClick={() => handleStepChange(3, { value, Views })}
                     className="site-btn next-btn"
                   >
                     Next

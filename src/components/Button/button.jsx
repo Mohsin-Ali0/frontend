@@ -15,15 +15,13 @@ const SiteButton = (props) => {
           <>
             <div
               class="spinner-border text-white spinner-border-sm"
-              role="status"
+              // role="status"
             ></div>
             &nbsp;
           </>
         ) : (
-          ""
+          <>{props.children}</>
         )}
-
-        {props.children}
       </button>
     </>
   );

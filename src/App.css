@@ -15,6 +15,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

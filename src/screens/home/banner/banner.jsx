@@ -16,9 +16,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 export const Banner = () => {
   const navigate = useNavigate();
-
+  const { User } = useAuth();
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(e.target, "submitHandler  Pressed");
@@ -49,7 +50,7 @@ export const Banner = () => {
     // })
     // console.log(e.target, "submitHandler  Pressed");
   };
-
+  console.log(User, "User");
   return (
     <React.Fragment>
       <section className="bg_img">
@@ -109,33 +110,37 @@ export const Banner = () => {
                           />
                         </Button>
                       </Col>
-                      <Col xl="6" className="py-3">
-                        <Button
-                          variant="outline-primary"
-                          style={{
-                            color: "white",
-                            borderColor: "white",
-                            width: "80%",
-                            height: "3rem",
-                            position: "relative",
-                            textAlign: "left",
-                          }}
-                          className="py-2 px-5"
-                          type="submit"
-                          name="signup"
-                          // onClick={Signup}
-                        >
-                          Sign up
-                          <FontAwesomeIcon
-                            icon={faArrowRight}
+                      {User ? (
+                        <Col xl="6" className="py-3"></Col>
+                      ) : (
+                        <Col xl="6" className="py-3">
+                          <Button
+                            variant="outline-primary"
                             style={{
-                              position: "absolute",
-                              right: "10px",
-                              top: "33%",
+                              color: "white",
+                              borderColor: "white",
+                              width: "80%",
+                              height: "3rem",
+                              position: "relative",
+                              textAlign: "left",
                             }}
-                          />
-                        </Button>
-                      </Col>
+                            className="py-2 px-5"
+                            type="submit"
+                            name="signup"
+                            // onClick={Signup}
+                          >
+                            Sign up
+                            <FontAwesomeIcon
+                              icon={faArrowRight}
+                              style={{
+                                position: "absolute",
+                                right: "10px",
+                                top: "33%",
+                              }}
+                            />
+                          </Button>
+                        </Col>
+                      )}
                     </Row>
                   </Form>
                   <p

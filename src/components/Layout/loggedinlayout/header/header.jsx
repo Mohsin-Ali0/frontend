@@ -44,7 +44,7 @@ export const LoggedInHeader = (props) => {
 
   return (
     <header className="customHeader">
-      <Navbar expand="md">
+      <Navbar expand="md" sticky="top">
         <Container>
           <Navbar.Brand className="me-0">
             <Link to="/">

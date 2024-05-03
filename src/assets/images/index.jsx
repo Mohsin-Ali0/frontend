@@ -26,6 +26,8 @@ import AudienceIcon from "../images/audience-icon.png";
 import IntrestIcon from "../images/intrest-icon.png";
 import KeywordsIcon from "../images/keywords-icon.png";
 import ModalIcon from "../images/modal-icon.png";
+import PaymentSuccessIcon from "../images/payment_success_icon.jpg";
+import PaymentFailedIcon from "../images/payment_failed_icon.jpg";
 export {
   HeartIcon,
   EyeIcon,
@@ -55,4 +57,6 @@ export {
   IntrestIcon,
   KeywordsIcon,
   ModalIcon,
+  PaymentSuccessIcon,
+  PaymentFailedIcon,
 };
