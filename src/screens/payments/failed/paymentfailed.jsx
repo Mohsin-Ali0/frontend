@@ -5,8 +5,13 @@ import { LoginLayout } from "../../../components/Layout/loggedinlayout/loginLayo
 // import { PaymentSuccessIcon } from "../../../assets/images";
 import SiteButton from "../../../components/Button/button";
 import { PaymentFailedIcon } from "../../../assets/images";
+import { useNavigate } from "react-router-dom";
 
 export const PaymentFailed = () => {
+  const navigate = useNavigate();
+  const NavigateToDashboard = () => {
+    navigate("/channels");
+  };
   return (
     <React.Fragment>
       <LoginLayout showFooter={false}>
@@ -39,7 +44,7 @@ export const PaymentFailed = () => {
 
               <Col xl={6} md={5} className="p-4 next-btn-container">
                 <SiteButton
-                  //   onClick={() => handleStepChange(3, SelectedVideos)}
+                  onClick={NavigateToDashboard}
                   className="site-btn next-btn"
                 >
                   Next

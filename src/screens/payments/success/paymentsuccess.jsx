@@ -1,18 +1,21 @@
 import React from "react";
-import "../index.css"
+import "../index.css";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { LoginLayout } from "../../../components/Layout/loggedinlayout/loginLayout";
 import { PaymentSuccessIcon } from "../../../assets/images";
 import SiteButton from "../../../components/Button/button";
+import { useNavigate } from "react-router-dom";
 
 export const PaymentSuccess = () => {
+  const navigate = useNavigate();
+  const NavigateToDashboard = () => {
+    navigate("/channels");
+  };
   return (
     <React.Fragment>
       <LoginLayout showFooter={false}>
         <Container fluid>
-          <Row
-            className="justify-content-around align-items-center d-flex mt-5"
-          >
+          <Row className="justify-content-around align-items-center d-flex mt-5">
             <Col
               xl={6}
               md={5}
@@ -37,13 +40,13 @@ export const PaymentSuccess = () => {
                 order details. Feel free to reach out to our customer service
                 team for any questions or queries at [ customersupport@gmail.com
                 ] or call us at 1 111 111 111 to talk to a support
-                representative. We are delighted to have you onboard, and
-                hope you have an awesome experience with [Company/Product Name].
+                representative. We are delighted to have you onboard, and hope
+                you have an awesome experience with [Company/Product Name].
               </p>
 
               <Col xl={6} md={5} className="p-4 next-btn-container">
                 <SiteButton
-                  //   onClick={() => handleStepChange(3, SelectedVideos)}
+                  onClick={NavigateToDashboard}
                   className="site-btn next-btn"
                 >
                   Next

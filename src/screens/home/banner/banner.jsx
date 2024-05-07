@@ -87,6 +87,7 @@ export const Banner = () => {
                         className="channel-txt-input"
                         placeholder="Enter your youtube channel name or url"
                         name="url"
+                        autoComplete="off"
                       />
                     </InputGroup>
 

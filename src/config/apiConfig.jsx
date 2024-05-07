@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // axios.defaults.baseURL = "http://localhost:3004/";
-axios.defaults.baseURL = "https://83ba-58-65-197-79.ngrok-free.app";
+axios.defaults.baseURL = "https://6d07-58-65-197-79.ngrok-free.app";
 // axios.defaults.baseURL = "https://backend-eight-ruby.vercel.app/";
 // axios.defaults.baseURL = "https://node-backend.viralbunch.com";
 
