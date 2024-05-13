@@ -124,7 +124,7 @@ export const LoggedInHeader = (props) => {
       >
         <Offcanvas.Header closeButton className="position-relative ">
           <Offcanvas.Title>
-            <h2>Menudasd</h2>
+            <h2>Menu</h2>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="mob-menu">

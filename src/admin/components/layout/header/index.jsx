@@ -47,7 +47,7 @@ export const AdminHeader = (props) => {
 
   return (
     <header>
-      <Navbar className="customHeader" expand="md">
+      <Navbar className="customHeaderAdmin" expand="md">
         <Container fluid>
           <Link to={"/admin/dashboard"} className="siteLogo order-2 order-lg-1">
             <img src={LogoBlack} alt="Logo" />
