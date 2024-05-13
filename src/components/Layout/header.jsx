@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Nav, Navbar, Row, Offcanvas } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Nav,
+  Navbar,
+  Row,
+  Offcanvas,
+  Image,
+} from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import SiteButton from "../Button/button";
-import HeaderLogo from "../../assets/svg/headerlogo";
+import HeaderLogoImg from "../../assets/images/logo-light.png";
+
 import useAuth from "../../hooks/useAuth";
 import usePageTitle from "../../hooks/usePageTitle";
 import Cookies from "js-cookie";
-
+// import "../Client.module.css";
 export const SiteHeader = () => {
   usePageTitle("Home");
   const { User } = useAuth();
@@ -40,7 +49,7 @@ export const SiteHeader = () => {
               <Navbar expand="lg" className="siteNav">
                 <Navbar.Brand className="me-0">
                   <Link to="/">
-                    <HeaderLogo />
+                    <Image src={HeaderLogoImg} height={50} width={170} />
                   </Link>
                 </Navbar.Brand>
 
@@ -157,6 +166,11 @@ export const SiteHeader = () => {
                   className="transparent-btn p-xl d-lg-none"
                   onClick={toggleOffCanvasMenu}
                   style={{ backgroundColor: "orange" }}
+                  // style={{
+                  //   backgroundColor: "tranparent",
+                  //   padding: "0",
+                  //   border: "0",
+                  // }}
                 >
                   <FontAwesomeIcon icon={faBars} style={{ color: "white" }} />
                 </SiteButton>

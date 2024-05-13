@@ -16,7 +16,9 @@ import ArrowUPIcon from "../images/Arrow 1.png";
 import PromotionForecastBg from "../images/promotion-forecast-bg.jpg";
 import AuthImg from "../images/AuthImg.png";
 import GoogleIcon from "../images/googleIcon.png";
-import LogoBlack from "../images/logoBlack.png";
+// import LogoBlack from "../images/logoBlack.png";
+import LogoBlack from "../images/logo-dark.png";
+import LogoLight from "../images/logo-light.png";
 import ProfilePic from "../images/profilepic.png";
 import ArrowUp from "../images/arrowup.png";
 import ArrowDown from "../images/arrowdown.png";
@@ -28,6 +30,7 @@ import KeywordsIcon from "../images/keywords-icon.png";
 import ModalIcon from "../images/modal-icon.png";
 import PaymentSuccessIcon from "../images/payment_success_icon.jpg";
 import PaymentFailedIcon from "../images/payment_failed_icon.jpg";
+import PageNotFountIcon from "../images/404-Icon.jpg";
 export {
   HeartIcon,
   EyeIcon,
@@ -48,6 +51,7 @@ export {
   AuthImg,
   GoogleIcon,
   LogoBlack,
+  LogoLight,
   ProfilePic,
   ArrowUp,
   ArrowDown,
@@ -59,4 +63,5 @@ export {
   ModalIcon,
   PaymentSuccessIcon,
   PaymentFailedIcon,
+  PageNotFountIcon,
 };

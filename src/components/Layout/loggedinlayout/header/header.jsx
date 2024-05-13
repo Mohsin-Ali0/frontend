@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ArrowDown, ArrowUp, ProfilePic } from "../../../../assets/images";
 import HeaderLogo from "../../../../assets/svg/headerlogoblack";
+import HeaderLogoImg from "../../../../assets/images/logo-dark.png";
 import Cookies from "js-cookie";
 
 export const LoggedInHeader = (props) => {
@@ -48,7 +49,7 @@ export const LoggedInHeader = (props) => {
         <Container>
           <Navbar.Brand className="me-0">
             <Link to="/">
-              <HeaderLogo />
+              <Image src={HeaderLogoImg} height={50} width={170} />
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle className="order-4 order-lg-2 notButton">
@@ -90,9 +91,9 @@ export const LoggedInHeader = (props) => {
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="userMenu" align="end">
-                  <Link className="userMenuItem" to={"/admin/my-profile"}>
+                  <Link className="userMenuItem" style={{color:"white"}} to={"/admin/my-profile"}>
                     <FontAwesomeIcon
-                      className="me-2 yellow-text"
+                      className="me-2  yellow-text"
                       icon={faUser}
                     />
                     My Profile
@@ -101,6 +102,7 @@ export const LoggedInHeader = (props) => {
                     className="userMenuItem"
                     to="/"
                     onClick={() => handleLogout()}
+                    style={{color:"white"}}
                   >
                     <FontAwesomeIcon
                       className="me-1 yellow-text"

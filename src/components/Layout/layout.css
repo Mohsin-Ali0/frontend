@@ -274,7 +274,7 @@
   }
 }
 header a {
-  color: white !important;
+  color: white ;
   text-decoration: none;
 }
 .absolute-header .fa-bars {
@@ -315,9 +315,12 @@ header a {
 .siteNav .navbar-toggler:focus {
   box-shadow: none;
 }
-
+.transparent-btn {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
 /* FOOTER CSS */
-
 
 /* MY CSS */
 .signinbtn {

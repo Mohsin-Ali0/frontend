@@ -1,5 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import "../assets/fonts/clash-display.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import "../screens/Client.module.css";
+import "swiper/css";
 import Home from "../screens/home";
 import GuestRoutes from "./GuestRoutes";
 import UserLogIn from "../screens/auth/login";
@@ -10,19 +16,17 @@ import { DashBoard } from "../screens/dashboard";
 import Checkout from "../screens/dashboard/PayementScreen/PaymentScreen";
 import { PaymentSuccess } from "../screens/payments/success/paymentsuccess";
 import { PaymentFailed } from "../screens/payments/failed/paymentfailed";
+import { PageNotFound } from "../screens/page404";
 
-function UserRouter() {
+export const UserRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-
+      <Route path="*" element={<PageNotFound />} />
       {/* Auth Screens Start */}
       <Route element={<GuestRoutes />}>
         <Route path="/login" element={<UserLogIn />} />
         <Route path="/signup" element={<SignUp />} />
-        {/* <Route path="/forget-password" element={<ForgetPassword />} />
-        <Route path="/forget-password2" element={<ForgetPassword2 />} />
-        <Route path="/forget-password3" element={<ForgetPassword3 />} /> */}
       </Route>
       {/* Auth Screens End */}
 
@@ -34,8 +38,10 @@ function UserRouter() {
         <Route path="/payment/success" element={<PaymentSuccess />} />
         <Route path="/payment/failed" element={<PaymentFailed />} />
       </Route>
+
+      {/* <Route path="/admin/login" element={<AdminLogin />} /> */}
     </Routes>
   );
-}
+};
 
 export default UserRouter;

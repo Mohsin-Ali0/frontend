@@ -1,7 +1,8 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 
-import FooterLogo from "../../assets/images/footer-bg.jpg";
-import HeaderLogo from "../../assets/svg/headerlogo";
+import FooterBg from "../../assets/images/footer-bg.jpg";
+import FooterLogoImg from "../../assets/images/logo-light.png";
+
 import GoogleLogo from "../../assets/images/google-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,7 +21,7 @@ export const SiteFooter = () => {
 
     <footer
       style={{
-        backgroundImage: `url(${FooterLogo})`,
+        backgroundImage: `url(${FooterBg})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -57,7 +58,7 @@ export const SiteFooter = () => {
             className="d-flex justify-content-between flex-column"
             // style={{ backgroundColor: "brown" }}
           >
-            <HeaderLogo />
+            <Image src={FooterLogoImg} height={50} width={170} />
             <br />
             <p>
               <span>@023 Logoipsm</span>
