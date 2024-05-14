@@ -1,9 +1,9 @@
 // src/router/AdminRouter.js
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Dashboard } from "../admin/screens/Dashboard";
+import { Dashboard } from "../screens/admin/Dashboard";
 
-const AdminLogin = lazy(() => import("../admin/screens/Login"));
+const AdminLogin = lazy(() => import("../screens/admin/Login"));
 
 const AdminRouter = () => {
   return (

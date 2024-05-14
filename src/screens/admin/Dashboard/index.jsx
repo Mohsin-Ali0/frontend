@@ -4,7 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 // import { stats } from "../../../config/data";
 import usePageTitle from "../../../hooks/usePageTitle";
 import axios from "axios";
-import { DashboardLayout } from "../../components/layout/dashboardLayout";
+import { DashboardLayout } from "../../../components/Adminlayout/dashboardLayout";
 
 export const Dashboard = () => {
   usePageTitle("Admin Dashboard");

@@ -10,11 +10,12 @@ import {
   faEllipsisV,
   faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
-import { LogoBlack } from "../../../../assets/images/index";
+// import { LogoBlack } from "../../../../assets/images/index";
+import { LogoBlack } from "../../../assets/images";
 // import { SERVER_URL, notifificationData } from "../../config/data";
 // import CustomModal from "../../components/customModal";
-import SiteButton from "../../../../components/Button/button";
-import useAuth from "../../../../hooks/useAuth";
+import SiteButton from "../../Button/button";
+import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 
 export const AdminHeader = (props) => {
