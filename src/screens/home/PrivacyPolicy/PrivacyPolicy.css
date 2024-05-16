@@ -1,0 +1,41 @@
+
+.privacy-policy {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  line-height: 2.6;
+  max-width: 70%;
+  margin: auto;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  background: #f4f7ff;
+  border-radius: 20px;
+  margin-bottom: 180px;
+  padding-left: 5%;
+}
+
+.title {
+  text-align: center;
+  color: #333;
+}
+
+.section h2 {
+  color: #1155cc;
+  padding-top: 20px;
+}
+
+a {
+  color: #1155cc;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 991px) {
+  .privacy-policy {
+    max-width: 100%;
+  }
+}

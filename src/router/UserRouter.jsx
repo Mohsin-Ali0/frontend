@@ -17,11 +17,15 @@ import Checkout from "../screens/dashboard/PayementScreen/PaymentScreen";
 import { PaymentSuccess } from "../screens/payments/success/paymentsuccess";
 import { PaymentFailed } from "../screens/payments/failed/paymentfailed";
 import { PageNotFound } from "../screens/page404";
+import { PrivacyPolicy } from "../screens/PrivacyPolicy";
+import { TermsandCondition } from "../screens/Terms-and-Condition";
 
 export const UserRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-and-services" element={<TermsandCondition />} />
       <Route path="*" element={<PageNotFound />} />
       {/* Auth Screens Start */}
       <Route element={<GuestRoutes />}>

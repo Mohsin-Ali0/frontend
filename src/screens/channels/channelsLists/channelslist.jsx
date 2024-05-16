@@ -81,6 +81,15 @@ export const ChannelList = () => {
     setShowSelected(false);
     setselectedChannel([]);
   };
+  const onClickUrl = (url) => {
+    return () => openInNewTab(url);
+  };
+
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
+
   return (
     <React.Fragment>
       <section>
@@ -125,25 +134,24 @@ export const ChannelList = () => {
                   </Form>
                 </Col>
                 <Col
-                  lg={3}
+                  lg={4}
                   md={4}
                   sm={4}
                   //   style={{ backgroundColor: "pink" }}
-                  className="align-items-center justify-content-center"
+                  className="align-items-center justify-content-center d-flex"
                 >
                   <Button
                     variant="primary"
                     //    className="py-2 px-5"
                     style={{ height: "100%", width: "100%" }}
+                    className="align-items-center justify-content-center d-flex"
                     onClick={SearchChannel}
                   >
                     Get Started
                     <FontAwesomeIcon
                       icon={faArrowRight}
                       style={{
-                        position: "absolute",
-                        right: "10px",
-                        top: "33%",
+                        marginLeft: "5px",
                       }}
                     />
                   </Button>
@@ -169,6 +177,7 @@ export const ChannelList = () => {
                   justifyContent: "center",
                   alignSelf: "center",
                 }}
+                onClick={onClickUrl("https://youtube.com")}
               >
                 <FontAwesomeIcon
                   icon={faYoutube}

@@ -32,7 +32,7 @@ export const SiteHeader = () => {
     localStorage.clear();
     Cookies.remove();
 
-    window.location.reload();
+    window.location.href = '/';
   };
   useEffect(() => {
     if (User) {
@@ -63,16 +63,16 @@ export const SiteHeader = () => {
                         <NavLink
                           activeclassname="active"
                           className="me-xl-4 me-lg-3 headertext"
-                          to="/"
+                          to="/terms-and-services"
                         >
                           About Us
                         </NavLink>
                         <NavLink
                           activeclassname="active"
                           className="me-xl-4 me-lg-3 headertext"
-                          to="/featured-ads"
+                          to="/privacy-policy"
                         >
-                          Pricing
+                          Privacy Policy
                         </NavLink>
                         <NavLink
                           activeclassname="active"

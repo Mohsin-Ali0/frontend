@@ -1,0 +1,73 @@
+.terms-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 2.6;
+    max-width: 70%;
+    margin: auto;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    background: #f4f7ff;
+    border-radius: 20px;
+    margin-bottom: 180px;
+    padding-left: 5%;
+
+}
+
+
+
+.terms-container p,
+.terms-container li {
+  list-style: none;
+  /* color: #666; */
+  font-size: 16px;
+  line-height: 2.5;
+}
+
+.terms-container a {
+  color: #1155cc;
+  text-decoration: none;
+}
+.terms-container strong {
+  color: #1155cc;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.terms-container ol {
+  list-style-type: decimal;
+  padding-left: 40px;
+}
+
+.terms-container ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.terms-container section {
+  margin-bottom: 20px;
+}
+
+.custom-list {
+  list-style: none; /* Remove default list style */
+  padding-left: 0; /* Adjust padding if needed */
+}
+.custom-list > li {
+  position: relative; /* Needed for absolute positioning of pseudo-element */
+  padding-left: 20px; /* Space for custom marker */
+  line-height: 1.6; /* Adjust line height for better readability */
+  padding-bottom: 20px;
+}
+.custom-list > li::before {
+  content: ""; /* Necessary for the pseudo-element to work */
+  position: absolute;
+  left: 0; /* Position the custom marker to the left of the text */
+  top: 15px; /* Center vertically */
+  transform: translateY(-50%); /* Align center with the text */
+  width: 8px; /* Marker width */
+  height: 8px; /* Marker height */
+  background-color: #1155cc; /* Marker color */
+  /* color: #1155cc; */
+  border-radius: 50%; /* Make it circular */
+}
+.inner-list{
+    list-style-type: disc !important;
+}

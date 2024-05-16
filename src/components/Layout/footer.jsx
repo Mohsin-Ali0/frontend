@@ -1,4 +1,4 @@
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Nav, NavLink, Row } from "react-bootstrap";
 
 import FooterBg from "../../assets/images/footer-bg.jpg";
 import FooterLogoImg from "../../assets/images/logo-light.png";
@@ -76,14 +76,19 @@ export const SiteFooter = () => {
               className="d-flex justify-content-evenly"
             >
               <Col
-                lg="3"
+                lg="4"
                 className=" d-flex flex-column justify-content-around anchor-align "
+                // style={{ backgroundColor: "red" }}
               >
-                <a>About Us</a>
-                <a> Pricing</a>
+                <a href="/terms-and-services">TOS</a>
+                <a href="/privacy-policy"> Privacy Policy</a>
                 <a>FAQ</a>
               </Col>
-              <Col lg="6" className=" d-flex flex-column icon-align pt-3">
+              <Col
+                lg="5"
+                // style={{ backgroundColor: "pink" }}
+                className=" d-flex flex-column icon-align pt-3"
+              >
                 <p>
                   <FontAwesomeIcon icon={faPhone} />
                   &nbsp; +1 (000) 000-0000
