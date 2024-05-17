@@ -2,6 +2,7 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Dashboard } from "../screens/admin/Dashboard";
+import { UserManagment } from "../screens/admin/UserManagment";
 
 const AdminLogin = lazy(() => import("../screens/admin/Login"));
 
@@ -11,12 +12,13 @@ const AdminRouter = () => {
       <Suspense fallback={<div>Loading Admin Panel...</div>}>
         <Routes>
           <Route path="login" element={<AdminLogin />} />
-          <Route path="dashboard" element={<Dashboard />}>
-            <Route path="profile" element={<div>Profile Page</div>} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="profile" element={<UserManagment />} />
+          {/* <Route path="profile" element={<div>Profile Page</div>} />
             <Route path="settings" element={<div>Settings Page</div>} />
-            <Route path="reports" element={<div>Reports Page</div>} />
-            {/* Add more nested routes as needed */}
-          </Route>
+            <Route path="reports" element={<div>Reports Page</div>} /> */}
+          {/* Add more nested routes as needed */}
+          {/* </Route> */}
         </Routes>
       </Suspense>
     </div>

@@ -30,7 +30,7 @@ export const Sidebar = (props) => {
             text: "Ads Management",
           },
           {
-            to: "/admin/mentor-management",
+            to: "/admin/profile",
             icon: faUser,
             text: "User Management",
           },
