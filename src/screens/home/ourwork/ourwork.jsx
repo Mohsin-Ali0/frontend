@@ -9,8 +9,8 @@ export const OurWork = () => {
       <section className="bg_img txt-color">
         <Container>
           <Row className="justify-content-between align-items-center pt-4 pb-5 flex-column">
-            <Col xl="5" style={{ textAlign: "center" }}>
-              <h1>How VidTrial works</h1>
+            <Col xl="12" style={{ textAlign: "center" }}>
+              <h1>How The VidTrial Engine Operates </h1>
             </Col>
             <Col xl="12" className="pt-4">
               <Row className="justify-content-around align-items-center align-content-betweeen">
@@ -18,9 +18,9 @@ export const OurWork = () => {
                   <Image src={OneIcon} className="icon-styles " />
                   <h4 className="bluetxt">Setup</h4>
                   <p className="work-p-txt">
-                    Vestibulum ligula sapien, cursus sed consectetur nec,
-                    tincidunt ac metus. Vivamus accumsan diam eget ultricies
-                    auctor. Proin iaculis metus vel condimentum tincidunt.
+                    Subscribe to VidTrial by connecting your YouTube channel to
+                    VidTrial. Customize your campaign settings and target
+                    audience preferences effortlessly.
                   </p>
                 </Col>
 
@@ -28,27 +28,27 @@ export const OurWork = () => {
                   <Image src={TwoIcon} className="icon-styles " />
                   <h4 className="bluetxt">Promotion</h4>
                   <p className="work-p-txt">
-                    Vestibulum ligula sapien, cursus sed consectetur nec,
-                    tincidunt ac metus. Vivamus accumsan diam eget ultricies
-                    auctor. Proin iaculis metus vel condimentum tincidunt.
+                    Set up ads from your YouTube videos for maximum exposure to
+                    your target audience. Boost your channel's growth,
+                    visibility, and reach.
                   </p>
                 </Col>
                 <Col xl="5" className="mb-3 py-4 px-5 container-cloud">
                   <Image src={ThreeIcon} className="icon-styles " />
                   <h4 className="bluetxt">Payment</h4>
                   <p className="work-p-txt">
-                    Vestibulum ligula sapien, cursus sed consectetur nec,
-                    tincidunt ac metus. Vivamus accumsan diam eget ultricies
-                    auctor. Proin iaculis metus vel condimentum tincidunt.
+                    Seamlessly manage your payment process through our secure
+                    payment gateway. Choose from flexible payment options
+                    tailored to your needs.
                   </p>
                 </Col>
                 <Col xl="5" className="mb-3 py-4 px-5 container-cloud">
                   <Image src={FourIcon} className="icon-styles " />
                   <h4 className="bluetxt">Results</h4>
                   <p className="work-p-txt">
-                    Vestibulum ligula sapien, cursus sed consectetur nec,
-                    tincidunt ac metus. Vivamus accumsan diam eget ultricies
-                    auctor. Proin iaculis metus vel condimentum tincidunt.
+                    Gain valuable insights into your campaign's performance
+                    through a comprehensive analytics dashboard. Track
+                    engagement metrics and optimize future strategies.
                   </p>
                 </Col>
               </Row>

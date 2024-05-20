@@ -9,11 +9,12 @@ export const BoostViews = () => {
       <section className="boostview-bg_img txt-color">
         <Container fluid>
           <Row className="justify-content-between flex-column align-items-center pt-5">
-            <Col lg="6" style={{ textAlign: "center" }}>
-              <h1> Boost your YouTube views</h1>
+            <Col lg="12" style={{ textAlign: "center" }}>
+              <h1>Dynamic Video Marketing & Analytics Dashboard</h1>
               <p>
-                Discover keyword, title and description recommendations <br />
-                designed to get you more views and subscribers for free.
+                Improve Channel Visibility | Discover Impressive SEO Meta
+                Recommendations | Generate More Views | <br/> Grow Subscribers |
+                Monitor Performance From One Innovative Insights Hub
               </p>
             </Col>
             <Col lg="5" style={{ width: "80%" }} className="pt-3 pb-5">

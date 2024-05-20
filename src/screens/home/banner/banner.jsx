@@ -64,10 +64,9 @@ export const Banner = () => {
                   <div className="bullet-text">
                     <span className="bullet">&#8226;</span> Google Partner
                   </div>
-                  <h1>Designed to boost your YouTube views</h1>
+                  <h1>Supercharge Your YouTube Channel</h1>
                   <p style={{ fontSize: "18px" }}>
-                    Get insights and guidance to keep your YouTube channel
-                    growing.
+                  Amplify reach, boost subscribers and skyrocket views with the most powerful automated YouTube video promotion service. 
                   </p>
 
                   <Form onSubmit={submitHandler}>

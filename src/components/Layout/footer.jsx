@@ -62,12 +62,11 @@ export const SiteFooter = () => {
             <Image src={FooterLogoImg} height={50} width={170} />
             <br />
             <p>
-              <span>@023 Logoipsm</span>
+              <span>@2024 VidTrial</span>
               <br />
               <span style={{ color: "grey" }}>
-                Lorem ipsum dolor sit amet consectetur. Placerat ullamcorper
-                ornare pulvinar consectetur id. Quis egestas justo lorem cras
-                quis lectus id placerat viverra.
+                US Office: Prodvigate Inc, 2875 NE 191st ST., Suite 500,
+                Aventura, FL 33180
               </span>
             </p>
           </Col>

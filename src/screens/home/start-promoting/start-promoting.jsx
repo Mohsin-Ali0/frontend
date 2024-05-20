@@ -54,10 +54,10 @@ export const StartPromoting = () => {
               style={{ textAlign: "center" }}
               className=" d-flex flex-column justify-content-center align-items-center text-align-center"
             >
-              <h1 style={{ color: "#139DFF", width: "80%" }}>
-                We will show your channel to your target audience directly on
-                YouTube! Start at $39 per week
-              </h1>
+              <h2 style={{ color: "#139DFF", width: "80%" }}>
+                Showcase Your Channel In Front Of Potential Subscribers On
+                Youtube! Launch Ad Promotions From $49 Per Week
+              </h2>
 
               <Row className="justify-content-center align-items-center d-flex start-promoting-row">
                 <Col

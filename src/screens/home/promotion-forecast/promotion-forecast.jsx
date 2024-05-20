@@ -23,12 +23,12 @@ export const Promotionforecast = () => {
       <section className="reviews-bg">
         <Container>
           <Row className="justify-content-center align-items-center mb-5 pt-5 pb-5 color-black">
-            <Col xl="5" style={{ textAlign: "center" }}>
-              <h1 className="bluetxt pb-3">Promotion Forecast</h1>
+            <Col xl="8" style={{ textAlign: "center" }}>
+              <h1 className="bluetxt pb-3">Forecasts Powered By Real Data</h1>
               <p style={{ color: "grey" }}>
-                We use only official tools recommended by YouTube. That's why
-                views, interactions, subscribers will be real and interested in
-                your content
+                View promotion forecasts powered by YouTube’s official
+                algorithm. Get real time forecasts for views, interactions,
+                subscribers, and impressions of real potential YouTube users.
               </p>
             </Col>
             <Col xl="12" className="pt-4">

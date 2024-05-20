@@ -35,11 +35,11 @@ export const PromoteChanel = () => {
               className=" d-flex flex-column justify-content-center  align-items-center text-align-center"
             >
               <h1 className="promote-heading-align">
-                Promote your YouTube channel now
+                Kick Off Your YouTube Promotion In Style
               </h1>
               <p className="promote-p-align">
-                YouTube Ads only Real subscribers, views and likes Start as low
-                as $49 per week
+                Real Views, Real Subscribers Gain A Global Followership For As
+                Low As $49 Per Week
               </p>
               <SiteButton
                 className="site-btn prmote-btn"
