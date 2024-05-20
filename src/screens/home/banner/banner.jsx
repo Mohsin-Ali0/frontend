@@ -33,11 +33,11 @@ export const Banner = () => {
       // console.log(formDataObject);
       console.log(formDataObject, "asdasdsa");
       // console.log(e.nativeEvent.submitter.name, "submitHandler  Pressed");
-
+      return;
       navigate("/channels");
       localStorage.setItem("url", JSON.stringify(formDataObject));
-    }else{
-      navigate("/login")
+    } else {
+      navigate("/login");
     }
     // navigate("/channels", {
     //   state: formDataObject,
@@ -154,9 +154,9 @@ export const Banner = () => {
                       color: "#F1F1F1",
                     }}
                   >
-                    By signing up, I agree to LogoIpsum{" "}
-                    <a href="google.com"> Terms of Service</a> <br />
-                    and <a href="google.com"> Privacy Policy.</a>
+                    By signing up, I agree to VidTrial's{" "}
+                    <a href="/terms-and-services"> Terms of Service</a> <br />
+                    and <a href="/privacy-policy"> Privacy Policy.</a>
                   </p>
                 </Col>
               </Row>

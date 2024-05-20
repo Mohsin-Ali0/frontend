@@ -32,7 +32,7 @@ export const SiteHeader = () => {
     localStorage.clear();
     Cookies.remove();
 
-    window.location.href = '/';
+    window.location.href = "/";
   };
   useEffect(() => {
     if (User) {

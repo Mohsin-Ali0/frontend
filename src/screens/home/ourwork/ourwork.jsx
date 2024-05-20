@@ -10,7 +10,7 @@ export const OurWork = () => {
         <Container>
           <Row className="justify-content-between align-items-center pt-4 pb-5 flex-column">
             <Col xl="5" style={{ textAlign: "center" }}>
-              <h1>How Logoipsum works</h1>
+              <h1>How VidTrial works</h1>
             </Col>
             <Col xl="12" className="pt-4">
               <Row className="justify-content-around align-items-center align-content-betweeen">

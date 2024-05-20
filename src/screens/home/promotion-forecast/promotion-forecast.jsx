@@ -3,8 +3,21 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./promotion-forecast.css";
 import SiteButton from "../../../components/Button/button";
 import { BudgetCard } from "../../../components/Slider/slider";
+import useAuth from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export const Promotionforecast = () => {
+  const navigate = useNavigate();
+  const { User } = useAuth();
+  const submitHandler = (e) => {
+    if (User) {
+      e.preventDefault();
+
+      navigate("/channels");
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <React.Fragment>
       <section className="reviews-bg">
@@ -22,10 +35,17 @@ export const Promotionforecast = () => {
               <BudgetCard />
             </Col>
             <Row className="justify-content-between align-items-center  pt-5 pb-5 color-black">
-              <Col  xl={4} lg={4} md={4}   className="d-flex align-items-center justify-content-center">
-                <SiteButton className="site-btn">Start Promotion</SiteButton>
+              <Col
+                xl={4}
+                lg={4}
+                md={4}
+                className="d-flex align-items-center justify-content-center"
+              >
+                <SiteButton className="site-btn" onClick={submitHandler}>
+                  Start Promotion
+                </SiteButton>
               </Col>
-              <Col  xl={8} lg={8} md={8}  className="mt-2">
+              <Col xl={8} lg={8} md={8} className="mt-2">
                 <p
                   style={{
                     color: "grey",

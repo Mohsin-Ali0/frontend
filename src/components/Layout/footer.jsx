@@ -44,7 +44,8 @@ export const SiteFooter = () => {
           <p style={{ textAlign: "center" }}>
             Please contact us via Live Chat
             <br />
-            Or email at contact@Logoipsum.com
+            Or email at{"  "}
+            <a href="mailto:contact@Vidtrial.com">contact@VidTrial.com</a>
             <br />
             We will be happy to assist you!
           </p>
@@ -95,10 +96,10 @@ export const SiteFooter = () => {
                 </p>
                 <br />
                 <p>
-                  <span>
+                  <a href="mailto:contact@Vidtrial.com">
                     <FontAwesomeIcon icon={faEnvelope} />
-                    &nbsp; contact@Logoipsum.com
-                  </span>
+                    &nbsp; contact@VidTrial.com
+                  </a>
                 </p>
               </Col>
               <Col md="3" lg="3" sm="3" xs="3" xl="3">

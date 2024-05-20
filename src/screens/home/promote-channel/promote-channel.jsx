@@ -4,8 +4,27 @@ import { Col, Container, Row } from "react-bootstrap";
 import SiteButton from "../../../components/Button/button";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 export const PromoteChanel = () => {
+  const navigate = useNavigate();
+  const { User } = useAuth();
+  const submitHandler = (e) => {
+    if (User) {
+      e.preventDefault();
+
+      navigate("/channels");
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const handleGoogleLogin = () => {
+    // Redirect to the backend route for Google Login
+    // window.open("http://localhost:3004/auth/google", "_self");
+    window.open("https://backend.vidtrial.com/auth/google", "_self");
+  };
   return (
     <React.Fragment>
       <section className="pormote-channel-bg">
@@ -25,22 +44,25 @@ export const PromoteChanel = () => {
               <SiteButton
                 className="site-btn prmote-btn"
                 // style={{ width: "40%" }}
+                onClick={submitHandler}
               >
-               Start Promotion
+                Start Promotion
               </SiteButton>
-
-              <a
-                href="gooogle.com"
-                style={{
-                  paddingTop: "5%",
-                }}
-              >
-                or sign up with youtube
-                <FontAwesomeIcon
-                  icon={faArrowRight}
-                  className="promote-arrow-align"
-                />
-              </a>
+              {User ? null : (
+                <a
+                  href="#GoogleSignIn"
+                  onClick={handleGoogleLogin}
+                  style={{
+                    paddingTop: "5%",
+                  }}
+                >
+                  or sign up with youtube
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="promote-arrow-align"
+                  />
+                </a>
+              )}
             </Col>
           </Row>
         </Container>

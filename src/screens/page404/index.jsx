@@ -23,11 +23,8 @@ export const PageNotFound = () => {
               Page not found. If you think you got here by mistake, and here
               must definitely be something {isTabletOrMobile ? " " : <br />}
               useful, please let us know -{" "}
-              <a href="mailto:contact@viralbunch.com">
-                contact@viralbunch.com{" "}
-              </a>{" "}
-              or simply go to the {" "}
-              <a href="/">main page</a>.
+              <a href="mailto:contact@Vidtrial.com">contact@Vidtrial.com </a> or
+              simply go to the <a href="/">main page</a>.
               {/* <a href="https://youtube-ads.viralbunch.com/">main page</a>. */}
             </p>
           </Col>
