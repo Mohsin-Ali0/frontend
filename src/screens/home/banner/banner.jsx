@@ -33,7 +33,6 @@ export const Banner = () => {
       // console.log(formDataObject);
       console.log(formDataObject, "asdasdsa");
       // console.log(e.nativeEvent.submitter.name, "submitHandler  Pressed");
-      return;
       navigate("/channels");
       localStorage.setItem("url", JSON.stringify(formDataObject));
     } else {
