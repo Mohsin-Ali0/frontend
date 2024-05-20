@@ -21,21 +21,24 @@ export const Banner = () => {
   const navigate = useNavigate();
   const { User } = useAuth();
   const submitHandler = (e) => {
-    e.preventDefault();
-    console.log(e.target, "submitHandler  Pressed");
-    const formData = new FormData(e.target);
-    const formDataObject = {};
-    formData.forEach((value, key) => {
-      formDataObject[key] = value;
-    });
-    // Do something with the form data, such as send it to a server
-    // console.log(formDataObject);
-    console.log(formDataObject, "asdasdsa");
-    // console.log(e.nativeEvent.submitter.name, "submitHandler  Pressed");
+    if (User) {
+      e.preventDefault();
+      console.log(e.target, "submitHandler  Pressed");
+      const formData = new FormData(e.target);
+      const formDataObject = {};
+      formData.forEach((value, key) => {
+        formDataObject[key] = value;
+      });
+      // Do something with the form data, such as send it to a server
+      // console.log(formDataObject);
+      console.log(formDataObject, "asdasdsa");
+      // console.log(e.nativeEvent.submitter.name, "submitHandler  Pressed");
 
-    navigate("/channels");
-    localStorage.setItem("url", JSON.stringify(formDataObject));
-
+      navigate("/channels");
+      localStorage.setItem("url", JSON.stringify(formDataObject));
+    }else{
+      navigate("/login")
+    }
     // navigate("/channels", {
     //   state: formDataObject,
     // });

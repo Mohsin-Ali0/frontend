@@ -54,7 +54,8 @@ export const ChannelList = () => {
       });
   };
 
-  const SearchChannel = async () => {
+  const SearchChannel = async (e) => {
+    e.preventDefault();
     await axios
       .post("/channel", formData)
       .then((response) => {
@@ -105,7 +106,7 @@ export const ChannelList = () => {
                   sm={8}
                   className="align-items-center justify-content-center"
                 >
-                  <Form style={{ width: "100%" }}>
+                  <Form style={{ width: "100%" }} onSubmit={SearchChannel}>
                     <InputGroup>
                       <InputGroup.Text
                         style={{

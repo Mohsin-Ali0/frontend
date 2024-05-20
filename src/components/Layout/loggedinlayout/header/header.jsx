@@ -91,7 +91,7 @@ export const LoggedInHeader = (props) => {
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="userMenu" align="end">
-                  <Link className="userMenuItem" style={{color:"white"}} to={"/admin/my-profile"}>
+                  <Link className="userMenuItem" style={{color:"white"}} to={"/my-profile"}>
                     <FontAwesomeIcon
                       className="me-2  yellow-text"
                       icon={faUser}
@@ -127,7 +127,7 @@ export const LoggedInHeader = (props) => {
             <h2>Menu</h2>
           </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body className="mob-menu">
+        <Offcanvas.Body className="mob-menu" >
           <Nav className="flex-column">
             <NavLink
               // exact
