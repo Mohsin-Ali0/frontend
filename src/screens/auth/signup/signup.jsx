@@ -158,7 +158,7 @@ const SignUp = () => {
               // color: "#2E2F35",
               textAlign: "center",
             }}
-            className="pt-2  mob-resp"
+            className="pt-5  mob-resp"
           >
             By signing up, I agree to VidTrial's{" "}
             <a href="/terms-and-services"> Terms of Service</a> and{" "}

@@ -23,7 +23,6 @@ const UserLogIn = () => {
     // Redirect to the backend route for Google Login
     // window.open("http://localhost:3004/auth/google", "_self");
     window.open("https://backend.vidtrial.com/auth/google", "_self");
-    // window.open("https://node-backend.viralbunch.com/auth/google", "_self");
   };
 
   const handleLogin = async (e) => {
@@ -161,9 +160,9 @@ const UserLogIn = () => {
             }}
             className="pt-5  mob-resp"
           >
-            By signing up, I agree to LogoIpsum{" "}
-            <a href="google.com"> Terms of Service</a> and{" "}
-            <a href="google.com"> Privacy Policy.</a>
+            By signing up, I agree to VidTrial's{" "}
+            <a href="/terms-and-services"> Terms of Service</a> and{" "}
+            <a href="/privacy-policy"> Privacy Policy.</a>
           </p>
         </Form>
       </AuthLayout>

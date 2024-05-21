@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeftLong, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { AuthImg } from "../../../assets/images";
 import "./style.css";
-import { Col, Container, Row } from "react-bootstrap";
-import HeaderLogo from "../../../assets/svg/headerlogo";
+import { Col, Container, Image, Row } from "react-bootstrap";
+import HeaderLogoImg from "../../../assets/images/logo-light.png";
 
 export const AuthLayout = (props) => {
   return (
@@ -15,7 +15,7 @@ export const AuthLayout = (props) => {
           <Row className="justify-content-around align-items-center">
             <Col xl="4" lg={4} className="authImage">
               <a href="/" style={{ width: "200px" }}>
-                <HeaderLogo />
+                <Image src={HeaderLogoImg} height={50} width={170} />
               </a>
               <div>
                 <p style={{ color: "white" }}>
@@ -33,7 +33,7 @@ export const AuthLayout = (props) => {
               </Col>
               <Col xl={12} className="logoiconcont mb-4 ">
                 <a href="/" style={{ width: "200px" }}>
-                  <HeaderLogo />
+                  <Image src={HeaderLogoImg} height={50} width={170} />
                 </a>
               </Col>
               <Col xl={6} lg={8} style={{ alignSelf: "center" }}>
