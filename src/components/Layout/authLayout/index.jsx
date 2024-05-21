@@ -19,8 +19,8 @@ export const AuthLayout = (props) => {
               </a>
               <div>
                 <p style={{ color: "white" }}>
-                  “ Lorem ipsum dolor sit amet consectetur. Cursus ornare nunc
-                  nascetur enim convallis. “
+                  “ My channel is finally taking off slowly but surely. It will
+                  be a long road but I couldn't do it without VidTrial !“
                 </p>
                 <br />
                 <p style={{ color: "grey" }}>Scott Runolfsdottir</p>
