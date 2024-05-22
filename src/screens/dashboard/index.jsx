@@ -250,7 +250,7 @@ export const DashBoard = () => {
   const [keywordInput, setKeywordInput] = useState("");
 
   // COUNTRY
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const options = [
     { value: "afghanistan", label: "Afghanistan" },
@@ -353,6 +353,7 @@ export const DashBoard = () => {
 
   const handleStepChange = (stepIndex, data) => {
     setCurrentStep(stepIndex);
+    setShow(true)
   };
 
   return (
