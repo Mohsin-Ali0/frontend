@@ -241,6 +241,8 @@ export const DashBoard = () => {
     "25-34": false,
     "35-44": false,
     "45-54": false,
+    "55-64": false,
+    "65+": false,
     // ... Add other age ranges
   });
   const [interests, setInterests] = useState([]);
@@ -271,6 +273,8 @@ export const DashBoard = () => {
         "25-34": false /* ... reset others */,
         "35-44": false,
         "45-54": false,
+        "55-64": false,
+        "65+": false,
       });
     } else {
       setAges({ ...ages, all: false, [ageRange]: !ages[ageRange] });
@@ -304,13 +308,30 @@ export const DashBoard = () => {
     setKeywords(keywords.filter((_, index) => index !== indexToRemove));
   };
 
-  const handleCheckboxClick = (event) => {
+  const handleCheckboxClick = (key) => {
     // event.target.checked will be true if the checkbox is checked
-    if (event.target.checked == false) {
-      setShow(true);
-    } else {
-      setChecked(event.target.checked);
-      setShow(false);
+    // if (event.target.checked == false) {
+    //   setShow(true);
+    // } else {
+    //   setChecked(event.target.checked);
+    //   setShow(false);
+    // }
+
+    switch (key) {
+      case "Manual Selection":
+        if (checked == true) {
+          setShow(true);
+        }
+        break;
+      case "Auto Selection":
+        setChecked(true);
+        setShow(false);
+        break;
+
+      default:
+        setChecked(true);
+        setShow(false);
+        break;
     }
   };
 

@@ -14,7 +14,7 @@ const SiteButton = (props) => {
         {props.load ? (
           <>
             <div
-              class="spinner-border text-white spinner-border-sm"
+              className="spinner-border text-white spinner-border-sm"
               // role="status"
             ></div>
             &nbsp;

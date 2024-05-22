@@ -274,7 +274,7 @@ export const ChannelList = () => {
                         onClick={PromoteChannel}
                         className="site-btn btn-width"
                       >
-                        Promote
+                        Select Videos
                       </SiteButton>
                     </Col>
 

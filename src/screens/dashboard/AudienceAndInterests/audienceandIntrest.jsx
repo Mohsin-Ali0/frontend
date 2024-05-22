@@ -91,31 +91,33 @@ export const AudienceAndInterests = ({
   };
   // COUNTRY
 
-
   return (
     <Container>
       <Row className="justify-content-between align-items-center flex-column">
         <Col xl={12}>
           <h1>Audience and interests</h1>
           <Form>
-            {["checkbox"].map((type) => (
-              <div key={`default-${type}`} className="mb-3">
-                <Form.Check // prettier-ignore
-                  type={type}
-                  id={`default-${type}`}
-                  // label={``}
-                  label={
-                    <span>
-                      Automatically add the most relevant targeting for your
-                      channel
-                    </span>
-                  }
-                  checked={checked}
-                  // onClick={handleCheckboxClick}
-                  onChange={handleCheckboxClick}
-                />
-              </div>
-            ))}
+            <Row>
+              
+              <Col xl={4} lg={6} md={6} className="p-4 next-btn-container">
+                <SiteButton
+                  onClick={() => handleCheckboxClick("Auto Selection")}
+                  className="site-btn next-btn"
+                >
+                  Keep Automatic
+                </SiteButton>
+              </Col>
+              <Col xl={4} lg={6} md={6} className="p-4 next-btn-container">
+                <SiteButton
+                  onClick={() => handleCheckboxClick("Manual Selection")}
+                  className="site-btn next-btn"
+                  // style={{ backgroundColor: "white", color: "#139DFF" }}
+                >
+                  Select Manually
+                </SiteButton>
+              </Col>
+            </Row>
+            <hr />
             {checked ? null : (
               <>
                 {/* Countries dropdown */}
@@ -215,17 +217,32 @@ export const AudienceAndInterests = ({
                   </Form.Text>
                   <div className="interest-options">
                     {[
-                      "Children Education",
-                      "Cookery",
-                      "Music and music videos",
-                      "Travelling",
-                      "Buisness and carrers",
-                      "Cars and tranportation",
-                      "Vlogs and Interviews",
-                      "Sports and fitness",
-                      "Science and Technology",
-                      "Construction and repair",
-                      "Hobbies and Intrest",
+                      "Arts & Entertainment",
+                      "Autos & Vehicles",
+                      "Beauty & Fitness",
+                      "Books & Literature",
+                      "Business & Industrial",
+                      "Computers & Electronics",
+                      "Finance",
+                      "Food & Drink",
+                      "Games",
+                      "Health",
+                      "Hobbies & Leisure",
+                      "Home & Garden",
+                      "Internet & Telecom",
+                      "Jobs & Education",
+                      "Law & Government",
+                      "News",
+                      "Online Communities",
+                      "People & Society",
+                      "Pets & Animals",
+                      "Real Estate",
+                      "Reference",
+                      "Science",
+                      "Shopping",
+                      "Sports",
+                      "Travel & Transportation",
+                      "World Localities",
                     ].map((interest, index) => (
                       <Form.Check
                         key={index}
@@ -341,7 +358,7 @@ const ShowModal = ({ setShow, show, OpenOptions }) => {
             <Row className="justify-content-around align-items-start py-3">
               <Col xl={6} lg={6} md={12} className="order1">
                 <h3 className="modal-h1">
-                  Prodvigate recommends to set the promotion campaign for the
+                  VidTrial recommends to set the promotion campaign for the
                   automatic targeting
                 </h3>
               </Col>
