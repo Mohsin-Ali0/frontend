@@ -353,7 +353,7 @@ export const DashBoard = () => {
 
   const handleStepChange = (stepIndex, data) => {
     setCurrentStep(stepIndex);
-    setShow(true)
+    setShow(true);
   };
 
   return (

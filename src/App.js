@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AdminRouter } from "./router/AdminRouter";
 import UserRouter from "./router/UserRouter";
-
+import "sweetalert2/dist/sweetalert2.css";
 
 function App() {
   return (
     <Router>
-
       <Routes>
         {/* Route for Admin Panel */}
         <Route path="/admin/*" element={<AdminRouter />} />

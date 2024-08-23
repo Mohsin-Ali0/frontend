@@ -19,6 +19,7 @@ import { PaymentFailed } from "../screens/payments/failed/paymentfailed";
 import { PageNotFound } from "../screens/page404";
 import { PrivacyPolicy } from "../screens/PrivacyPolicy";
 import { TermsandCondition } from "../screens/Terms-and-Condition";
+import CustomPayments from "../screens/payments/custom-payments/custom-payments";
 
 export const UserRouter = () => {
   return (
@@ -38,9 +39,13 @@ export const UserRouter = () => {
       <Route element={<ProtectedRoutes />}>
         <Route path="/channels" element={<ChannelsScreen />} />
         <Route path="/dashboard" element={<DashBoard />} />
-        <Route path="/dashboard/checkout" element={<Checkout />} />
+        <Route path="/dashboard/checkout/:id" element={<Checkout />} />
         <Route path="/payment/success" element={<PaymentSuccess />} />
         <Route path="/payment/failed" element={<PaymentFailed />} />
+      </Route>
+
+      <Route>
+        <Route path="/dashboard/payment/:id" element={<CustomPayments />} />
       </Route>
 
       {/* <Route path="/admin/login" element={<AdminLogin />} /> */}

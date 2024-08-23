@@ -4,6 +4,8 @@ import SiteButton from "../../../components/Button/button";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
+import { decodeToken } from "react-jwt";
+import axios from "axios";
 
 const stripePromise = loadStripe(
   "pk_test_51Om0TVENvJ1Tu9riMwQgVkQbuHuVAUnEiUM9SUK2KLmiMoNiuyqy3gvpCWSzvV9nPETxB7VLvYsXSaFSUqsfYR2V00OA3bbOJQ"
@@ -65,7 +67,7 @@ export const StartThePromotion = ({
   // };
   const navigate = useNavigate();
 
-  const redirectToCheckout = () => {
+  const redirectToCheckout = async () => {
     // navigate('/dashboard/checkout');
     let CampaignDetails = {
       value,
@@ -76,10 +78,20 @@ export const StartThePromotion = ({
         checked == false ? { genders, ages, interests, keywords } : null,
     };
 
-    navigate("/dashboard/checkout", {
+    let UserData = decodeToken(localStorage.getItem("token"));
+    console.log(UserData, "UserData");
+
+    const response = await axios.post("/api/stripe/generate-client-secret", {
+      amount: CampaignDetails.value * 100, // Convert amount to cents
+      currency: "usd",
+      UserToken: localStorage.getItem("token"),
+      ChannelName: CampaignDetails.ChannelDetails.title,
+    });
+    const clientSecret = response.data.client_secret;
+
+    navigate(`/dashboard/checkout/${clientSecret}`, {
       state: {
         UserToken: localStorage.getItem("token"),
-        ChannelDetails,
         CampaignDetails,
       },
     });

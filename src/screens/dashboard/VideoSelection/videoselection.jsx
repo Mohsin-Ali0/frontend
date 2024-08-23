@@ -71,9 +71,6 @@ export const VideoSelection = ({
           />
         );
       case 2:
-        let reverse = [...SelectedVideos].reverse();
-        console.log(SelectedVideos, "SelectedVideos");
-        console.log(reverse, "reverse");
         return (
           <RelevantVideosComponent
             SelectedVideos={reverse}

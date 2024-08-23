@@ -1,8 +1,7 @@
-
 .privacy-policy {
   font-family: Arial, sans-serif;
   padding: 20px;
-  line-height: 2.6;
+  line-height: 2.2;
   max-width: 70%;
   margin: auto;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
@@ -11,7 +10,10 @@
   margin-bottom: 180px;
   padding-left: 5%;
 }
-
+.nml__editor__content__heading {
+  padding-top: 20px;
+  color: #1155cc;
+}
 .title {
   text-align: center;
   color: #333;

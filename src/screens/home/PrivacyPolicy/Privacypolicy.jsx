@@ -1,13 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import DOMPurify from "dompurify";
+import parse from "html-react-parser";
 import { Container } from "react-bootstrap";
 import "./PrivacyPolicy.css";
 
 export const PrivacypolicyContent = () => {
+  const [data, setData] = useState({
+    content: "",
+    lastupdate: "",
+  });
+
+  useEffect(() => {
+    getPrivacyPolicy("privacyPolicy");
+  }, []);
+
+  const getPrivacyPolicy = async (contentType) => {
+    try {
+      const res = await axios.get(
+        "api/admin/configuration/getFrontConfigbyId",
+        {
+          params: { contentType },
+        }
+      );
+
+      if (res.data && res.data.data) {
+        const sanitizedContent = DOMPurify.sanitize(res.data.data.value || "");
+        setData({
+          content: sanitizedContent,
+          lastupdate: res.data.data.lastUpdatedAt || "",
+        });
+      } else {
+        console.error("No data found in the response");
+      }
+    } catch (error) {
+      console.error("Error fetching terms and conditions:", error);
+    }
+  };
   return (
     <Container fluid>
       <h1 className="title pt-5 pb-5">VidTrial Privacy Policy</h1>
 
       <div className="privacy-policy">
+        {/* Parse and render sanitized HTML content */}
+        {parse(data.content)}
+        <p style={{ fontSize: 12 }}>
+          Last update: {new Date(data.lastupdate).toLocaleString()}
+        </p>
+      </div>
+
+      {/* <div className="privacy-policy">
         <section className="section">
           <h2>About VidTrial</h2>
           <p>
@@ -172,7 +214,7 @@ export const PrivacypolicyContent = () => {
         <section className="section">
           <p style={{fontSize:12}}>Last update: April 23, 2024</p>
         </section>
-      </div>
+      </div> */}
     </Container>
   );
 };

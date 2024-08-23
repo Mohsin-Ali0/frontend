@@ -1,19 +1,66 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import { useLocation, useParams } from "react-router-dom";
+
 import {
   PaymentElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-import "./checkoutform.css";
+// import "./checkoutform.css";
 import { Col, FormControl, InputGroup, Row } from "react-bootstrap";
-import SiteButton from "../Button/button";
-import { useLocation } from "react-router-dom";
+// import SiteButton from "../Button/button";
 import { decodeToken } from "react-jwt";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.css"; // Import the CSS for styling
 
-export const CheckoutForm = ({ UserToken, CampaignDetails, clientSecret }) => {
+const stripePromise = loadStripe(
+  "pk_test_51Om0TVENvJ1Tu9riMwQgVkQbuHuVAUnEiUM9SUK2KLmiMoNiuyqy3gvpCWSzvV9nPETxB7VLvYsXSaFSUqsfYR2V00OA3bbOJQ"
+);
+
+const CustomPayments = () => {
+  const { id } = useParams(); // Retrieve clientSecret from route parameters
+  console.log(id, "id");
+  const options = {
+    appearance: {
+      theme: "flat",
+    },
+  };
+  useEffect(() => {
+    getCampaginDetails();
+  }, []);
+  // 'stripe', 'flat', 'night'
+
+  const getCampaginDetails = async () => {
+    await axios
+      .get(`/api/campaign/get-campaign/${id}`)
+      .then((res) => {
+        console.log(res.data, "res");
+      })
+      .catch((err) => {
+        console.log(err, "err");
+      });
+  };
+
+  return (
+    <div className="flex container mt-8">
+      <Elements stripe={stripePromise} options={options}>
+        {/* <CustomCheckoutForm
+          UserToken={state.UserToken}
+          CampaignDetails={state.CampaignDetails}
+          clientSecret={id}
+        /> */}
+      </Elements>
+      <h1>Custom Payments</h1>
+    </div>
+  );
+};
+
+export default CustomPayments;
+
+const CustomCheckoutForm = ({ UserToken, CampaignDetails, clientSecret }) => {
   const { state } = useLocation();
 
   const DecodedToken = decodeToken(state.UserToken);
@@ -131,7 +178,7 @@ export const CheckoutForm = ({ UserToken, CampaignDetails, clientSecret }) => {
           </Col>
         </Row>
       </div>
-      <PaymentElement options={{layout:"accordion"}} />
+      <PaymentElement options={{ layout: "accordion" }} />
       <Row className="justify-content-between align-items-center">
         <Col
           xl={12}
@@ -154,62 +201,4 @@ export const CheckoutForm = ({ UserToken, CampaignDetails, clientSecret }) => {
       {showModal && showAlert()} {/* Render modal if showModal is true */}
     </form>
   );
-};
-
-const handleSubmit2 = async (event) => {
-  event.preventDefault();
-  setLoad(true);
-  if (elements == null || stripe == null) {
-    setLoad(false);
-    return;
-  }
-
-  // Trigger form validation and wallet collection
-  const { error: submitError } = await elements.submit();
-  if (submitError?.message) {
-    // Show error to your customer
-    setLoad(false);
-    setErrorMessage(submitError.message);
-    return;
-  }
-
-  const paymentResult = await axios.post("api/stripe/charge", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: {
-      email: DecodedToken?.email,
-      amount: state.CampaignDetails?.value * 100, // Convert amount to cents
-      currency: "usd", // Adjust currency as needed
-      UserToken: JSON.stringify(state.UserToken),
-      CampaignDetails: JSON.stringify(state.CampaignDetails),
-    },
-  });
-
-  const clientSecret = await paymentResult.data.client_secret;
-
-  const { error } = await stripe.confirmPayment({
-    //`Elements` instance that was used to create the Payment Element
-    elements,
-    clientSecret,
-    confirmParams: {
-      return_url: `${window.location.origin}/payment/success`,
-    },
-  });
-
-  if (error) {
-    // This point will only be reached if there is an immediate error when
-    // confirming the payment. Show error to your customer (for example, payment
-    // details incomplete)
-    console.log(error, "-----");
-    setErrorMessage(error.message);
-    setLoad(false);
-    // window.location.href = `${window.location.origin}/payment/failed`;
-  } else {
-    setLoad(false);
-    // Your customer will be redirected to your `return_url`. For some payment
-    // methods like iDEAL, your customer will be redirected to an intermediate
-    // site first to authorize the payment, then redirected to the `return_url`.
-  }
 };
