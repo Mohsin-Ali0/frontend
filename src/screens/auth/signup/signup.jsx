@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./signup.css";
@@ -8,13 +8,16 @@ import { AuthLayout } from "../../../components/Layout/authLayout";
 import { GoogleIcon } from "../../../assets/images";
 import CustomInput from "../../../components/CustomInput";
 import SiteButton from "../../../components/Button/button";
-import useAuth from "../../../hooks/useAuth";
 import usePageTitle from "../../../hooks/usePageTitle";
 
 const SignUp = () => {
   usePageTitle("Sign Up");
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/"; // Default to dashboard if no previous path
+
   const [formData, setFormData] = useState({});
   const [load, setLoad] = useState(false);
   const [termsChecked, setTermsChecked] = useState(false);
@@ -23,8 +26,8 @@ const SignUp = () => {
 
   const handleGoogleLogin = () => {
     // Redirect to the backend route for Google Login
-    window.open("http://localhost:3004/auth/google", "_self");
-    // window.open("https://backend.vidtrial.com/auth/google", "_self");
+    // window.open("http://localhost:3004/auth/google", "_self");
+    window.open("https://backend.vidtrial.com/auth/google", "_self");
   };
 
   const handleLogin = async (e) => {
@@ -42,7 +45,8 @@ const SignUp = () => {
           axios.defaults.headers.common[
             "Authorization"
           ] = `Bearer ${res.data.data}`;
-          navigate("/");
+          // navigate("/");
+          navigate(from, { replace: true });
         })
         .catch((err) => {
           console.log(err);

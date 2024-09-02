@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./login.css";
@@ -13,16 +13,19 @@ import CustomInput from "../../components/CustomInput";
 const UserLogIn = () => {
   usePageTitle("Login");
 
+  const location = useLocation();
   const navigate = useNavigate();
-  // const { setRole } = useAuth();
+
+  const from = location.state?.from?.pathname || "/"; // Default to dashboard if no previous path
+
   const [formData, setFormData] = useState({});
   const [load, setLoad] = useState(false);
   const [ErrorData, setErrorData] = useState({});
 
   const handleGoogleLogin = () => {
     // Redirect to the backend route for Google Login
-    window.open("http://localhost:3004/auth/google", "_self");
-    // window.open("https://backend.vidtrial.com/auth/google", "_self");
+    // window.open("http://localhost:3004/auth/google", "_self");
+    window.open("https://backend.vidtrial.com/auth/google", "_self");
   };
 
   const handleLogin = async (e) => {
@@ -39,7 +42,8 @@ const UserLogIn = () => {
           localStorage.setItem("token", response.data.data);
           setTimeout(() => {
             setLoad(false);
-            navigate("/");
+            // navigate("/");
+            navigate(from, { replace: true });
             axios.defaults.headers.common[
               "Authorization"
             ] = `Bearer ${response.data.data.token}`;
