@@ -31,6 +31,9 @@ import ModalIcon from "../images/modal-icon.png";
 import PaymentSuccessIcon from "../images/payment_success_icon.jpg";
 import PaymentFailedIcon from "../images/payment_failed_icon.jpg";
 import PageNotFountIcon from "../images/404-Icon.jpg";
+import LikesIcon from "../images/likes_icon.png";
+import ViewsIcon from "../images/views_icon.png";
+import SubscribersIcon from "../images/subscribers_icon.png";
 export {
   HeartIcon,
   EyeIcon,
@@ -64,4 +67,7 @@ export {
   PaymentSuccessIcon,
   PaymentFailedIcon,
   PageNotFountIcon,
+  LikesIcon,
+  ViewsIcon,
+  SubscribersIcon,
 };

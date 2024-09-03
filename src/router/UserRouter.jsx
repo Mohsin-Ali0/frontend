@@ -42,13 +42,8 @@ export const UserRouter = () => {
         <Route path="/dashboard/checkout/:id" element={<Checkout />} />
         <Route path="/payment/success" element={<PaymentSuccess />} />
         <Route path="/payment/failed" element={<PaymentFailed />} />
+        <Route path="/custompayment/:id" element={<CustomPayments />} />
       </Route>
-
-      <Route>
-        <Route path="/dashboard/payment/:id" element={<CustomPayments />} />
-      </Route>
-
-      {/* <Route path="/admin/login" element={<AdminLogin />} /> */}
     </Routes>
   );
 };

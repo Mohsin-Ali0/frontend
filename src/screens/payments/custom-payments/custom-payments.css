@@ -1,0 +1,10 @@
+.custom-review-badge {
+  background: rgba(19, 157, 255, 0.1) !important;
+  color: #139dff;
+  font-family: sans-serif;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-right: 5px;
+  text-align: justify;
+}

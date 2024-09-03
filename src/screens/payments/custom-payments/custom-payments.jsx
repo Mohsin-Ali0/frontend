@@ -1,204 +1,120 @@
 import React, { useEffect, useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { useLocation, useParams } from "react-router-dom";
-
-import {
-  PaymentElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
-// import "./checkoutform.css";
-import { Col, FormControl, InputGroup, Row } from "react-bootstrap";
-// import SiteButton from "../Button/button";
-import { decodeToken } from "react-jwt";
-import Swal from "sweetalert2";
-import "sweetalert2/dist/sweetalert2.css"; // Import the CSS for styling
-
+import "./custom-payments.css";
+import ReviewCustomCampaign from "./review-custom-campaign.jsx";
+import { Elements } from "@stripe/react-stripe-js";
+import CustomPaymentForm from "./custom-payment-form/custom-payment-form.jsx";
+import { loadStripe } from "@stripe/stripe-js";
+import { Container } from "react-bootstrap";
 const stripePromise = loadStripe(
   "pk_test_51Om0TVENvJ1Tu9riMwQgVkQbuHuVAUnEiUM9SUK2KLmiMoNiuyqy3gvpCWSzvV9nPETxB7VLvYsXSaFSUqsfYR2V00OA3bbOJQ"
 );
 
 const CustomPayments = () => {
-  const { id } = useParams(); // Retrieve clientSecret from route parameters
-  console.log(id, "id");
-  const options = {
-    appearance: {
-      theme: "flat",
-    },
-  };
-  useEffect(() => {
-    getCampaginDetails();
-  }, []);
-  // 'stripe', 'flat', 'night'
+  const [validationError, setValidationError] = useState(null);
+  const [isValid, setIsValid] = useState(false);
+  const [campaignData, setCampaignData] = useState(null);
+  const [BidDetails, setBidDetails] = useState(null);
+  const location = useLocation();
 
-  const getCampaginDetails = async () => {
+  // Extract the token from the pathname
+  const pathname = location.pathname;
+  const token = pathname.split("payementdetails=")[1]; // Extract the token after "payementdetails="
+
+  useEffect(() => {
+    if (token) {
+      ValidateURLtoken(token);
+    } else {
+      setValidationError("No payment token found in the URL");
+    }
+  }, [token]);
+
+  const ValidateURLtoken = async (token) => {
+    try {
+      const response = await axios.post(`/api/admin/campaign/verifyLinkUrl`, {
+        token,
+      });
+
+      // Log the response for debugging
+
+      if (response.data && response.data?.valid) {
+        setIsValid(true); // Token is valid, proceed with payment
+
+        // Log campaign ID before calling getPaymentDetails
+        const campaignId = response.data?.data?.campaignId;
+
+        if (campaignId) {
+          await getPaymentDetails(campaignId);
+        } else {
+          setValidationError("Invalid campaign details");
+        }
+      } else {
+        setValidationError(response.data?.error || "Invalid payment link"); // Token is invalid, show error
+      }
+    } catch (error) {
+      setValidationError("An error occurred during token validation");
+    }
+  };
+
+  const getPaymentDetails = async (campaignId) => {
+    try {
+      const response = await axios.get(
+        `/api/admin/campaign/getCustomCampaignDetails/${campaignId}`
+      );
+      let parseCampaignData = JSON.parse(
+        response.data?.campaign.campaign_details
+      );
+
+      setCampaignData(parseCampaignData);
+      getSystemConfig();
+      // Proceed with payment logic
+    } catch (error) {
+      console.error("Error fetching payment details:", error);
+      setValidationError("An error occurred while fetching payment details");
+    }
+  };
+
+  const getSystemConfig = async () => {
     await axios
-      .get(`/api/campaign/get-campaign/${id}`)
+      .get("api/admin/configuration/getCustomCampaignDetails")
       .then((res) => {
-        console.log(res.data, "res");
+        setBidDetails(res.data.data);
+        // Proceed with payment logic
       })
       .catch((err) => {
-        console.log(err, "err");
+        setValidationError("An error occurred while fetching Bid Details");
       });
   };
 
   return (
-    <div className="flex container mt-8">
-      <Elements stripe={stripePromise} options={options}>
-        {/* <CustomCheckoutForm
-          UserToken={state.UserToken}
-          CampaignDetails={state.CampaignDetails}
-          clientSecret={id}
-        /> */}
-      </Elements>
-      <h1>Custom Payments</h1>
+    <div>
+      {validationError && <p className="error">{validationError}</p>}
+      {isValid ? (
+        <>
+          {/*  */}
+          {/* PAYMENT COMPONENT HERE */}
+          {/*  */}
+          <Container>
+            <h1>Enter Payments Details</h1>
+            <Elements stripe={stripePromise}>
+              <CustomPaymentForm amount={campaignData?.budget?.amount} />
+            </Elements>
+
+            <h1>Review Campaign Details</h1>
+
+            <ReviewCustomCampaign
+              campaignData={campaignData}
+              BidDetails={BidDetails}
+            />
+          </Container>
+        </>
+      ) : (
+        // Your payment logic here
+        <p>Loading...</p>
+      )}
     </div>
   );
 };
 
 export default CustomPayments;
-
-const CustomCheckoutForm = ({ UserToken, CampaignDetails, clientSecret }) => {
-  const { state } = useLocation();
-
-  const DecodedToken = decodeToken(state.UserToken);
-
-  const stripe = useStripe();
-  const elements = useElements();
-
-  const [errorMessage, setErrorMessage] = useState("");
-  const [load, setLoad] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setLoad(true);
-    if (elements == null || stripe == null) {
-      setLoad(false);
-      return;
-    }
-    await axios
-      .post("/api/stripe/complete-payment", {
-        email: DecodedToken.email,
-        amount: CampaignDetails.value * 100,
-        UserToken,
-        CampaignDetails,
-        clientSecret,
-      })
-      .then(async (res) => {
-        const { error: submitError } = await elements.submit();
-        if (submitError?.message) {
-          setLoad(false);
-          setErrorMessage(submitError.message);
-          setShowModal(true);
-          console.log(submitError, "submitError error");
-          return;
-        }
-
-        const { error } = await stripe.confirmPayment({
-          elements,
-          clientSecret,
-          confirmParams: {
-            return_url: `${window.location.origin}/payment/success`,
-          },
-        });
-
-        if (error) {
-          // This point will only be reached if there is an immediate error when
-          // confirming the payment. Show error to your customer (for example, payment
-          // details incomplete)
-          console.log(error, "if error");
-          setErrorMessage(error.message);
-          setLoad(false);
-          setShowModal(true);
-        } else {
-          setLoad(false);
-          window.location.href = `${window.location.origin}/payment/failed`;
-
-          // Your customer will be redirected to your `return_url`. For some payment
-          // methods like iDEAL, your customer will be redirected to an intermediate
-          // site first to authorize the payment, then redirected to the `return_url`.
-        }
-      })
-      .catch((err) => {
-        setLoad(false);
-        setErrorMessage(err.message);
-        setShowModal(true); // Trigger modal if there's an error
-      });
-  };
-
-  const showAlert = () => {
-    Swal.fire({
-      title: "Payment Error",
-      text: errorMessage || "Unknown error occurred.",
-      icon: "error",
-      confirmButtonText: "OK",
-    }).then((result) => {
-      // After user clicks OK button
-      if (result.isConfirmed || result.isDismissed) {
-        setShowModal(false); // Close the modal by setting state to false
-      }
-    });
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="px-4 py-4">
-      <div className="mb-3">
-        <Row className="justify-content-between align-items-center ">
-          <Col xl={6} className="justify-content-between align-items-center">
-            <label htmlFor="email-input">Email</label>
-            <FormControl
-              style={{ color: "black", padding: "20px" }}
-              value={DecodedToken?.email}
-              // onChange={(e) => setEmailInput(e.target.value)}
-              type="email"
-              id="email-input"
-              placeholder="johndoe@gmail.com"
-              className="checkout-email"
-              readOnly
-            />
-          </Col>
-          <Col xl={6} className="justify-content-between align-items-center">
-            <label htmlFor="email-input">Amount</label>
-            <InputGroup>
-              <InputGroup.Text>$</InputGroup.Text>
-              <FormControl
-                style={{ color: "black", padding: "20px" }}
-                value={state.CampaignDetails?.value}
-                // onChange={(e) => setEmailInput(e.target.value)}
-                type="email"
-                id="email-input"
-                placeholder="johndoe@gmail.com"
-                className="checkout-email"
-                readOnly
-              />
-            </InputGroup>
-          </Col>
-        </Row>
-      </div>
-      <PaymentElement options={{ layout: "accordion" }} />
-      <Row className="justify-content-between align-items-center">
-        <Col
-          xl={12}
-          className="justify-content-center align-items-center d-flex py-5"
-          //   style={{ backgroundColor: "red" }}
-        >
-          <SiteButton
-            type="submit"
-            disabled={!stripe || !elements}
-            // className="checkout-btn"
-            className="site-btn btn-width checkout-btn"
-            load={load}
-          >
-            Pay
-          </SiteButton>
-        </Col>
-      </Row>
-      {/* Show error message to your customers */}
-      {errorMessage && <div>{errorMessage}</div>}
-      {showModal && showAlert()} {/* Render modal if showModal is true */}
-    </form>
-  );
-};

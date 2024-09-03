@@ -73,7 +73,7 @@ export const VideoSelection = ({
       case 2:
         return (
           <RelevantVideosComponent
-            SelectedVideos={reverse}
+            SelectedVideos={SelectedVideos}
             setSelectedVideos={setSelectedVideos}
           />
         );

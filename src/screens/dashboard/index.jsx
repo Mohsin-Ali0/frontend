@@ -7,112 +7,7 @@ import { AudienceAndInterests } from "./AudienceAndInterests/audienceandIntrest"
 import { StartThePromotion } from "./StartThePromotion/startpromotion";
 import usePageTitle from "../../hooks/usePageTitle";
 import axios from "axios";
-import { PaymentForm } from "./PayementScreen/PaymentScreen";
 
-// let Vid = [
-//   {
-//     videoId: "pxEFOUcFs-c",
-//     title:
-//       "Chasing The Dream: The Magic Of Melbourne | Behind The Scenes F2 | 2024 Australian Grand Prix",
-//     thumbnail: "https://i.ytimg.com/vi/pxEFOUcFs-c/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "AfmKYoL3oG8",
-//     title:
-//       "&#39;Look At Me, I’m The Captain Now&#39; | Box Of BLUFFS! | Featuring Carlos Sainz &amp; Lando Norris",
-//     thumbnail: "https://i.ytimg.com/vi/AfmKYoL3oG8/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "GG_8uizdWvU",
-//     title:
-//       "Hauger And Hadjar&#39;s Highs And Lows | Road To F1 | 2024 Australian Grand Prix",
-//     thumbnail: "https://i.ytimg.com/vi/GG_8uizdWvU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "28DtDOGF3eg",
-//     title:
-//       "Russell&#39;s Dramatic Crash! | The Top 10 Onboards | 2024 Australian Grand Prix | Qatar Airways",
-//     thumbnail: "https://i.ytimg.com/vi/28DtDOGF3eg/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-//   {
-//     videoId: "bYfc9NN5baU",
-//     title:
-//       "Sainz Glory, Verstappen Chaos And The Best Team Radio | 2024 Australian Grand Prix | Paramount+",
-//     thumbnail: "https://i.ytimg.com/vi/bYfc9NN5baU/hqdefault.jpg",
-//   },
-// ];
 export const DashBoard = () => {
   usePageTitle("Dashboad");
   const [currentStep, setCurrentStep] = useState(1);
@@ -134,10 +29,6 @@ export const DashBoard = () => {
   const [limitReached, setLimitReached] = useState(false);
   const [VideoSeggestion, setVideoSuggestion] = useState([]);
   const [SearchVideoValue, setSearchVideoValue] = useState({ url: "" });
-
-  // useEffect(() => {
-  //   setChannelDetails(JSON.parse(localStorage.getItem("channeldetails")));
-  // }, [currentStep]);
 
   // Function to extract video ID from YouTube video URL
   const getVideoIdFromUrl = (url) => {
@@ -296,10 +187,8 @@ export const DashBoard = () => {
 
   const handleKeywordAdd = (event) => {
     event.preventDefault();
-    // const input = event.target.elements.keyword.value.trim();
     if (keywordInput && keywords.length < 10) {
       setKeywords([...keywords, keywordInput]);
-      // event.target.elements.keyword.value = "";
       setKeywordInput("");
     }
   };
@@ -309,14 +198,6 @@ export const DashBoard = () => {
   };
 
   const handleCheckboxClick = (key) => {
-    // event.target.checked will be true if the checkbox is checked
-    // if (event.target.checked == false) {
-    //   setShow(true);
-    // } else {
-    //   setChecked(event.target.checked);
-    //   setShow(false);
-    // }
-
     switch (key) {
       case "Manual Selection":
         if (checked == true) {
@@ -372,7 +253,6 @@ export const DashBoard = () => {
           />
         </div>
 
-        {/* <div className="step-component-container">{renderStepComponent()}</div> */}
         <div className="step-component-container">
           {currentStep === 1 && (
             <VideoSelection
