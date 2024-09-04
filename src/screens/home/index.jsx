@@ -8,7 +8,7 @@ import { OurWork } from "./ourwork/ourwork";
 import { PromoteChanel } from "./promote-channel/promote-channel";
 import { StartPromoting } from "./start-promoting/start-promoting";
 import { Promotionforecast } from "./promotion-forecast/promotion-forecast";
-import { Views } from "./Views/views";
+import { Views } from "./views/views";
 
 function Home() {
   return (

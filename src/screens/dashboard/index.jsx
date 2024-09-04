@@ -19,8 +19,8 @@ export const DashBoard = () => {
   const [videoSelectionData, setVideoSelectionData] = useState({}); // State to hold video selection data
   const [audienceAndInterestsData, setAudienceAndInterestsData] = useState({}); // State to hold audience and interests data
 
-  const [value, setValue] = useState(32);
-  const [Views, setViews] = useState(1408);
+  const [value, setValue] = useState();
+  const [ViewsData, setViewsData] = useState({});
 
   // // VIDEO SELECTION STATE
   const [SelectedVideos, setSelectedVideos] = useState([]);
@@ -68,14 +68,15 @@ export const DashBoard = () => {
     await axios
       .get("api/admin/configuration/getFrontViewsDetails")
       .then((res) => {
-        console.log(res.data.data,"Api Response");
+        console.log(res.data.data, "Api Response");
+        setValue(parseInt(res.data.data.minviews.value));
+        setViewsData(res.data.data);
         // Proceed with payment logic
       })
       .catch((err) => {
-        setValidationError("An error occurred while fetching Bid Details");
+        console.log(err);
       });
   };
-
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -83,7 +84,7 @@ export const DashBoard = () => {
     } else {
       console.log("Geolocation is not supported by this browser.");
     }
-    getViewsConfig()
+    getViewsConfig();
   }, []);
 
   const showPosition = (position) => {
@@ -246,7 +247,7 @@ export const DashBoard = () => {
     }
   };
 
-  const handleStepChange = (stepIndex, data) => {
+  const handleStepChange = (stepIndex) => {
     setCurrentStep(stepIndex);
     setShow(true);
   };
@@ -293,8 +294,7 @@ export const DashBoard = () => {
               handleStepChange={handleStepChange}
               value={value}
               setValue={setValue}
-              Views={Views}
-              setViews={setViews}
+              ViewsData={ViewsData}
             />
           )}
           {currentStep === 3 && (

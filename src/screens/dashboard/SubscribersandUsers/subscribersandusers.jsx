@@ -8,8 +8,7 @@ export const SubscriberAndUsers = ({
   handleStepChange,
   value,
   setValue,
-  Views,
-  setViews,
+  ViewsData,
 }) => {
   return (
     <React.Fragment>
@@ -27,13 +26,14 @@ export const SubscriberAndUsers = ({
                 ChannelDetails={ChannelDetails}
                 value={value}
                 setValue={setValue}
-                Views={Views}
-                setViews={setViews}
+                ViewsData={ViewsData}
               />
             </Col>
             <Col xl={12} md={12}>
               <Col xl={4} md={6} className="p-4">
-                <a href="google.com">Budget is greater then $1,000 a week?</a>
+                <a href="google.com">
+                  Budget is greater then ${ViewsData?.maxviews?.value} a week?
+                </a>
               </Col>
               <Row className="align-items-center ">
                 <Col xl={6} md={5} className="p-4 next-btn-container">
@@ -47,7 +47,7 @@ export const SubscriberAndUsers = ({
                 </Col>
                 <Col xl={6} md={5} className="p-4 next-btn-container">
                   <SiteButton
-                    onClick={() => handleStepChange(3, { value, Views })}
+                    onClick={() => handleStepChange(3)}
                     className="site-btn next-btn"
                   >
                     Next

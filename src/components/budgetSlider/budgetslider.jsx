@@ -5,30 +5,34 @@ import {
   Container,
   Row,
   Col,
+  Image,
 } from "react-bootstrap";
 import "./budgetslider.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { ViewsIcon } from "../../assets/images";
 
-const BudgetSlider = ({ ChannelDetails, value, setValue, Views, setViews }) => {
-  const min = 32; // Set the minimum value of the slider
-  const max = 1010; // Set the maximum value of the slider
+const BudgetSlider = ({ ChannelDetails, value, setValue, ViewsData }) => {
+  const min = parseInt(ViewsData?.minviews?.value); // Set the minimum value of the slider
+  const max = parseInt(ViewsData?.maxviews?.value); // Set the maximum value of the slider
   const step = 10; // Increment/Decrement value
 
   const [IconVal, setIconVal] = useState(true);
+
+  console.log(ViewsData, "ViewsData");
+
+  // const campaign_amount_aftertax =
+  //   parseFloat(value) - parseFloat(ViewsData?.defaultrevenue);
 
   // Function to handle the slider change
   const handleChange = (e) => {
     const newValue = Math.round(e.target.value / 10) * 10;
     if (e.target.value > max) {
       setValue(max - 10);
-      setViews((max * 97.8).toFixed(0));
     } else if (e.target.value < min) {
       setValue(min);
-      setViews((min * 97.8).toFixed(0));
     } else {
       setValue(newValue);
-      setViews((e.target.value * 97.8).toFixed(0));
     }
     setIconVal(true);
   };
@@ -40,9 +44,6 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, Views, setViews }) => {
   };
 
   // Calculate background style based on the slider value
-
-
-
 
   const fillPercentage = ((value - min) / (max - min)) * 100;
 
@@ -110,7 +111,6 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, Views, setViews }) => {
                 className="custom-slider"
               />
             </div>
-      
           </Col>
         </Col>
         <Col
@@ -119,9 +119,16 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, Views, setViews }) => {
         >
           <p className="p-txt">Your Results After One Week</p>
           <div className="p-2 d-flex">
-            <FontAwesomeIcon icon={faEye} size="3x" />
+            <Image width={50} height={32} src={ViewsIcon} />
             &nbsp; &nbsp;
-            <h1>{Views}</h1>
+            {/* <h1>{Views}</h1> */}
+            <h1>
+              {" "}
+              {Math.floor(
+                parseFloat(value) /
+                  parseFloat(ViewsData?.bidCost?.interactions?.loCpv?.value)
+              )}
+            </h1>
           </div>
           <p className=" p-2">Views</p>
         </Col>
@@ -131,67 +138,3 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, Views, setViews }) => {
 };
 
 export default BudgetSlider;
-
-// import React, { useState } from "react";
-// import "./budgetslider.css"; // Make sure you link the CSS file
-
-// const BudgetSlider = ({ ChannelDetails }) => {
-//   const [budget, setBudget] = useState(32);
-
-//   return (
-//     <div className="slider-component">
-// <div className="channel-info">
-//   <img
-//     src={ChannelDetails.thumbnail}
-//     alt="Channel"
-//     className="channel-icon"
-//   />
-//   <div>
-//     <h2 className="channel-title">{ChannelDetails.title}</h2>
-//     <p className="channel-subtitle">YouTube Channel</p>
-//   </div>
-// </div>
-//       <div className="budget-container">
-//         <div className="budget-info">
-//           <label htmlFor="budget-range" className="budget-label">
-//             Your Weekly Budget
-//           </label>
-//           <input
-//             type="number"
-//             value={budget}
-//             onChange={(e) => setBudget(e.target.value)}
-//             className="budget-input"
-//           />
-//           <span className="budget-min">Min. $32</span>
-//         </div>
-//         <div className="budget-slider-container">
-//           <input
-//             type="range"
-//             min="32"
-//             max="200"
-//             value={budget}
-//             className="budget-slider"
-//             id="budget-range"
-//             onChange={(e) => setBudget(e.target.value)}
-//           />
-// <div className="budget-amounts">
-//   <div className="budget-amount">$48</div>
-//   <div className="budget-amount most-popular">$48</div>
-//   <div className="budget-amount">$48</div>
-//   <div className="budget-amount">$48</div>
-// </div>
-//         </div>
-//       </div>
-//       <div className="views-container">
-//         <div className="views-count">+3 133</div>
-//         <div className="views-text">Views per week</div>
-//         <div className="views-description">
-//           Channel promotion has a cumulative effect. The longer the promotion,
-//           more subscribers and views you get.
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default BudgetSlider;
