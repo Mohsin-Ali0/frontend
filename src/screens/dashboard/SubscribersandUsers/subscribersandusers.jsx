@@ -13,7 +13,7 @@ export const SubscriberAndUsers = ({
   return (
     <React.Fragment>
       <section style={{ height: "100%", width: "100%" }}>
-        <Container fluid="lg">
+        <Container>
           <Row className="justify-content-between align-items-center flex-column  ">
             <Col xl={12} md={12}>
               <h1>Subscriber And Users Content </h1>

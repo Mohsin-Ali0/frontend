@@ -74,6 +74,7 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, ViewsData }) => {
               <InputGroup className="slider-input-container">
                 {IconVal ? <InputGroup.Text>$</InputGroup.Text> : null}
                 <FormControl
+                  className="Custom-budget-input"
                   type="number"
                   value={value}
                   onChange={handleChangeText}
@@ -91,6 +92,7 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, ViewsData }) => {
           <InputGroup className="slider-input-container-mobresp">
             {IconVal ? <InputGroup.Text>$</InputGroup.Text> : null}
             <FormControl
+             className="Custom-budget-input"
               type="number"
               value={value}
               onChange={handleChangeText}
@@ -118,11 +120,11 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, ViewsData }) => {
           className="d-flex flex-column justify-content-between align-items-center col-two-cont p-3"
         >
           <p className="p-txt">Your Results After One Week</p>
-          <div className="p-2 d-flex">
+          <div className="p-2 d-flex gap-2 justify-content-between align-items-center">
             <Image width={50} height={32} src={ViewsIcon} />
-            &nbsp; &nbsp;
+           
             {/* <h1>{Views}</h1> */}
-            <h1>
+            <h1 className="mt-2">
               {" "}
               {Math.floor(
                 parseFloat(value) /

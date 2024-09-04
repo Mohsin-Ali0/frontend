@@ -160,6 +160,9 @@
   border-radius: 4px;
   visibility: hidden; /* Hidden by default */
 }
+.Custom-budget-input{
+  padding: 0px 8px 0px !important;
+}
 
 /* Show tooltip on hover */
 .views-count:hover + .tooltip {
@@ -168,6 +171,7 @@
 .slider-input-container {
   width: 15%;
   margin-left: 20px;
+  
 }
 .slider-input-container-mobresp {
   display: none;
@@ -177,6 +181,9 @@
   .budget-container,
   .views-container {
     padding: 10px;
+  }
+  .Custom-budget-input{
+    padding: 0px 8px 0px !important;
   }
 
   /* ... other responsive styling ... */
@@ -192,6 +199,9 @@
   .slider-input-container-mobresp {
     width: 35%;
     display: flex;
+  }
+  .Custom-budget-input{
+    padding: 0px 8px 0px !important;
   }
 }
 /* Ensure the most popular tag is visually distinctive */
