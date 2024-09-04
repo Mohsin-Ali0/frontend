@@ -288,9 +288,9 @@ const RenderChips = ({ data, type }) => {
       ));
     case "tags":
       return data?.map((item, index) => (
-        <Badge key={index} className="custom-review-badge">
-          {item}
-        </Badge>
+        <Badge key={index} className="custom-review-badge" style={{ fontSize: '18px !important' }}>
+        {item}
+      </Badge>
       ));
     default:
       break;

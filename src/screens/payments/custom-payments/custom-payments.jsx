@@ -7,6 +7,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CustomPaymentForm from "./custom-payment-form/custom-payment-form.jsx";
 import { loadStripe } from "@stripe/stripe-js";
 import { Container } from "react-bootstrap";
+import InvalidPaymentLink from "../InvalidPaymentLink/InvalidPaymentLink.jsx";
 const stripePromise = loadStripe(
   "pk_test_51Om0TVENvJ1Tu9riMwQgVkQbuHuVAUnEiUM9SUK2KLmiMoNiuyqy3gvpCWSzvV9nPETxB7VLvYsXSaFSUqsfYR2V00OA3bbOJQ"
 );
@@ -56,8 +57,8 @@ const CustomPayments = () => {
       } else {
         setValidationError(response.data?.error || "Invalid payment link"); // Token is invalid, show error
       }
-    } catch (error) {
-      setValidationError("An error occurred during token validation");
+    } catch (error) {console.log(error.response.data.error)
+      setValidationError(error.response.data.error);
     }
   };
 
@@ -87,10 +88,10 @@ const CustomPayments = () => {
         // Proceed with payment logic
       })
       .catch((err) => {
-        setValidationError("An error occurred while fetching Bid Details");
+        setValidationError(error.response.data.error);
+
       });
   };
-  
   const stripeOptions = {
     clientSecret: Stripe_client_secret, // Use clientSecret from route params
     appearance: {
@@ -99,7 +100,7 @@ const CustomPayments = () => {
   };
   return (
     <div>
-      {validationError && <p className="error">{validationError}</p>}
+      {/* {validationError && <p className="error">{validationError}</p>} */}
       {isValid ? (
         <>
           {/*  */}
@@ -123,7 +124,8 @@ const CustomPayments = () => {
         </>
       ) : (
         // Your payment logic here
-        <p>Loading...</p>
+        <InvalidPaymentLink validationError={validationError}/>
+        // <p>Loading...</p>
       )}
     </div>
   );

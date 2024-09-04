@@ -204,10 +204,10 @@ const CustomPaymentForm = ({ amount, clientSecret, campaignData }) => {
 
 
 
-      {error && <div className="alert alert-danger mt-3">{error}</div>}
-      {succeeded && (
+      {/* {error && <div className="alert alert-danger mt-3">{error}</div>} */}
+      {/* {succeeded && (
         <div className="alert alert-success mt-3">Payment succeeded!</div>
-      )}
+      )} */}
       {showModal && showAlert()} {/* Render modal if showModal is true */}
     </form>
   );
