@@ -7,4 +7,30 @@
   border-radius: 5px;
   margin-right: 5px;
   text-align: justify;
+  
+}
+
+.PaymentMainHeading{
+  color: #139DFF;
+  font-weight: 600;
+  font-size: 58px;
+}
+.EstOutPara{
+  font-size: 24px;
+}
+.red{
+  border: 1px solid red;
+}
+.TopCardSec{
+  border-bottom: none !important;
+  background-color: #EEEFF7;
+}
+.CardCustomTitle{
+  font-weight:900 ;
+  font-family: 24px !important;
+  line-height: 33.6px;
+}
+
+.custom-review-badge{
+  font-size: 24px !important;
 }

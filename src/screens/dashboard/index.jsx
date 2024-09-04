@@ -64,12 +64,26 @@ export const DashBoard = () => {
       });
   };
 
+  const getViewsConfig = async () => {
+    await axios
+      .get("api/admin/configuration/getFrontViewsDetails")
+      .then((res) => {
+        console.log(res.data.data,"Api Response");
+        // Proceed with payment logic
+      })
+      .catch((err) => {
+        setValidationError("An error occurred while fetching Bid Details");
+      });
+  };
+
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       console.log("Geolocation is not supported by this browser.");
     }
+    getViewsConfig()
   }, []);
 
   const showPosition = (position) => {

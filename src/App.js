@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         {/* Route for Admin Panel */}
-        <Route path="/admin/*" element={<AdminRouter />} />
+        <Route path="/user/*" element={<AdminRouter />} />
 
         {/* Routes for Client Side */}
         <Route path="/*" element={<UserRouter />} />

@@ -15,6 +15,7 @@ import {
 
 const ReviewCustomCampaign = ({
   campaignData,
+  clientSecret,
   BidDetails,
   queryClassName = "scroll__to__view",
 }) => {
@@ -47,7 +48,7 @@ const ReviewCustomCampaign = ({
       style={{
         flex: "1 1 auto",
         gap: "20px",
-        padding: "20px",
+        
       }}
     >
       <Container>
@@ -55,12 +56,12 @@ const ReviewCustomCampaign = ({
           <Card
             key={index}
             className={queryClassName}
-            style={{ marginBottom: "20px", backgroundColor: "#EEEFF7" }}
+            style={{ marginBottom: "20px", backgroundColor: "#EEEFF7", border:"none", borderRadius:"50px" }}
           >
-            <Card.Header>
-              <h4>{section.name}</h4>
+            <Card.Header className="TopCardSec">
+              <h4 className="CardCustomTitle  pt-2" style={{fontWeight:500, fontSize:24}}>{section.name}</h4>
             </Card.Header>
-            <Card.Body style={{ marginTop: 10 }}>{section.component}</Card.Body>
+            <Card.Body style={{ marginTop: 10 , backgroundColor: "#EEEFF7" }}>{section.component}</Card.Body>
           </Card>
         ))}
       </Container>
@@ -81,7 +82,7 @@ const EstimatedDetails = ({ data, BidDetails }) => {
         <ComponentBlock title="Views">
           <Col className="d-flex justify-content-center align-items-center">
             <Image width={32} height={20} src={ViewsIcon} />
-            <p className="m-2">
+            <p className="m-2 EstOutPara">
               {Math.floor(
                 parseFloat(campaign_amount_aftertax) /
                   parseFloat(BidDetails?.interactions?.hiCpv?.value)
@@ -99,7 +100,7 @@ const EstimatedDetails = ({ data, BidDetails }) => {
         <ComponentBlock title="Subscribers">
           <div className="d-flex justify-content-between align-items-center">
             <Image width={32} height={32} src={SubscribersIcon} />
-            <p className="m-2">
+            <p className="m-2 EstOutPara">
               {Math.floor(
                 parseFloat(campaign_amount_aftertax) /
                   parseFloat(
@@ -121,7 +122,7 @@ const EstimatedDetails = ({ data, BidDetails }) => {
         <ComponentBlock title="Likes">
           <div className="d-flex justify-content-between align-items-center">
             <Image width={32} height={32} src={LikesIcon} />
-            <p className="m-2">
+            <p className="m-2 EstOutPara ">
               {Math.floor(
                 parseFloat(campaign_amount_aftertax) /
                   parseFloat(BidDetails?.interactions?.hiCostPerLike?.value)
@@ -131,6 +132,7 @@ const EstimatedDetails = ({ data, BidDetails }) => {
                 parseFloat(campaign_amount_aftertax) /
                   parseFloat(BidDetails?.interactions?.loCostPerLike?.value)
               )}
+              
             </p>
           </div>
         </ComponentBlock>
@@ -140,7 +142,7 @@ const EstimatedDetails = ({ data, BidDetails }) => {
 };
 
 const ChannelReview = ({ data }) => (
-  <ComponentBlock title="Selected Channel" style={{ padding: "20px" }}>
+  <ComponentBlock title="Selected Channel" style={{ padding: "20px" ,border:"none" }}>
     <Row className="align-items-center">
       <Col xs={12} md={3} className="align-items-center text-center">
         <Image
@@ -159,7 +161,7 @@ const ChannelReview = ({ data }) => (
         <span>
           <p>Channel Name: {decodeGoogleSpecialCharacters(data?.title)}</p>
           <p>Subscribers: {data?.subscribersCount}</p>
-          <p>Description: {decodeGoogleSpecialCharacters(data?.description)}</p>
+        
         </span>
       </Col>
     </Row>
@@ -167,7 +169,7 @@ const ChannelReview = ({ data }) => (
 );
 
 const VideosReview = ({ data }) => (
-  <ComponentBlock title="Selected Videos" style={{ padding: 40 }}>
+  <ComponentBlock title="Selected Videos" style={{ padding: 40, border: "none" }}>
     <Row>
       {data?.map((video, index) => (
         <React.Fragment key={index}>
@@ -271,7 +273,7 @@ const RenderChips = ({ data, type }) => {
         return (ageOrder[a] || 0) - (ageOrder[b] || 0);
       });
       return sortedData?.map((age, index) => (
-        <Badge key={index} className="custom-review-badge">
+        <Badge key={index} className="custom-review-badge" style={{ background: "red"}} >
           {age}
         </Badge>
       ));
