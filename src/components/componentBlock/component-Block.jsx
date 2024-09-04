@@ -7,7 +7,7 @@ export function ComponentBlock({ title, children, ...other }) {
   return (
     <Card
       style={{
-        padding: "67px 143px 67px 143px",
+        padding: "67px 25px 67px 25px",
         gap: "0.5rem",
         width: "100%",
         flexWrap: "wrap",
@@ -17,7 +17,7 @@ export function ComponentBlock({ title, children, ...other }) {
         flexDirection: "row",
         alignItems: "center",
         color: "#1E1E1E",
-        fontSize:"24px !important",
+        fontSize:"18px !important",
         justifyContent: "center",
         backgroundColor: `#FFFFFF`, // Replace this with a custom color as needed
         border: "none",
