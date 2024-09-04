@@ -54,11 +54,7 @@ export const Sidebar = (props) => {
             icon: faMoneyCheckDollar,
             text: "Ads Amount",
           },
-          {
-            to: "/admin/payment-logs",
-            icon: faMoneyBill1,
-            text: "Payment Logs",
-          },
+         
           { to: "/admin/queries-list", icon: faMessage, text: "Queries" },
         ].map((item) => (
           <li key={item.to} className="sidebar-li ">

@@ -26,8 +26,8 @@ const SignUp = () => {
 
   const handleGoogleLogin = () => {
     // Redirect to the backend route for Google Login
-    // window.open("http://localhost:3004/auth/google", "_self");
-    window.open("https://backend.vidtrial.com/auth/google", "_self");
+    window.open("http://localhost:3004/auth/google", "_self");
+    // window.open("https://backend.vidtrial.com/auth/google", "_self");
   };
 
   const handleLogin = async (e) => {

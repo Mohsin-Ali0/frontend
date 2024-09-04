@@ -7,7 +7,7 @@ export function ComponentBlock({ title, children, ...other }) {
   return (
     <Card
       style={{
-        padding: "1.5rem",
+        padding: "67px 143px 67px 143px",
         gap: "0.5rem",
         width: "100%",
         flexWrap: "wrap",
@@ -16,9 +16,11 @@ export function ComponentBlock({ title, children, ...other }) {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
+        color: "#1E1E1E",
+        fontSize:"24px !important",
         justifyContent: "center",
-        // backgroundColor: `rgba(128, 128, 128, 0.04)`, // Replace this with a custom color as needed
-        boxShadow: `0 0 0 1px rgba(128, 128, 128, 0.16)`, // Replace this with a custom color as needed
+        backgroundColor: `#FFFFFF`, // Replace this with a custom color as needed
+        border: "none",
         ...other.style,
       }}
       {...other}
@@ -29,10 +31,11 @@ export function ComponentBlock({ title, children, ...other }) {
             padding: "0.25rem",
             position: "absolute",
             top: 0,
+            fontFamily:"Poppins",
             left: "1.25rem",
             transform: "translateY(-50%)",
-            fontSize: "0.875rem",
-            fontWeight: "600",
+            fontSize: "12px",
+            fontWeight: "400",
             color: "#000", // Replace this with a custom color as needed
             backgroundColor: "#fff",
             borderRadius: "0.5rem",
@@ -54,6 +57,7 @@ export function ComponentContainer({ children, ...other }) {
   return (
     <Container
       style={{
+        
         marginTop: "3rem",
         marginBottom: "7.5rem",
         gap: "1.25rem",

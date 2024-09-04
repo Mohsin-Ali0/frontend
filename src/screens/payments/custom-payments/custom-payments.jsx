@@ -11,6 +11,8 @@ const stripePromise = loadStripe(
   "pk_test_51Om0TVENvJ1Tu9riMwQgVkQbuHuVAUnEiUM9SUK2KLmiMoNiuyqy3gvpCWSzvV9nPETxB7VLvYsXSaFSUqsfYR2V00OA3bbOJQ"
 );
 
+let Stripe_client_secret
+
 const CustomPayments = () => {
   const [validationError, setValidationError] = useState(null);
   const [isValid, setIsValid] = useState(false);
@@ -29,6 +31,7 @@ const CustomPayments = () => {
       setValidationError("No payment token found in the URL");
     }
   }, [token]);
+  
 
   const ValidateURLtoken = async (token) => {
     try {
@@ -43,6 +46,7 @@ const CustomPayments = () => {
 
         // Log campaign ID before calling getPaymentDetails
         const campaignId = response.data?.data?.campaignId;
+        Stripe_client_secret = response.data?.data?.client_secret;
 
         if (campaignId) {
           await getPaymentDetails(campaignId);
@@ -86,7 +90,13 @@ const CustomPayments = () => {
         setValidationError("An error occurred while fetching Bid Details");
       });
   };
-
+  
+  const stripeOptions = {
+    clientSecret: Stripe_client_secret, // Use clientSecret from route params
+    appearance: {
+      theme: "flat",
+    },
+  };
   return (
     <div>
       {validationError && <p className="error">{validationError}</p>}
@@ -96,16 +106,18 @@ const CustomPayments = () => {
           {/* PAYMENT COMPONENT HERE */}
           {/*  */}
           <Container>
-            <h1>Enter Payments Details</h1>
-            <Elements stripe={stripePromise}>
-              <CustomPaymentForm amount={campaignData?.budget?.amount} />
+            <h1 className="PaymentMainHeading mt-4">Enter Payments Details</h1>
+            
+            <Elements stripe={stripePromise} options={stripeOptions}>
+              <CustomPaymentForm amount={campaignData?.budget?.amount} clientSecret={Stripe_client_secret}  campaignData={campaignData} />
             </Elements>
 
-            <h1>Review Campaign Details</h1>
+            <h1 className="PaymentMainHeading my-5">Review Campaign Details</h1>
 
             <ReviewCustomCampaign
               campaignData={campaignData}
               BidDetails={BidDetails}
+              
             />
           </Container>
         </>
@@ -118,3 +130,8 @@ const CustomPayments = () => {
 };
 
 export default CustomPayments;
+
+
+
+
+
