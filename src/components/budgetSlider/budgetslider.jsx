@@ -25,17 +25,23 @@ const BudgetSlider = ({ ChannelDetails, value, setValue, ViewsData }) => {
   //   parseFloat(value) - parseFloat(ViewsData?.defaultrevenue);
 
   // Function to handle the slider change
+
+  
+
   const handleChange = (e) => {
-    const newValue = Math.round(e.target.value / 10) * 10;
-    if (e.target.value > max) {
-      setValue(max - 10);
-    } else if (e.target.value < min) {
+    let newValue = Math.round(e.target.value / 10) * 10;
+    
+    if (newValue > max) {
+      setValue(max); // Allow setting the maximum value
+    } else if (newValue < min) {
       setValue(min);
     } else {
       setValue(newValue);
     }
+    
     setIconVal(true);
   };
+  
   const handleChangeText = (e) => {
     setValue(e.target.value);
   };
