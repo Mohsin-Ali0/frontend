@@ -332,7 +332,11 @@ export const DashBoard = () => {
           {currentStep === 4 && (
             <StartThePromotion
               value={value}
-              Views={Views}
+              // Views={ViewsData}
+              Views={Math.floor(
+                parseFloat(value) /
+                  parseFloat(ViewsData?.bidCost?.interactions?.loCpv?.value)
+              )}
               ChannelDetails={ChannelDetails}
               VideoSelectionData={SelectedVideos}
               selectedOption={selectedOption}
