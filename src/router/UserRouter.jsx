@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import "../assets/fonts/clash-display.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "../screens/Client.module.css";
 import "swiper/css";
 import Home from "../screens/home";
@@ -20,13 +19,14 @@ import { PageNotFound } from "../screens/page404";
 import { PrivacyPolicy } from "../screens/PrivacyPolicy";
 import { TermsandCondition } from "../screens/Terms-and-Condition";
 import CustomPayments from "../screens/payments/custom-payments/custom-payments";
-
+import About from "../screens/About/index";
 export const UserRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-and-services" element={<TermsandCondition />} />
+      <Route path="/about-us" element={<About />} />
       <Route path="*" element={<PageNotFound />} />
       {/* Auth Screens Start */}
       <Route element={<GuestRoutes />}>

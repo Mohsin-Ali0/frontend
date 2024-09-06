@@ -34,6 +34,10 @@ import PageNotFountIcon from "../images/404-Icon.jpg";
 import LikesIcon from "../images/likes_icon.png";
 import ViewsIcon from "../images/views_icon.png";
 import SubscribersIcon from "../images/subscribers_icon.png";
+import AboutUS from "../images/about-us.png"
+import AboutSection2 from "../images/AboutSection2.png"
+import AboutSliderImg1 from "../images/Aboutlp1.png"
+import AboutSliderImg2 from "../images/Aboutlp2.png"
 export {
   HeartIcon,
   EyeIcon,
@@ -70,4 +74,8 @@ export {
   LikesIcon,
   ViewsIcon,
   SubscribersIcon,
+  AboutUS,
+  AboutSection2,
+  AboutSliderImg1,
+  AboutSliderImg2,
 };

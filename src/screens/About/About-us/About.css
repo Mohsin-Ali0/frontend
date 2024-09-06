@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+.about-main-container {
+    height: 582px;
+    background: linear-gradient(90deg, #000530 0%, #1E0041 100%);
+}
+
+.red {
+    border: 1px solid red;
+}
+
+.about-text {
+    color: #fff;
+    font-size: 64px;
+    line-height: 64px;
+}
+
+.about-text-2 {
+    text-transform: capitalize;
+    font-family: "Urbanist", sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.about-text-3 {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.about-text-4 {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 34px;
+}
+
+.about-text-5 {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 400;
+    font-size: 72px;
+    line-height: 86px;
+    text-transform: capitalize;
+}
+
+.About-text-8 {
+    margin-top: -12px;
+}
+
+.About-Section-1 {
+    margin-top: 100px;
+    margin-bottom: 94px;
+}
+
+.About-Section-2 {
+    margin-top: 80px;
+    margin-bottom: 64px;
+}
+
+.About-Section-3 {
+    margin: 65px 0 65px;
+}
+
+.About-slider-img {
+    height: 570px !important;
+}
+
+.About-Before-text  h2{
+    font-size: 72px;
+    font-family: "Urbanist", sans-serif;
+    font-weight: 400;
+    /* font-weight: 88px; */
+}
+
+
+.About-slider-container .swiper-slide-active img{
+    /* width: 825px; */
+    object-fit: cover;
+    border-radius: 16px;
+}
+.About-slider-container .swiper-slide-next img{
+    /* width: 425px;  */
+    border-radius: 16px;
+}
+
+@media only screen and (max-width: 811px) {
+    .About-slider-img {
+        height: 370px !important;
+        /* width: 100%; */
+    }
+    .About-slider-container .swiper-slide-active img{
+        /* width: 825px; */
+        border-radius: 16px;
+    }
+    .About-slider-container .swiper-slide-next img{
+        border-radius: 16px;
+    }
+    .About-second-img{
+        width: 85%;
+    }
+  }
