@@ -63,7 +63,7 @@ export const SiteHeader = () => {
                         <NavLink
                           activeclassname="active"
                           className="me-xl-4 me-lg-3 headertext"
-                          to="/terms-and-services"
+                          to="/about-us"
                         >
                           About Us
                         </NavLink>
@@ -77,9 +77,9 @@ export const SiteHeader = () => {
                         <NavLink
                           activeclassname="active"
                           className="me-xl-4 me-lg-3 headertext"
-                          to="/ads"
+                          to="/terms-and-services"
                         >
-                          FAQ
+                          TOS
                         </NavLink>
                       </Nav>
                     </Col>
