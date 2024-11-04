@@ -1,3 +1,7 @@
+.mob-menu{
+  background-color: none !important;
+}
+
 .customHeader {
   background-color: #ffffff;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -6,6 +10,48 @@
   z-index: 555;
   /* color: black; */
   position: sticky;
+}
+
+/* From Uiverse.io by Yaya12085 */ 
+#customCheckbox {
+  display: none;
+}
+
+.customToggle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+  transition-duration: .5s;
+}
+
+.customBars {
+  width: 100%;
+  height: 4px;
+  background-color: #139DFF !important;
+  border-radius: 4px;
+}
+
+
+#customBar1 {
+  width: 50%;
+}
+
+#customBar2 {
+  width: 75%;
+}
+.navbar-toggler{
+  border: none !important;
+}
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none !important;
 }
 
 .customCollapse .navbar-nav {

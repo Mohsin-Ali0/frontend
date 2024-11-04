@@ -30,6 +30,7 @@ export const SiteFooter = () => {
         color: "white", // Text color
         paddingTop: "20px", // Adjust as needed
         paddingBottom: "20px", // Adjust as needed
+       
       }}
       className="headertext"
     >

@@ -1,0 +1,168 @@
+.red{
+    border: 1px solid red;
+}
+.main-stat-section {
+    background: #f0f3fa;
+}
+
+.dummylogo {
+    width: 72px;
+    height: 17px;
+}
+
+.stat-main-containe {
+
+    background: #ffffff;
+    border-radius: 15px;
+
+    border-left: 18px solid #C5E2FB;
+}
+
+.Promo-btn {
+    padding: 12px 86px;
+    background: #139DFF;
+    border: none;
+    color: white;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow:
+        3px 3px 10px 0px #139DFF1A,
+        13px 13px 18px 0px #139DFF17,
+        28px 30px 25px 0px #139DFF0D,
+        50px 53px 29px 0px #139DFF03,
+        78px 83px 32px 0px #139DFF00;
+}
+.add-dropdown-icon{
+    font-size: 1.5em;
+    margin-right: 8px;
+    color: rgb(136, 136, 136);
+    padding: 0px 10px;
+    border: 1px solid #d9dbe8;
+    border-radius: 8px;
+}
+.channel-drop-dwon-name{
+    margin-right: 18px;
+    
+
+}
+
+
+  @media only screen and (max-width: 430px) {
+    .Promo-btn {
+        padding: 12px 30px !important;
+    }
+  }
+
+
+.channel-promo-text {
+    color: #808080;
+    font-size: 18px;
+    line-height: 27px;
+    font-family: "Poppins";
+    font-weight: 500;
+}
+
+.Statistics-text {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 48px;
+}
+
+.Statistics-second-section select {
+    width: 235px;
+    padding: 12px 15px;
+    color: #00000099;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.Statistics-second-section select:focus {
+    box-shadow: none !important;
+}
+
+.Statistics-second-section button {
+    border: none;
+    background: #fff;
+}
+
+.stat-third-container {
+    background: #fff;
+    border-radius: 15px;
+}
+
+.Stat-EyePic {
+    width: 31px;
+}
+
+.stat-third-inner {
+    background: #F0F3FA;
+    padding: 18px 70px;
+    border-radius: 10px;
+}
+.stat-third-inner2{
+    background: #F0F3FA;
+    border-radius: 10px;
+    padding: 12px;
+}
+.stat-third-inner2-text{
+    color: #787a7d;
+    font-weight: 500;
+    font-family: "Poppins";
+    font-size: 18px;
+}
+.stat-third-inner2-text1{
+    color: #787a7d;
+    font-weight: 500;
+    font-family: "Poppins";
+    font-size: 16px;
+}
+.promo-stat-text{
+    color:#139DFF;
+}
+
+.Active-stat-btn{
+    color: #666666;
+    border: none;
+    background: #fff;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 500;
+    padding: 9px 25px ;
+    border-radius: 5px;
+}
+.inactive-stat-btn{
+    color: #139DFF;
+    border: none;
+    background: #139DFF1A;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 500;
+    padding: 9px 25px ;
+    border-radius: 5px;
+}
+.veiw-selection{
+   width: 182px !important;
+}
+.stat-last-container{
+    background: #fff;
+    border-radius:15px ;
+    padding: 20px;
+}
+.stat-cont-txt{
+    font-family: "Poppins" !important;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #666666;
+}
+.stat-cont-txt-2{
+    font-family: "Poppins" !important;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color:#666666;
+}
