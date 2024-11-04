@@ -1,5 +1,5 @@
 import React from "react";
-import MobileImg from "../../../assets/images/mobile-img.png";
+import MobileImg from "../../../assets/images/mobile-img.webp";
 import "./banner.css";
 import {
   Col,
