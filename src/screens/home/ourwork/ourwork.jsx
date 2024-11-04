@@ -6,7 +6,7 @@ import { FourIcon, OneIcon, ThreeIcon, TwoIcon } from "../../../assets/images";
 export const OurWork = () => {
   return (
     <React.Fragment>
-      <section className="bg_img txt-color">
+      <section className="our-work-bg_img txt-color">
         <Container>
           <Row className="justify-content-between align-items-center pt-4 pb-5 flex-column">
             <Col xl="12" style={{ textAlign: "center" }}>

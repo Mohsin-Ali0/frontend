@@ -1,4 +1,4 @@
-.bg_img {
+.our-work-bg_img {
   background-image: url(../../../assets/images/howit-works-bg.jpg);
   min-height: 100%;
   min-width: 100%;
@@ -21,10 +21,9 @@
   color: black;
   border-radius: 10px;
 }
-.work-p-txt{
-    color: #525252;
+.work-p-txt {
+  color: #525252;
 }
-
 
 @media screen and (max-width: 1035px) {
   .icon-styles {
