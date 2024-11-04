@@ -53,16 +53,23 @@ export const LoggedInHeader = (props) => {
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle className="order-4 order-lg-2 notButton">
-            <FontAwesomeIcon
+            <input id="customCheckbox" type="checkbox"  onClick={toggleOffCanvasMenu} />
+            <label class="customToggle" for="customCheckbox">
+              <div id="customBar1" class="customBars"></div>
+              <div id="customBar2" class="customBars"></div>
+              <div id="customBar3" class="customBars"></div>
+            </label>
+
+            {/* <FontAwesomeIcon
               className="bell-icon "
               icon={faEllipsisV}
               onClick={toggleOffCanvasMenu}
-            />
+            /> */}
           </Navbar.Toggle>
           <Navbar.Collapse
             id="basic-navbar-nav"
             className="customCollapse order-3"
-            // style={{ backgroundColor: "palegoldenrod" }}
+          // style={{ backgroundColor: "palegoldenrod" }}
           >
             <Nav className="ms-auto">
               <Dropdown
@@ -74,7 +81,7 @@ export const LoggedInHeader = (props) => {
                 <Dropdown.Toggle
                   variant="transparent"
                   className="notButton toggleButton "
-                  // style={{ backgroundColor: "pink" }}
+                // style={{ backgroundColor: "pink" }}
                 >
                   <div className="userImage">
                     <img src={ProfilePic} alt="" className="img-fluid me-2" />
@@ -91,7 +98,7 @@ export const LoggedInHeader = (props) => {
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="userMenu" align="end">
-                  <Link className="userMenuItem" style={{color:"white"}} to={"/my-profile"}>
+                  <Link className="userMenuItem" style={{ color: "white" }} to={"/my-profile"}>
                     <FontAwesomeIcon
                       className="me-2  yellow-text"
                       icon={faUser}
@@ -102,7 +109,7 @@ export const LoggedInHeader = (props) => {
                     className="userMenuItem"
                     to="/"
                     onClick={() => handleLogout()}
-                    style={{color:"white"}}
+                    style={{ color: "white" }}
                   >
                     <FontAwesomeIcon
                       className="me-1 yellow-text"
@@ -124,7 +131,7 @@ export const LoggedInHeader = (props) => {
       >
         <Offcanvas.Header closeButton className="position-relative ">
           <Offcanvas.Title>
-            <h2>Menu</h2>
+            <h2 className="mt-2">Menu</h2>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="mob-menu" >

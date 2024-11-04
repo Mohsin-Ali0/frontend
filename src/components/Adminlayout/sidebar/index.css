@@ -1,16 +1,8 @@
 .sidebar {
-    width: 260px;
-    height: calc(100vh - 6rem);
-    position: fixed;
-    transition: all 0.35s ease-in-out, left 0.35s ease-in-out, margin-right 0.35s ease-in-out, right 0.35s ease-in-out;
-    background: #fff ;
-    z-index: 2;
-    top: 6rem;
-    padding-bottom: 6rem;
-    scrollbar-width: thin;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-y: auto;
+    width: 260px !important;
+    /* height: calc(100vh - 6rem); */
+    
+    
 }
 
 .sidebar::-webkit-scrollbar {

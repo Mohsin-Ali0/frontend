@@ -34,11 +34,27 @@ import PageNotFountIcon from "../images/404-Icon.jpg";
 import LikesIcon from "../images/likes_icon.png";
 import ViewsIcon from "../images/views_icon.png";
 import SubscribersIcon from "../images/subscribers_icon.png";
-import AboutUS from "../images/about-us.png"
-import AboutSection2 from "../images/AboutSection2.png"
-import AboutSliderImg1 from "../images/Aboutlp1.png"
-import AboutSliderImg2 from "../images/Aboutlp2.png"
+import AboutUS from "../images/about-us.png";
+import AboutSection2 from "../images/AboutSection2.png";
+import AboutSliderImg1 from "../images/Aboutlp1.png";
+import AboutSliderImg2 from "../images/Aboutlp2.png";
+import UserProfile from "../images/UserProfile.svg"
+import UserSecurity from "../images/UserSecurity.svg"
+import UserPayment from "../images/UserPayment.svg"
+import UserPaymentHistory from "../images/UserPaymentHistory.svg"
+import UserCheck from "../images/Usercheck.png"
+import Dummylogo from '../images/dummylogo.png'
+import EyePic from '../images/views_icon.png'
+import Ytimages from "../images/ytimages.png" 
 export {
+  Ytimages,
+  EyePic,
+  Dummylogo,
+  UserCheck,
+  UserProfile,
+  UserSecurity,
+  UserPayment,
+  UserPaymentHistory,
   HeartIcon,
   EyeIcon,
   UsersIcon,

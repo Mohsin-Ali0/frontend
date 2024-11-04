@@ -20,6 +20,7 @@ import { PrivacyPolicy } from "../screens/PrivacyPolicy";
 import { TermsandCondition } from "../screens/Terms-and-Condition";
 import CustomPayments from "../screens/payments/custom-payments/custom-payments";
 import About from "../screens/About/index";
+import { Sidebar } from "../components/Adminlayout/sidebar";
 export const UserRouter = () => {
   return (
     <Routes>
@@ -28,14 +29,20 @@ export const UserRouter = () => {
       <Route path="/terms-and-services" element={<TermsandCondition />} />
       <Route path="/about-us" element={<About />} />
       <Route path="*" element={<PageNotFound />} />
+
       {/* Auth Screens Start */}
+
       <Route element={<GuestRoutes />}>
         <Route path="/login" element={<UserLogIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Route>
+
+
+
       {/* Auth Screens End */}
 
       {/* UserScreen Start */}
+
       <Route element={<ProtectedRoutes />}>
         <Route path="/channels" element={<ChannelsScreen />} />
         <Route path="/dashboard" element={<DashBoard />} />

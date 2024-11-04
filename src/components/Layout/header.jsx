@@ -191,7 +191,7 @@ export const SiteHeader = () => {
           </Offcanvas.Header>
           <Offcanvas.Body
             className="mob-menu"
-            style={{ backgroundColor: "#0a0234" }}
+           
           >
             <Nav className="flex-column">
               <NavLink

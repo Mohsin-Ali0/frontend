@@ -1,0 +1,217 @@
+.User-Dashboard-title {
+    font-weight: 700;
+    color: #000;
+    font-size: 33px;
+    line-height: 48px;
+}
+.TableResponsive{
+    overflow: auto;
+    height: 300px;
+}
+
+.red {
+    border: 1px solid red;
+}
+
+.user-account-check {
+    margin-top: 4px !important;
+}
+
+.User-dashboard-email-box {
+
+    background: white;
+    border-radius: 10px;
+}
+
+.userAcc-Inner-container {
+    padding: 37px;
+}
+
+.user-account-text1 {
+    color: #000;
+    font-family: "Poppins";
+    font-weight: 500;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.userAccount-check-input {
+    padding: 7px;
+    box-shadow: none !important;
+}
+
+.form-check-input:checked {
+    background-color: #139DFF !important;
+    border-color: #139DFF !important;
+}
+
+.useraccount-spec {
+    color: #00000099;
+}
+
+.userAccountparagraphP {
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@media only screen and (max-width: 774px) {
+    .user-action-button button {
+        padding: 10px 30px 10px 30px !important;
+    }
+    
+  }
+
+
+.user-action-button button {
+    padding: 16px 90px 16px 90px;
+}
+
+.user-action-button1 {
+    color: #139DFF;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    box-shadow:
+        3px 3px 10px 0px #139DFF1A,
+        13px 13px 18px 0px #139DFF17,
+        28px 30px 25px 0px #139DFF0D,
+        50px 53px 29px 0px #139DFF03,
+        78px 83px 32px 0px #139DFF00;
+}
+
+.user-action-button2 {
+    color: #fff;
+    background-color: #139DFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    box-shadow:
+        3px 3px 10px 0px #139DFF1A,
+        13px 13px 18px 0px #139DFF17,
+        28px 30px 25px 0px #139DFF0D,
+        50px 53px 29px 0px #139DFF03,
+        78px 83px 32px 0px #139DFF00;
+}
+
+
+/* ****************************************************************** */
+
+
+.user-sec-lock svg path {
+    fill: #139DFF !important;
+}
+
+.userdashboard-password {
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #00000099;
+}
+
+.user-password-input {
+    border: 1px solid #00000099;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.user-save-password button {
+    padding: 10px 30px;
+}
+
+.userAccountparagraph2 {
+    color: red;
+    cursor: pointer;
+    font-family: "Poppins";
+    font-weight: 500;
+}
+
+.userAccountparagraph3 {
+    color: #00000099;
+    cursor: pointer;
+    font-family: "Poppins";
+    font-weight: 500;
+}
+
+.UserDeleteAccountspan {
+    color: #139DFF;
+}
+
+.UserDeleteAccount {
+    color: #00000099;
+    cursor: pointer;
+    font-family: "Poppins";
+    font-weight: 500;
+}
+
+/* ********************************************************************************** */
+.userpayment-Inner-container {
+    padding: 14px 4px 10px 6px;
+}
+
+.user-payment-text1 {
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #00000099;
+}
+
+.main-card-Section {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.card-payment-section {
+    background: linear-gradient(90deg, rgba(19, 157, 255, 0.1) 0%, rgba(11, 94, 153, 0.1) 100%);
+}
+
+.card-input-field {
+    border: none;
+    border-radius: 4px;
+}
+
+.userpayment-dashboard-end {
+    background: #fff;
+}
+.user-sec-lock svg,.user-sec-profile svg{
+    width: 30px !important;
+    height: 30px;
+}
+
+/* ******************************************************************************************** */
+.paymenthistory-Main {
+    padding: 20px 16px;
+}
+
+.user-payment-no {
+    padding: 20px 30px;
+    margin-bottom: 0px;
+    background: #F0F3FA;
+    border-radius: 5px;
+}
+
+.card-select-option {
+    font-family: "Poppins";
+    box-sizing: none !important;
+}
+
+.card-select-option:focus {
+    box-sizing: none !important;
+}
+tbody, td, tfoot, th, thead, tr{
+    border-style: none !important;
+    padding: 16px !important;
+}
+.table-section-payment table{
+    font-family: "poppins";
+    font-size: 16px;
+    color: #00000099 !important;   
+}
