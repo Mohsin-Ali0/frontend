@@ -12,6 +12,7 @@ import {
 import { Image } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import usePageTitle from "../../../hooks/usePageTitle";
 
 export default function About() {
   usePageTitle("About Us");
