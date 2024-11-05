@@ -1,11 +1,33 @@
 .view-bg_img {
   background: linear-gradient(90deg, #000530 0%, #1E0041 100%);
-    min-height: 100%;
-    min-width: 100%;
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
+  min-height: 100%;
+  min-width: 100%;
+  overflow-y: hidden;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-  .plusIcon{
-    color: #0072cf;
-  }
+.plusIcon {
+  color: #0072cf;
+}
+
+.view-text-2 {
+  position: relative;
+}
+
+.view-text-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60px;
+  width: 54px;
+  height: 54px;
+  background: url('../../../assets/images/YoutubeLogo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.view-Icons{
+  width: 55px;
+  height: 55px;
+}

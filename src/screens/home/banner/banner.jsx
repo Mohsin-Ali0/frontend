@@ -56,20 +56,20 @@ export const Banner = () => {
   return (
     <React.Fragment>
       <section className="bg_img">
-        <Container>
-          <Row className="justify-content-around align-items-center mobileresp">
-            <Col xl="6">
-              <Row className="justify-content-center txt-color">
-                <Col xl="12">
-                  <div className="bullet-text">
-                    <span className="bullet">&#8226;</span> Google Partner
-                  </div>
-                  <h1>Supercharge Your YouTube Channel</h1>
-                  <p style={{ fontSize: "18px" }}>
-                  Amplify reach, boost subscribers and skyrocket views with the most powerful automated YouTube video promotion service. 
-                  </p>
 
-                  <Form onSubmit={submitHandler}>
+        <div className="container ">
+
+          <div className="d-flex row">
+
+            <div className=" col-md-6 pt-4 home-text-section">
+              <div className="bullet-text">
+                <span className="bullet">&#8226;</span> Google Partner
+              </div>
+              <h1 style={{ color: "#fff" }}>Supercharge Your YouTube Channel</h1>
+              <p style={{ fontSize: "18px", color: "#fff" }}>
+                Amplify reach, boost subscribers and skyrocket views with the most powerful automated YouTube video promotion service.
+              </p>
+              <Form onSubmit={submitHandler}>
                     <InputGroup className="mb-3">
                       <InputGroup.Text
                         style={{
@@ -129,7 +129,7 @@ export const Banner = () => {
                             className="py-2 px-5"
                             type="submit"
                             name="signup"
-                            // onClick={Signup}
+                          // onClick={Signup}
                           >
                             Sign up
                             <FontAwesomeIcon
@@ -145,6 +145,7 @@ export const Banner = () => {
                       )}
                     </Row>
                   </Form>
+
                   <p
                     style={{
                       fontFamily: "Inter",
@@ -156,24 +157,23 @@ export const Banner = () => {
                     <a href="/terms-and-services"> Terms of Service</a> <br />
                     and <a href="/privacy-policy"> Privacy Policy.</a>
                   </p>
-                </Col>
-              </Row>
-            </Col>
-            <Col
-              xl="4"
-              style={{
-                display: "flex",
-                alignItems: "flex-end",
-                paddingTop: "10%",
-              }}
-            >
-              <div className="mobile-container">
-                <Image src={MobileImg} fluid />
-                {/* <MobileLogo/> */}
-              </div>
-            </Col>
-          </Row>
-        </Container>
+
+            </div>
+
+
+            <div className="col-md-6 d-flex justify-content-center home-mobile-contianer">
+              <Image className="home-mobile-images" src={MobileImg} fluid />
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+       
       </section>
     </React.Fragment>
   );

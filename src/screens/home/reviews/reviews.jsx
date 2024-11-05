@@ -15,10 +15,10 @@ export const Reviews = () => {
             </Col>
             <Col lg="12" className="justify-content-around align-items-flex">
               <Row className="justify-content-center align-items-center flex-row">
-                <Col xl="5">
+                <Col xl="5" style={{ display:"flex", justifyContent: "center"}}>
                   <Image
                     src={ReviewsLogo}
-                    style={{ height: "auto", width: "100%" }}
+                    style={{ height: "auto", width: "449px" }}
                   />
                 </Col>
                 <Col xl="4">
