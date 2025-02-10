@@ -56,124 +56,114 @@ export const Banner = () => {
   return (
     <React.Fragment>
       <section className="bg_img">
-
         <div className="container ">
-
           <div className="d-flex row">
-
             <div className=" col-md-6 pt-4 home-text-section">
               <div className="bullet-text">
                 <span className="bullet">&#8226;</span> Google Partner
               </div>
-              <h1 style={{ color: "#fff" }}>Supercharge Your YouTube Channel</h1>
+              <h1 style={{ color: "#fff" }}>
+                Supercharge Your YouTube Channel
+              </h1>
               <p style={{ fontSize: "18px", color: "#fff" }}>
-                Amplify reach, boost subscribers and skyrocket views with the most powerful automated YouTube video promotion service.
+                Amplify reach, boost subscribers and skyrocket views with the
+                most powerful automated YouTube video promotion service.
               </p>
               <Form onSubmit={submitHandler}>
-                    <InputGroup className="mb-3">
-                      <InputGroup.Text
-                        style={{
-                          backgroundColor: "white",
-                          borderRight: "none",
-                        }}
-                      >
-                        <FontAwesomeIcon
-                          icon={faYoutube}
-                          style={{ color: "#FF0000" }}
-                          size="2x"
-                        />
-                      </InputGroup.Text>
-                      <FormControl
-                        style={{ borderLeft: "none", color: "black" }}
-                        className="channel-txt-input"
-                        placeholder="Enter your youtube channel name or url"
-                        name="url"
-                        autoComplete="off"
-                      />
-                    </InputGroup>
-
-                    <Row className="justify-content-around py-3">
-                      <Col xl="6" className="py-3">
-                        <Button
-                          variant="primary"
-                          className="py-2 px-5 getstartedbtn"
-                          // onClick={getStarted}
-                          type="submit"
-                          name="getstarted"
-                        >
-                          Get Started
-                          <FontAwesomeIcon
-                            icon={faArrowRight}
-                            style={{
-                              position: "absolute",
-                              right: "10px",
-                              top: "33%",
-                            }}
-                          />
-                        </Button>
-                      </Col>
-                      {User ? (
-                        <Col xl="6" className="py-3"></Col>
-                      ) : (
-                        <Col xl="6" className="py-3">
-                          <Button
-                            variant="outline-primary"
-                            style={{
-                              color: "white",
-                              borderColor: "white",
-                              width: "80%",
-                              height: "3rem",
-                              position: "relative",
-                              textAlign: "left",
-                            }}
-                            className="py-2 px-5"
-                            type="submit"
-                            name="signup"
-                          // onClick={Signup}
-                          >
-                            Sign up
-                            <FontAwesomeIcon
-                              icon={faArrowRight}
-                              style={{
-                                position: "absolute",
-                                right: "10px",
-                                top: "33%",
-                              }}
-                            />
-                          </Button>
-                        </Col>
-                      )}
-                    </Row>
-                  </Form>
-
-                  <p
+                <InputGroup className="mb-3">
+                  <InputGroup.Text
                     style={{
-                      fontFamily: "Inter",
-                      fontStyle: "italic",
-                      color: "#F1F1F1",
+                      backgroundColor: "white",
+                      borderRight: "none",
                     }}
                   >
-                    By signing up, I agree to VidTrial's{" "}
-                    <a href="/terms-and-services"> Terms of Service</a> <br />
-                    and <a href="/privacy-policy"> Privacy Policy.</a>
-                  </p>
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      style={{ color: "#FF0000" }}
+                      size="2x"
+                    />
+                  </InputGroup.Text>
+                  <FormControl
+                    style={{ borderLeft: "none", color: "black" }}
+                    className="channel-txt-input"
+                    placeholder="Enter your youtube channel name or url"
+                    name="url"
+                    autoComplete="off"
+                  />
+                </InputGroup>
 
+                <Row className="justify-content-around py-3">
+                  <Col xl="6" className="py-3">
+                    <Button
+                      variant="primary"
+                      className="py-2 px-5 getstartedbtn"
+                      // onClick={getStarted}
+                      type="submit"
+                      name="getstarted"
+                    >
+                      Get Started
+                      <FontAwesomeIcon
+                        icon={faArrowRight}
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "33%",
+                        }}
+                      />
+                    </Button>
+                  </Col>
+                  {User ? (
+                    <Col xl="6" className="py-3"></Col>
+                  ) : (
+                    <Col xl="6" className="py-3">
+                      <Button
+                        variant="outline-primary"
+                        style={{
+                          color: "white",
+                          borderColor: "white",
+                          width: "80%",
+                          height: "3rem",
+                          position: "relative",
+                          textAlign: "left",
+                        }}
+                        className="py-2 px-5"
+                        type="submit"
+                        name="signup"
+                        // onClick={Signup}
+                      >
+                        Sign up
+                        <FontAwesomeIcon
+                          icon={faArrowRight}
+                          style={{
+                            position: "absolute",
+                            right: "10px",
+                            top: "33%",
+                          }}
+                        />
+                      </Button>
+                    </Col>
+                  )}
+                </Row>
+              </Form>
+
+              <p
+                style={{
+                  fontFamily: "Inter",
+                  fontStyle: "italic",
+                  color: "#F1F1F1",
+                }}
+              >
+                By signing up, I agree to VidTrial's{" "}
+                <a href="/terms-and-services"> Terms of Service</a> <br />
+                and <a href="/privacy-policy"> Privacy Policy.</a>
+              </p>
             </div>
-
 
             <div className="col-md-6 d-flex justify-content-center home-mobile-contianer">
               <Image className="home-mobile-images" src={MobileImg} fluid />
             </div>
-
-
           </div>
-
-
         </div>
-
-
-
-       
       </section>
     </React.Fragment>
   );

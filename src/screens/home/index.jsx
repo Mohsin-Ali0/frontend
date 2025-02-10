@@ -9,20 +9,46 @@ import { PromoteChanel } from "./promote-channel/promote-channel";
 import { StartPromoting } from "./start-promoting/start-promoting";
 import { Promotionforecast } from "./promotion-forecast/promotion-forecast";
 import { Views } from "./Views/views";
+import FadeIn from "../../components/FadeIn/FadeIn";
 
 function Home() {
   return (
     <React.Fragment>
       <Layout>
-        <Banner />
-        <Views />
-        <Reviews />
-        <BoostViews />
-        <AboutUs />
-        <OurWork />
-        <Promotionforecast />
-        <PromoteChanel />
-        <StartPromoting />
+        {/* Remove delay props since animations will trigger on scroll */}
+        <FadeIn as="section" initialY={50}>
+          <Banner />
+          <Views />
+        </FadeIn>
+
+        <FadeIn>
+          <Reviews />
+        </FadeIn>
+
+        <FadeIn>
+          <BoostViews />
+        </FadeIn>
+
+        {/* Continue for other components */}
+        <FadeIn>
+          <AboutUs />
+        </FadeIn>
+
+        <FadeIn>
+          <OurWork />
+        </FadeIn>
+
+        <FadeIn>
+          <Promotionforecast />
+        </FadeIn>
+
+        <FadeIn>
+          <PromoteChanel />
+        </FadeIn>
+
+        <FadeIn>
+          <StartPromoting />
+        </FadeIn>
       </Layout>
     </React.Fragment>
   );

@@ -4,18 +4,21 @@ import { Container } from "react-bootstrap";
 import axios from "axios";
 import DOMPurify from "dompurify";
 import parse from "html-react-parser";
+import FadeIn from "../../../components/FadeIn/FadeIn";
 
 export const TermsandConditionContent = () => {
   const [data, setData] = useState({
     content: "",
     lastupdate: "",
   });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getTermsandConditions("termsAndConditions");
   }, []);
 
   const getTermsandConditions = async (contentType) => {
+    setLoading(true);
     try {
       const res = await axios.get(
         "api/admin/configuration/getFrontConfigbyId",
@@ -35,6 +38,8 @@ export const TermsandConditionContent = () => {
       }
     } catch (error) {
       console.error("Error fetching terms and conditions:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,11 +47,20 @@ export const TermsandConditionContent = () => {
     <Container fluid>
       <h1 className="title pt-5 pb-5">VidTrial Terms Of Service Page</h1>
       <div className="terms-container">
-        {/* Parse and render sanitized HTML content */}
-        {parse(data.content)}
-        <p style={{ fontSize: 12 }}>
-          Last update: {new Date(data.lastupdate).toLocaleString()}
-        </p>
+        {loading ? (
+          <div className="d-flex justify-content-center align-items-center">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        ) : (
+          <>
+            <FadeIn>{parse(data.content)}</FadeIn>
+            <p style={{ fontSize: 12 }}>
+              Last update: {new Date(data.lastupdate).toLocaleString()}
+            </p>
+          </>
+        )}
       </div>
     </Container>
   );

@@ -7,6 +7,7 @@ import { AudienceAndInterests } from "./AudienceAndInterests/audienceandIntrest"
 import { StartThePromotion } from "./StartThePromotion/startpromotion";
 import usePageTitle from "../../hooks/usePageTitle";
 import axios from "axios";
+import FadeIn from "../../components/FadeIn/FadeIn";
 
 export const DashBoard = () => {
   usePageTitle("Dashboad");
@@ -267,92 +268,93 @@ export const DashBoard = () => {
             setActiveStep={handleStepChange}
           />
         </div>
-
-        <div className="step-component-container">
-          {currentStep === 1 && (
-            <VideoSelection
-              ChannelDetails={ChannelDetails}
-              handleStepChange={handleStepChange}
-              SelectedVideos={SelectedVideos}
-              setSelectedVideos={setSelectedVideos}
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
-              selectedSlides={selectedSlides}
-              setSelectedSlides={setSelectedSlides}
-              limitReached={limitReached}
-              setLimitReached={setLimitReached}
-              VideoSeggestion={VideoSeggestion}
-              setVideoSuggestion={setVideoSuggestion}
-              SearchVideoValue={SearchVideoValue}
-              setSearchVideoValue={setSearchVideoValue}
-              SearchVideo={SearchVideo}
-            />
-          )}
-          {currentStep === 2 && (
-            <SubscriberAndUsers
-              ChannelDetails={ChannelDetails}
-              handleStepChange={handleStepChange}
-              value={value}
-              setValue={setValue}
-              ViewsData={ViewsData}
-            />
-          )}
-          {currentStep === 3 && (
-            <AudienceAndInterests
-              ChannelDetails={ChannelDetails}
-              handleStepChange={handleStepChange}
-              audienceAndInterestsData={audienceAndInterestsData}
-              setAudienceAndInterestsData={setAudienceAndInterestsData}
-              checked={checked}
-              setChecked={setChecked}
-              genders={genders}
-              setGenders={setGenders}
-              ages={ages}
-              setAges={setAges}
-              interests={interests}
-              setInterests={setInterests}
-              keywords={keywords}
-              setKeywords={setKeywords}
-              keywordInput={keywordInput}
-              setKeywordInput={setKeywordInput}
-              selectedCountries={selectedCountries}
-              setselectedCountries={setselectedCountries}
-              show={show}
-              setShow={setShow}
-              handleGenderSelect={handleGenderSelect}
-              handleAgeCheck={handleAgeCheck}
-              handleInterestCheck={handleInterestCheck}
-              handleKeywordAdd={handleKeywordAdd}
-              handleKeywordRemove={handleKeywordRemove}
-              handleCheckboxClick={handleCheckboxClick}
-              OpenOptions={OpenOptions}
-              options={options}
-            />
-          )}
-          {currentStep === 4 && (
-            <StartThePromotion
-              value={value}
-              // Views={ViewsData}
-              Views={Math.floor(
-                parseFloat(value) /
-                  parseFloat(ViewsData?.bidCost?.interactions?.loCpv?.value)
-              )}
-              ChannelDetails={ChannelDetails}
-              VideoSelectionData={SelectedVideos}
-              selectedOption={selectedOption}
-              selectedSlides={selectedSlides}
-              AudienceAndInterestsData={audienceAndInterestsData}
-              handleStepChange={handleStepChange}
-              checked={checked}
-              genders={genders}
-              ages={ages}
-              interests={interests}
-              keywords={keywords}
-              keywordInput={keywordInput}
-              show={show}
-            />
-          )}
-        </div>
+        <FadeIn>
+          <div className="step-component-container">
+            {currentStep === 1 && (
+              <VideoSelection
+                ChannelDetails={ChannelDetails}
+                handleStepChange={handleStepChange}
+                SelectedVideos={SelectedVideos}
+                setSelectedVideos={setSelectedVideos}
+                selectedOption={selectedOption}
+                setSelectedOption={setSelectedOption}
+                selectedSlides={selectedSlides}
+                setSelectedSlides={setSelectedSlides}
+                limitReached={limitReached}
+                setLimitReached={setLimitReached}
+                VideoSeggestion={VideoSeggestion}
+                setVideoSuggestion={setVideoSuggestion}
+                SearchVideoValue={SearchVideoValue}
+                setSearchVideoValue={setSearchVideoValue}
+                SearchVideo={SearchVideo}
+              />
+            )}
+            {currentStep === 2 && (
+              <SubscriberAndUsers
+                ChannelDetails={ChannelDetails}
+                handleStepChange={handleStepChange}
+                value={value}
+                setValue={setValue}
+                ViewsData={ViewsData}
+              />
+            )}
+            {currentStep === 3 && (
+              <AudienceAndInterests
+                ChannelDetails={ChannelDetails}
+                handleStepChange={handleStepChange}
+                audienceAndInterestsData={audienceAndInterestsData}
+                setAudienceAndInterestsData={setAudienceAndInterestsData}
+                checked={checked}
+                setChecked={setChecked}
+                genders={genders}
+                setGenders={setGenders}
+                ages={ages}
+                setAges={setAges}
+                interests={interests}
+                setInterests={setInterests}
+                keywords={keywords}
+                setKeywords={setKeywords}
+                keywordInput={keywordInput}
+                setKeywordInput={setKeywordInput}
+                selectedCountries={selectedCountries}
+                setselectedCountries={setselectedCountries}
+                show={show}
+                setShow={setShow}
+                handleGenderSelect={handleGenderSelect}
+                handleAgeCheck={handleAgeCheck}
+                handleInterestCheck={handleInterestCheck}
+                handleKeywordAdd={handleKeywordAdd}
+                handleKeywordRemove={handleKeywordRemove}
+                handleCheckboxClick={handleCheckboxClick}
+                OpenOptions={OpenOptions}
+                options={options}
+              />
+            )}
+            {currentStep === 4 && (
+              <StartThePromotion
+                value={value}
+                // Views={ViewsData}
+                Views={Math.floor(
+                  parseFloat(value) /
+                    parseFloat(ViewsData?.bidCost?.interactions?.loCpv?.value)
+                )}
+                ChannelDetails={ChannelDetails}
+                VideoSelectionData={SelectedVideos}
+                selectedOption={selectedOption}
+                selectedSlides={selectedSlides}
+                AudienceAndInterestsData={audienceAndInterestsData}
+                handleStepChange={handleStepChange}
+                checked={checked}
+                genders={genders}
+                ages={ages}
+                interests={interests}
+                keywords={keywords}
+                keywordInput={keywordInput}
+                show={show}
+              />
+            )}
+          </div>
+        </FadeIn>
       </LoginLayout>
     </React.Fragment>
   );

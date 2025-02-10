@@ -21,6 +21,7 @@ import usePageTitle from "../../../hooks/usePageTitle";
 import SiteButton from "../../../components/Button/button";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import FadeIn from "../../../components/FadeIn/FadeIn";
 
 export const ChannelList = () => {
   usePageTitle("Channels");
@@ -47,15 +48,12 @@ export const ChannelList = () => {
       })
       .catch((error) => {
         console.log(error, "cathchhhh");
-        // document.getElementById(
-        //   "response"
-        // ).innerHTML = `<div class="alert alert-danger"role="alert"><strong>Opss! </strong>${error.response.data.message}</div>`;
-        // setLoad(false);
       });
   };
 
   const SearchChannel = async (e) => {
     e.preventDefault();
+
     await axios
       .post("/channel", formData)
       .then((response) => {
@@ -66,10 +64,6 @@ export const ChannelList = () => {
       })
       .catch((error) => {
         console.log(error, "cathchhhh");
-        // document.getElementById(
-        //   "response"
-        // ).innerHTML = `<div class="alert alert-danger"role="alert"><strong>Opss! </strong>${error.response.data.message}</div>`;
-        // setLoad(false);
       });
   };
 
@@ -208,12 +202,16 @@ export const ChannelList = () => {
             >
               {/* turnery here */}
               {Channels.length > 0 ? (
-                <ChannelSelector
-                  channels={Channels}
-                  setselectedChannel={setselectedChannel}
-                  selectedChannel={selectedChannel}
-                  ShowSelected={setShowSelected}
-                />
+                <>
+                  <FadeIn>
+                    <ChannelSelector
+                      channels={Channels}
+                      setselectedChannel={setselectedChannel}
+                      selectedChannel={selectedChannel}
+                      ShowSelected={setShowSelected}
+                    />
+                  </FadeIn>
+                </>
               ) : (
                 <div className="ChannelLogocont">
                   {/* <ChannelsLogo /> */}

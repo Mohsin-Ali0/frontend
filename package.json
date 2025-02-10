@@ -24,6 +24,7 @@
     "bootstrap-icons": "^1.11.3",
     "dompurify": "^3.1.6",
     "eslint": "^8.57.0",
+    "framer-motion": "^12.4.1",
     "gasp": "^0.0.2",
     "html-react-parser": "^5.1.12",
     "js-cookie": "^3.0.5",

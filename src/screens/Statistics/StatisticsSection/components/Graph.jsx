@@ -1,24 +1,32 @@
-import React from 'react';
+import React from "react";
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Area, AreaChart
-} from 'recharts';
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
+  Area,
+  AreaChart,
+} from "recharts";
 
 // Sample data for the graph
 const data = [
-  { name: '29 Aug', subscribers: 5 },
-  { name: '30 Aug', subscribers: 4 },
-  { name: '31 Aug', subscribers: 5 },
-  { name: '01 Sep', subscribers: 6 },
-  { name: '02 Sep', subscribers: 8 },
-  { name: '03 Sep', subscribers: 10 },
-  { name: '04 Sep', subscribers: 15 },
-  { name: '05 Sep', subscribers: 17 },
+  { name: "29 Aug", subscribers: 5 },
+  { name: "30 Aug", subscribers: 4 },
+  { name: "31 Aug", subscribers: 5 },
+  { name: "01 Sep", subscribers: 6 },
+  { name: "02 Sep", subscribers: 8 },
+  { name: "03 Sep", subscribers: 10 },
+  { name: "04 Sep", subscribers: 15 },
+  { name: "05 Sep", subscribers: 17 },
 ];
 
-const Graph = () => {
+export const Graph = () => {
   return (
     <div>
-    
       <ResponsiveContainer width="100%" height={300}>
         <AreaChart data={data}>
           <defs>
@@ -33,10 +41,14 @@ const Graph = () => {
           <Tooltip />
           <Legend />
           {/* Line with gradient fill */}
-          <Area type="monotone" dataKey="subscribers" stroke="#139DFF" fill="url(#colorSub)" />
+          <Area
+            type="monotone"
+            dataKey="subscribers"
+            stroke="#139DFF"
+            fill="url(#colorSub)"
+          />
         </AreaChart>
       </ResponsiveContainer>
-    
     </div>
   );
 };
