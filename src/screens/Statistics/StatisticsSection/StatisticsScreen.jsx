@@ -31,7 +31,7 @@ export default function index({ selectedChannel }) {
                 <div className="container ">
                     <h1 className='Statistics-text mt-3'>Statistics</h1>
                     <div className="d-flex Statistics-second-section gap-4 flex-wrap">
-                        <select class="form-select" aria-label="Default select example">
+                        <select className="form-select" aria-label="Default select example">
                             <option selected>Custom Period</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -84,7 +84,7 @@ export default function index({ selectedChannel }) {
                         </div>
                         <div className="d-flex gap-3 align-items-center">
                             <FilterIcon />
-                            <select class="form-select veiw-selection" aria-label="Default select example">
+                            <select className="form-select veiw-selection" aria-label="Default select example">
                                 <option selected>by views</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>

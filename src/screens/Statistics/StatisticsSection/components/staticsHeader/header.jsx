@@ -20,6 +20,7 @@ import { ArrowDown, ArrowUp, ProfilePic } from "../../../../../assets/images";
 import HeaderLogo from "../../../../../assets/svg/headerlogoblack";
 import HeaderLogoImg from "../../../../../assets/images/logo-dark.png";
 import Cookies from "js-cookie";
+import { decodeToken } from "react-jwt";
 
 export const StaticsHeader = ({ ChannelAlldata, selectedChannel, selectChannelfromDropDown }) => {
     console.log("===>", ChannelAlldata)
@@ -30,14 +31,10 @@ export const StaticsHeader = ({ ChannelAlldata, selectedChannel, selectChannelfr
         setShowOffCanvasMenu(!showOffCanvasMenu);
     };
 
-    useEffect(() => {
-        // let user = JSON.parse(localStorage.getItem('user'));
-        // setProfile(user);
-        // setNotificationState(notifificationData);
-    }, []);
+    const DecodedToken = decodeToken(localStorage.getItem("token"));
+
     const ToggleIcon = () => {
         setisOpen(!isOpen);
-        // alert("asdasdasdasd");
     };
     const handleLogout = async () => {
         localStorage.clear();
@@ -69,39 +66,12 @@ export const StaticsHeader = ({ ChannelAlldata, selectedChannel, selectChannelfr
                         className="ms-4 desktop-channel-dropdown"
                         style={{ minWidth: '200px' }}
                     >
-                        {/* <NavDropdown.Item className="d-flex align-items-center" href="#apple">
-
-                            <div className="">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="" style={{ width: '25px', marginRight: '8px' }} />
-                                <span>sd</span>
-                            </div>
-
-                        // </NavDropdown.Item>
-                        // <NavDropdown.Item className="d-flex align-items-center" href="/channels">
-                        //     <span className="add-dropdown-icon" style={{ fontSize: '1em', marginRight: '8px', color: '#888' }}>+</span>
-                        //     <span>Add Channel</span>
-
-                        // </NavDropdown.Item>
-                        <NavDropdown.Item className="d-flex align-items-center" href="#apple">
-
-                            <div className="">
-                                <img src="https://dummyimage.com/20x20/ffd700/000000.png&text=B" alt="" style={{ width: '25px', marginRight: '8px' }} />
-                                <span> Apple España</span>
-                            </div>
-
-                        </NavDropdown.Item> */}
-
-                        {/* <div className="">
-                                <img src="https://dummyimage.com/20x20/ffd700/000000.png&text=B" alt="" style={{ width: '25px', marginRight: '8px' }} />
-                                <span> Apple España</span>
-                                </div> */}
-
 
                         <NavDropdown.Item className="d-flex align-items-center" href="/channels">
                             <span className="add-dropdown-icon" style={{ fontSize: '1em', marginRight: '8px', color: '#888' }}>+</span>
-                           <span>Add Channel</span>
+                            <span>Add Channel</span>
 
-                         </NavDropdown.Item>
+                        </NavDropdown.Item>
 
                         {ChannelAlldata.map((item, index) => (
                             <NavDropdown.Item key={index} className="d-flex align-items-center" href="#apple" onClick={() => { selectChannelfromDropDown(item) }}>
@@ -118,10 +88,10 @@ export const StaticsHeader = ({ ChannelAlldata, selectedChannel, selectChannelfr
 
                     <Navbar.Toggle className="order-4 order-lg-2 notButton">
                         <input id="customCheckbox" type="checkbox" onClick={toggleOffCanvasMenu} />
-                        <label class="customToggle" for="customCheckbox">
-                            <div id="customBar1" class="customBars"></div>
-                            <div id="customBar2" class="customBars"></div>
-                            <div id="customBar3" class="customBars"></div>
+                        <label className="customToggle" htmlFor="customCheckbox">
+                            <div id="customBar1" className="customBars"></div>
+                            <div id="customBar2" className="customBars"></div>
+                            <div id="customBar3" className="customBars"></div>
                         </label>
 
                         {/* <FontAwesomeIcon
@@ -151,8 +121,7 @@ export const StaticsHeader = ({ ChannelAlldata, selectedChannel, selectChannelfr
                                         <img src={ProfilePic} alt="" className="img-fluid me-2" />
                                     </div>
                                     <span className="me-2">
-                                        {/* {profile.first_name + " " + profile.last_name} */}
-                                        profile name
+                                        {DecodedToken.firstName + " " + DecodedToken.LastName}
                                     </span>
                                     <div className="userImage">
                                         <Image

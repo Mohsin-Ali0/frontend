@@ -4,7 +4,8 @@
     font-size: 33px;
     line-height: 48px;
 }
-.TableResponsive{
+
+.TableResponsive {
     overflow: auto;
     height: 300px;
 }
@@ -56,12 +57,38 @@
     line-height: 24px;
 }
 
+.PassmainInputLabel {
+    font-size: 15px;
+    /* color: #333; */
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+}
+
+.PassmainInput::placeholder {
+    color: #acb3c0;
+}
+
+.PassmainInput {
+    /* background: #F0F4F9; */
+    font-weight: 400;
+    padding: 16px 15px;
+    font-size: 15px;
+    color: #141414;
+    width: 100%;
+    resize: none;
+    border-radius: 8px;
+    border: 1px solid #D9DEE8;
+    outline: none;
+    box-shadow: 0px 3px 6px rgb(133 233 255 / 14%);
+}
+
 @media only screen and (max-width: 774px) {
     .user-action-button button {
         padding: 10px 30px 10px 30px !important;
     }
-    
-  }
+
+}
 
 
 .user-action-button button {
@@ -181,7 +208,9 @@
 .userpayment-dashboard-end {
     background: #fff;
 }
-.user-sec-lock svg,.user-sec-profile svg{
+
+.user-sec-lock svg,
+.user-sec-profile svg {
     width: 30px !important;
     height: 30px;
 }
@@ -206,12 +235,96 @@
 .card-select-option:focus {
     box-sizing: none !important;
 }
-tbody, td, tfoot, th, thead, tr{
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
     border-style: none !important;
     padding: 16px !important;
 }
-.table-section-payment table{
+
+.table-section-payment table {
     font-family: "poppins";
     font-size: 16px;
-    color: #00000099 !important;   
+    color: #00000099 !important;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card-container:hover {
+    transform: scale(1.02);
+}
+
+.card-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-number {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-type {
+    font-size: 16px;
+    color: #666;
+}
+
+.card-payment-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.Pagination-section .pagination {
+    display: flex;
+    justify-content: center;
+    --bs-pagination-disabled-bg: #FFEEF4 !important;
+    --bs-pagination-disabled-color: #FE5993 !important;
+    --bs-pagination-bg: #FFEEF4 !important;
+    --bs-pagination-focus-box-shadow: #FE5993 !important;
+}
+
+.Pagination-section .page-link {
+    color: #FE5993;
+}
+
+.active>.page-link,
+.page-link.active {
+    background: #ff0c61;
+    color: #FFf;
+    border-color: #ff0c61;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .card-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

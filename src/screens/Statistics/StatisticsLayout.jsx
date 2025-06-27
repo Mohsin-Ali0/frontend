@@ -3,7 +3,7 @@ import { LoggedInHeader } from '../../components/Layout/loggedinlayout/header/he
 import { SiteFooter } from '../../components/Layout/footer'
 import Index from './StatisticsSection/StatisticsScreen'
 import { StaticsHeader } from './StatisticsSection/components/staticsHeader/header'
-export default function index() {
+export const Statistics = () => {
     let ChannelAlldata = [
         {
             id: 1,
@@ -66,7 +66,7 @@ export default function index() {
     const [selectedChannel, setselectedChannel] = useState([])
 
     const selectChannelfromDropDown = (selectedchannel) => {
-        console.log(selectedchannel,"selectedchannel")
+        console.log(selectedchannel, "selectedchannel")
         return setselectedChannel(selectedchannel)
     }
 

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./signup.css";
-import { Form, Image } from "react-bootstrap";
+import { Col, Form, Image, Row } from "react-bootstrap";
 import { AuthLayout } from "../../../components/Layout/authLayout";
 import { GoogleIcon } from "../../../assets/images";
 import CustomInput from "../../../components/CustomInput";
@@ -26,16 +26,15 @@ const SignUp = () => {
 
   const handleGoogleLogin = () => {
     // Redirect to the backend route for Google Login
-    // window.open("http://localhost:3004/auth/google", "_self");
-    window.open("https://backend.vidtrial.com/auth/google", "_self");
+    window.open("http://localhost:3004/auth/google", "_self");
+    // window.open("https://backend.vidtrial.com/auth/google", "_self");
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoad(true);
     setErrorData({ ...ErrorData, type: false });
-    if (formData.email && formData.password && termsChecked) {
-      console.log(formData, "formData");
+    if (formData.email && formData.password && formData.firstName && formData.lastName && termsChecked) {
       setLoad(false);
       await axios
         .post("/auth/signup", formData)
@@ -55,7 +54,10 @@ const SignUp = () => {
             type: true,
             message: err.response.data.message,
           });
-        });
+        }).finally(() => {
+          setLoad(false);
+        }
+        );
     } else {
       setErrorData({
         ...ErrorData,
@@ -87,6 +89,36 @@ const SignUp = () => {
           </div>
         ) : null}
         <Form onSubmit={handleLogin}>
+          <Row className="d-flex justify-content-between">
+            <Col md={6} sm={12} xs={12} className="d-flex flex-column ">
+              <CustomInput
+                label="First Name"
+                labelClass="mainLabel bold mob-resp"
+                type="text"
+                id="firstName"
+                placeholder="Enter your First Name"
+                inputClass="mainInput"
+                onChange={(e) => {
+                  setFormData({ ...formData, firstName: e.target.value });
+                  setErrorData({ ...ErrorData, type: false });
+                }}
+              />
+            </Col>
+            <Col md={6} sm={12} xs={12} className="d-flex flex-column">
+              <CustomInput
+                label="Last Name"
+                labelClass="mainLabel bold mob-resp"
+                type="text"
+                id="lastName"
+                placeholder="Enter your Last Name"
+                inputClass="mainInput"
+                onChange={(e) => {
+                  setFormData({ ...formData, lastName: e.target.value });
+                  setErrorData({ ...ErrorData, type: false });
+                }}
+              />
+            </Col>
+          </Row>
           <CustomInput
             label="Email"
             labelClass="mainLabel bold mob-resp"
@@ -112,15 +144,7 @@ const SignUp = () => {
             }}
           />
 
-          <div className="d-flex align-items-baseline justify-content-between mt-1">
-            <Link
-              to={"/forget-password"}
-              style={{ color: "#139DFF" }}
-              className="text-decoration-underline"
-            >
-              Forgot Password?
-            </Link>
-          </div>
+         
           <div className="custom-checkboxes mt-2 mb-2">
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check

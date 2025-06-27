@@ -22,6 +22,12 @@ import CustomPayments from "../screens/payments/custom-payments/custom-payments"
 import About from "../screens/About/index";
 import { AnimatePresence } from "framer-motion";
 import { PageTransition } from "../components/PageTransition/PageTransition";
+import ForgotPassword from "../screens/auth/forgot-password";
+import { UserSecurityAndLogin } from "../screens/Userdashboard/UserSecurityAndLogin";
+import { UserPaymentMethods } from "../screens/Userdashboard/UserPaymentMethods";
+import { UserPaymentHistory } from "../screens/Userdashboard/UserPaymentHistory";
+import { UserAccount } from "../screens/Userdashboard/UserAccount";
+import { Statistics } from "../screens/Statistics/StatisticsLayout";
 export const UserRouter = () => {
   const location = useLocation();
   return (
@@ -59,14 +65,14 @@ export const UserRouter = () => {
             </PageTransition>
           }
         />
-        {/* <Route
+        <Route
           path="*"
           element={
             <PageTransition>
               <PageNotFound />
             </PageTransition>
           }
-        /> */}
+        />
 
         {/* Auth Screens Start */}
 
@@ -84,6 +90,14 @@ export const UserRouter = () => {
             element={
               <PageTransition>
                 <SignUp />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/forget-password"
+            element={
+              <PageTransition>
+                <ForgotPassword />
               </PageTransition>
             }
           />
@@ -142,6 +156,39 @@ export const UserRouter = () => {
               </PageTransition>
             }
           />
+          {/* USER DASHBOARD ROUTES */}
+          {/* <Route path="/user/profile" element={
+            <PageTransition>
+              <UserManagment />
+            </PageTransition>
+
+          } /> */}
+          <Route path="/user/account" element={
+            // <PageTransition>
+              <UserAccount />
+            // </PageTransition>
+          } />
+          <Route path="/user/security" element={
+            // <PageTransition>
+              <UserSecurityAndLogin />
+            // </PageTransition>
+          } />
+          <Route path="/user/paymentmethods" element={
+            // <PageTransition>
+              <UserPaymentMethods />
+            // </PageTransition>
+
+          } />
+          <Route path="/user/paymentmethodshistory" element={
+            // <PageTransition>
+              <UserPaymentHistory />
+            // </PageTransition>
+          } />
+          <Route path="/user/statistics" element={
+            // <PageTransition>
+              <Statistics />
+            // </PageTransition>
+          } />
         </Route>
       </Routes>
     </AnimatePresence>

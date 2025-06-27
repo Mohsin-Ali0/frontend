@@ -24,8 +24,8 @@ const UserLogIn = () => {
 
   const handleGoogleLogin = () => {
     // Redirect to the backend route for Google Login
-    // window.open("http://localhost:3004/auth/google", "_self");
-    window.open("https://backend.vidtrial.com/auth/google", "_self");
+    window.open("http://localhost:3004/auth/google", "_self");
+    // window.open("https://backend.vidtrial.com/auth/google", "_self");
   };
 
   const handleLogin = async (e) => {
@@ -47,6 +47,7 @@ const UserLogIn = () => {
             axios.defaults.headers.common[
               "Authorization"
             ] = `Bearer ${response.data.data.token}`;
+            window.location.reload(); // Reload the application
           }, 1000);
         })
         .catch((error) => {

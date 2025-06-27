@@ -17,6 +17,7 @@ import HeaderLogoImg from "../../assets/images/logo-light.png";
 import useAuth from "../../hooks/useAuth";
 import usePageTitle from "../../hooks/usePageTitle";
 import Cookies from "js-cookie";
+import Swal from "sweetalert2";
 // import "../Client.module.css";
 export const SiteHeader = () => {
   usePageTitle("Home");
@@ -39,6 +40,22 @@ export const SiteHeader = () => {
       setCheckAuth(true);
     }
   }, [User]);
+
+
+
+  const showAlert = () => {
+    Swal.fire({
+      title: "Are you Sure You Want to Logout?",
+      icon: "warning",
+      confirmButtonText: "OK",
+    }).then((result) => {
+      // After user clicks OK button
+      if (result.isConfirmed) {
+        HandleLogout(); // Close the modal by setting state to false
+      }
+    });
+  };
+
 
   return (
     <React.Fragment>
@@ -91,13 +108,12 @@ export const SiteHeader = () => {
                         style={{ boxSizing: "border-box" }}
                       >
                         <Nav className="align-items-lg-center">
-                          <NavLink
-                            activeclassname="active"
+                          <a
                             className="me-xl-4 me-lg-3 headertext no-wrap"
-                            to="/ads"
+                            href="tel:+10000000000"
                           >
                             +1 (000) 000-0000
-                          </NavLink>
+                          </a>
                           <NavLink
                             activeclassname="active"
                             className="me-xl-4 me-lg-3 headertext no-wrap"
@@ -111,16 +127,22 @@ export const SiteHeader = () => {
                               DashBoard
                             </SiteButton>
                           </NavLink>
-                          <NavLink
+
+                          <a
                             activeclassname="active"
                             className="me-xl-4 me-lg-3 m-2 headertext no-wrap"
-                            onClick={HandleLogout}
+                            href="#"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              showAlert();
+                            }}
                           >
                             <FontAwesomeIcon
                               icon={faRightFromBracket}
                               style={{ color: "white" }}
                             />
-                          </NavLink>
+                          </a>
+                        
                         </Nav>
                       </Col>
                     ) : (
@@ -152,7 +174,7 @@ export const SiteHeader = () => {
                           >
                             <SiteButton
                               className="signinbtn "
-                              onClick={toggleOffCanvasMenu}
+                            // onClick={toggleOffCanvasMenu}
                             >
                               Sign Up
                             </SiteButton>
@@ -162,18 +184,15 @@ export const SiteHeader = () => {
                     )}
                   </Row>
                 </Navbar.Collapse>
-                <SiteButton
-                  className="transparent-btn p-xl d-lg-none"
-                  onClick={toggleOffCanvasMenu}
-                  style={{ backgroundColor: "orange" }}
-                  // style={{
-                  //   backgroundColor: "tranparent",
-                  //   padding: "0",
-                  //   border: "0",
-                  // }}
-                >
-                  <FontAwesomeIcon icon={faBars} style={{ color: "white" }} />
-                </SiteButton>
+
+
+
+                <input id="customCheckbox" type="checkbox" onClick={toggleOffCanvasMenu} />
+                <label className="customToggle transparent-btn p-xl d-lg-none" htmlFor="customCheckbox">
+                  <div id="customBar1" className="customBars"></div>
+                  <div id="customBar2" className="customBars"></div>
+                  <div id="customBar3" className="customBars"></div>
+                </label>
               </Navbar>
             </Col>
           </Row>
@@ -191,17 +210,9 @@ export const SiteHeader = () => {
           </Offcanvas.Header>
           <Offcanvas.Body
             className="mob-menu"
-           
+
           >
             <Nav className="flex-column">
-              <NavLink
-                // exact
-                activeclassname="active"
-                className="me-xl-4 me-lg-3"
-                to="/"
-              >
-                Home
-              </NavLink>
               <NavLink
                 activeclassname="active"
                 className="me-xl-4 me-lg-3"
@@ -212,24 +223,64 @@ export const SiteHeader = () => {
               <NavLink
                 activeclassname="active"
                 className="me-xl-4 me-lg-3"
-                to="/featured-ads"
+                to="/privacy-policy"
               >
-                Featured Ads
+                Privacy Policy
               </NavLink>
               <NavLink
                 activeclassname="active"
                 className="me-xl-4 me-lg-3"
-                to="/ads"
+                to="/terms-and-services"
               >
-                Ads
+                Terms & Service
               </NavLink>
-              <NavLink
-                activeclassname="active"
-                className="me-xl-4 me-lg-3"
-                to="/contact-us"
+
+
+              {checkAuth ? (<>
+                <NavLink
+                  activeclassname="active"
+                  className="me-xl-4 me-lg-3"
+                  to="/channels"
+                >
+                  DashBoard
+                </NavLink>
+
+                <a
+                  className="me-xl-4 me-lg-3"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showAlert();
+                  }}
+                >
+                  Logout
+                </a>
+
+              </>) : (
+                <>
+                  <NavLink
+                    activeclassname="active"
+                    className="me-xl-4 me-lg-3"
+                    to="/login"
+                  >
+                    Sign In
+                  </NavLink>
+                  <NavLink
+                    activeclassname="active"
+                    className="me-xl-4 me-lg-3"
+                    to="/signup"
+                  >
+                    Sign Up
+                  </NavLink>
+                </>
+              )}
+              <a
+                className="me-xl-4 me-lg-3 headertext no-wrap"
+                href="mailto:contact@Vidtrial.com"
               >
                 Contact Us
-              </NavLink>
+              </a>
+
             </Nav>
           </Offcanvas.Body>
         </Offcanvas>
@@ -237,3 +288,6 @@ export const SiteHeader = () => {
     </React.Fragment>
   );
 };
+
+
+

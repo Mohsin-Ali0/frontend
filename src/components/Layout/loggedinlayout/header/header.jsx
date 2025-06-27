@@ -20,6 +20,7 @@ import { ArrowDown, ArrowUp, ProfilePic } from "../../../../assets/images";
 import HeaderLogo from "../../../../assets/svg/headerlogoblack";
 import HeaderLogoImg from "../../../../assets/images/logo-dark.png";
 import Cookies from "js-cookie";
+import { decodeToken } from "react-jwt";
 
 export const LoggedInHeader = (props) => {
   const [isOpen, setisOpen] = useState(false);
@@ -28,19 +29,15 @@ export const LoggedInHeader = (props) => {
   const toggleOffCanvasMenu = () => {
     setShowOffCanvasMenu(!showOffCanvasMenu);
   };
+  const DecodedToken = decodeToken(localStorage.getItem("token"));
 
-  useEffect(() => {
-    // let user = JSON.parse(localStorage.getItem('user'));
-    // setProfile(user);
-    // setNotificationState(notifificationData);
-  }, []);
   const ToggleIcon = () => {
     setisOpen(!isOpen);
-    // alert("asdasdasdasd");
   };
   const handleLogout = async () => {
     localStorage.clear();
     Cookies.remove("token");
+    location.reload();
   };
 
   return (
@@ -53,11 +50,11 @@ export const LoggedInHeader = (props) => {
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle className="order-4 order-lg-2 notButton">
-            <input id="customCheckbox" type="checkbox"  onClick={toggleOffCanvasMenu} />
-            <label class="customToggle" for="customCheckbox">
-              <div id="customBar1" class="customBars"></div>
-              <div id="customBar2" class="customBars"></div>
-              <div id="customBar3" class="customBars"></div>
+            <input id="customCheckbox" type="checkbox" onClick={toggleOffCanvasMenu} />
+            <label className="customToggle" htmlFor="customCheckbox">
+              <div id="customBar1" className="customBars"></div>
+              <div id="customBar2" className="customBars"></div>
+              <div id="customBar3" className="customBars"></div>
             </label>
 
             {/* <FontAwesomeIcon
@@ -83,12 +80,11 @@ export const LoggedInHeader = (props) => {
                   className="notButton toggleButton "
                 // style={{ backgroundColor: "pink" }}
                 >
-                  <div className="userImage">
-                    <img src={ProfilePic} alt="" className="img-fluid me-2" />
+                  <div className="userImage" >
+                    <Image src={DecodedToken?.ProfilePic ? DecodedToken?.ProfilePic : ProfilePic} roundedCircle alt="" className="img-fluid me-2" />
                   </div>
                   <span className="me-2">
-                    {/* {profile.first_name + " " + profile.last_name} */}
-                    profile name
+                    {DecodedToken?.firstName + " " + DecodedToken?.LastName}
                   </span>
                   <div className="userImage">
                     <Image
@@ -98,7 +94,7 @@ export const LoggedInHeader = (props) => {
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="userMenu" align="end">
-                  <Link className="userMenuItem" style={{ color: "white" }} to={"/my-profile"}>
+                  <Link className="userMenuItem" style={{ color: "white" }} to={"/user/account"}>
                     <FontAwesomeIcon
                       className="me-2  yellow-text"
                       icon={faUser}

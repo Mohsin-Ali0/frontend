@@ -59,7 +59,7 @@ export default function UserDashboardSideBar() {
                                         to={item.path}
                                         key={index}
                                         className='Single-Menu-Line'
-                                        activeClassName="active"
+                                        activeclassname="active"
 
                                     >
                                         <div className="d-flex gap-2 align-items-center">

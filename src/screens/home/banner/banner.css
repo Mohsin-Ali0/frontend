@@ -7,7 +7,7 @@
   overflow-x: hidden;
   height: 772px;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 
@@ -111,19 +111,23 @@
     width: 75%;
   }
 }
+
 @media only screen and (min-width: 792px) and (max-width: 992px) {
   .home-mobile-images {
     width: 100%;
   }
 }
+
 @media only screen and (max-width: 793px) {
   .home-mobile-contianer {
     display: none !important;
   }
-  .bg_img{
+
+  .bg_img {
     align-items: center;
   }
-  .home-text-section{
-   width: 100%;  
+
+  .home-text-section {
+    width: 100%;
   }
 }

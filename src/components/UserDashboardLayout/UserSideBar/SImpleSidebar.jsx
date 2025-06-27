@@ -7,10 +7,11 @@ import UserCheck from '../../../assets/svg/Usercheck';
 import UserLockIcon from '../../../assets/svg/UserLock';
 import UserCardIcon from '../../../assets/svg/CardIcon';
 import UserHistoryIcon from '../../../assets/svg/UserHistory';
+import useAuth from '../../../hooks/useAuth';
 export default function SImpleSidebar() {
+  const { UserDetail } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-
   const menuItem = [
     {
       path: "/user/account/#AccountSettingText",
@@ -47,7 +48,7 @@ export default function SImpleSidebar() {
                 <div className="User-Sidebar-Top d-flex gap-2">
                   <UserIcon className="UserIcon" />
                   <div className="">
-                    <p className='User-Email'>Info@animationfeast.com</p>
+                    <p className='User-Email'>{UserDetail?.email}</p>
                     <div className="d-flex gap-1">
                       <UserCheck className="UserIcon" />
                       <span className='User-Verfication-Text'>Verified</span>
@@ -56,10 +57,10 @@ export default function SImpleSidebar() {
                 </div>
 
                 <input type="checkbox" id="checkbox" onClick={toggleDropdown} />
-                <label for="checkbox" class="toggle">
-                  <div class="bars" id="bar1"></div>
-                  <div class="bars" id="bar2"></div>
-                  <div class="bars" id="bar3"></div>
+                <label htmlFor="checkbox" className="toggle">
+                  <div className="bars" id="bar1"></div>
+                  <div className="bars" id="bar2"></div>
+                  <div className="bars" id="bar3"></div>
                 </label>
               </div>
               <hr className="divide-Menu-Section" />
@@ -70,7 +71,7 @@ export default function SImpleSidebar() {
                       to={item.path}
                       key={index}
                       className='Single-Menu-Line'
-                      activeClassName="active"
+                      activeclassname="active"
 
                     >
                       <div className="d-flex gap-2 align-items-center">
