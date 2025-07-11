@@ -14,7 +14,7 @@
 }
 
 .authImage {
-  background: url("../../../assets/images/AuthImg.png");
+  background: url("../../../assets/images/AuthImg.webp");
   /* max-width: 100%; */
   border-radius: 8px 0px 0px 8px;
   height: 100vh;
@@ -144,7 +144,7 @@
     display: none;
   }
   .authBg {
-    background: url("../../../assets/images/AuthImg.png");
+    background: url("../../../assets/images/AuthImg.webp");
     background-size: cover;
     background-position: center;
     height: 100vh;
