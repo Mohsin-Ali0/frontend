@@ -63,7 +63,7 @@ export const Banner = () => {
                 <span className="bullet">&#8226;</span> Google Partner
               </div>
               <h1 style={{ color: "#fff" }}>
-                Supercharge Your YouTube Channel's
+                Supercharge Your YouTube Channel
               </h1>
               <p style={{ fontSize: "18px", color: "#fff" }}>
                 Amplify reach, boost subscribers and skyrocket views with the
